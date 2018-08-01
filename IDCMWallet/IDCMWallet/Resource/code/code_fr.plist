@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>600</key>
+	<string>L&apos;utilisateur est gelé</string>
+	<key>601</key>
+	<string>Aucun mode de paiement défini</string>
+	<key>602</key>
+	<string>Marge insuffisante</string>
+	<key>603</key>
+	<string>Paramètre invalide</string>
+	<key>608</key>
+	<string>Non pris en charge temporairement</string>
+	<key>609</key>
+	<string>Valider la légalité mnémotechnique</string>
+	<key>610</key>
+	<string>Ne prend pas en charge l&apos;importation externe</string>
+	<key>611</key>
+	<string>ETH insuffisant</string>
+	<key>612</key>
+	<string>La monnaie n&apos;existe pas</string>
+	<key>613</key>
+	<string>Solde insuffisant</string>
+	<key>614</key>
+	<string>Veuillez réessayer plus tard</string>
+	<key>615</key>
+	<string>Veuillez ré-extraire</string>
+	<key>616</key>
+	<string>Veuillez réessayer plus tard</string>
+	<key>617</key>
+	<string>Solde insuffisant</string>
+	<key>618</key>
+	<string>Solde insuffisant</string>
+	<key>619</key>
+	<string>Veuillez d&apos;abord configurer la méthode de paiement</string>
+	<key>620</key>
+	<string>Veuillez d&apos;abord configurer la méthode de paiement</string>
+	<key>621</key>
+	<string>Il n&apos;y a pas de relation entre la devise légale et le mode de paiement</string>
+	<key>622</key>
+	<string>Ne peut pas être ajouté à plusieurs reprises</string>
+	<key>623</key>
+	<string>Les données n&apos;existent pas</string>
+	<key>624</key>
+	<string>Veuillez d&apos;abord configurer la méthode de paiement</string>
+	<key>625</key>
+	<string>La monnaie n&apos;existe pas</string>
+	<key>626</key>
+	<string>Veuillez d&apos;abord configurer la méthode de paiement</string>
+	<key>627</key>
+	<string>Veuillez lier le numéro de téléphone en premier</string>
+	<key>628</key>
+	<string>Erreur de code PIN</string>
+	<key>629</key>
+	<string>Aucun retrait de marge autorisé pendant l&apos;examen</string>
+	<key>630</key>
+	<string>La marge de recharge a échoué</string>
+	<key>631</key>
+	<string>Échec de la suppression de la marge</string>
+	<key>632</key>
+	<string>La marge de recharge a échoué</string>
+	<key>633</key>
+	<string>Échec de la définition de l&apos;étape en cours</string>
+	<key>634</key>
+	<string>Veuillez compléter tous les paramètres actuels</string>
+	<key>635</key>
+	<string>La recharge a échoué, veuillez réessayer plus tard</string>
+	<key>636</key>
+	<string>La monnaie n&apos;existe pas</string>
+	<key>637</key>
+	<string>Les règles d&apos;acceptation ne sont pas configurées</string>
+	<key>638</key>
+	<string>Moins que la quantité de recharge minimale</string>
+	<key>639</key>
+	<string>Veuillez réessayer plus tard</string>
+	<key>640</key>
+	<string>Veuillez actualiser et réessayer</string>
+	<key>641</key>
+	<string>Impossible de définir l&apos;ordre de chargement. Veuillez réessayer plus tard</string>
+	<key>642</key>
+	<string>Vous avez des commandes non terminées. Veuillez compléter la commande avant de pouvoir retirer votre dépôt.</string>
+	<key>643</key>
+	<string>Veuillez réessayer plus tard</string>
+	<key>644</key>
+	<string>Impossible de retirer la marge. Veuillez réessayer plus tard</string>
+	<key>645</key>
+	<string>Impossible de retirer la marge. Veuillez réessayer plus tard</string>
+	<key>646</key>
+	<string>S&apos;il vous plaît entrer la bonne adresse</string>
+	<key>650</key>
+	<string>Marge insuffisante, s&apos;il vous plaît ajuster la quantité envoyée</string>
+	<key>700</key>
+	<string>Opération illégale</string>
+	<key>701</key>
+	<string>S&apos;il vous plaît entrer la bonne quantité</string>
+	<key>702</key>
+	<string>Aucune information de transaction OTC pour configurer cette devise virtuelle</string>
+	<key>703</key>
+	<string>Aucune information liée à la transaction OTC système n&apos;est définie</string>
+	<key>704</key>
+	<string>Aucun mode de paiement défini</string>
+	<key>705</key>
+	<string>L&apos;ordre n&apos;existe pas</string>
+	<key>706</key>
+	<string>Aucun retrait n&apos;est autorisé</string>
+	<key>707</key>
+	<string>Commande annulée</string>
+	<key>708</key>
+	<string>Veuillez sélectionner l&apos;acceptation</string>
+	<key>709</key>
+	<string>L&apos;accepteur a été annulé</string>
+	<key>710</key>
+	<string>Commande complétée</string>
+	<key>711</key>
+	<string>Retardé</string>
+	<key>712</key>
+	<string>La commande ne peut être retardée que si elle est en cours</string>
+	<key>713</key>
+	<string>Les commandes sont en cours pour configurer les transferts</string>
+	<key>714</key>
+	<string>Les commandes ne peuvent être configurées que pour confirmer les reçus s&apos;ils ont été transférés</string>
+	<key>715</key>
+	<string>Les commandes ne peuvent être classées que si elles ont été transférées</string>
+	<key>716</key>
+	<string>Support d&apos;acceptation non ouvert</string>
+	<key>717</key>
+	<string>Le statut de la commande ne peut être que cité</string>
+	<key>718</key>
+	<string>A expiré</string>
+	<key>719</key>
+	<string>Accepteur statut anormal</string>
+	<key>720</key>
+	<string>Veuillez entrer le bon prix</string>
+	<key>721</key>
+	<string>La commande de devis n&apos;existe pas</string>
+	<key>722</key>
+	<string>Les citations ne peuvent être révoquées qu&apos;en attente de confirmation</string>
+	<key>723</key>
+	<string>Les commandes ne peuvent être configurées que pour les commandes de devis lorsqu&apos;elles sont traitées</string>
+	<key>724</key>
+	<string>Les citations ne peuvent être sélectionnées que si elles sont en attente de confirmation</string>
+	<key>725</key>
+	<string>Veuillez réessayer plus tard</string>
+	<key>726</key>
+	<string>Veuillez réessayer plus tard</string>
+	<key>727</key>
+	<string>Ne peut pas répéter le devis</string>
+	<key>728</key>
+	<string>Aucune information d&apos;initialisation de l&apos;utilisateur n&apos;est initialisée</string>
+	<key>729</key>
+	<string>Échec de l&apos;initialisation des informations de taux de change de la monnaie virtuelle</string>
+	<key>730</key>
+	<string>Pas d&apos;initialisation des informations sur les règles de l&apos;accepteur</string>
+	<key>731</key>
+	<string>Aucune adresse de portefeuille système initiale</string>
+	<key>732</key>
+	<string>Veuillez réessayer plus tard</string>
+	<key>733</key>
+	<string>Solde insuffisant</string>
+	<key>734</key>
+	<string>Veuillez réessayer plus tard</string>
+	<key>735</key>
+	<string>Veuillez réessayer plus tard</string>
+	<key>736</key>
+	<string>La monnaie virtuelle est requise</string>
+	<key>737</key>
+	<string>La devise de paiement est requise</string>
+	<key>738</key>
+	<string>La méthode de paiement est requise</string>
+	<key>739</key>
+	<string>L&apos;identifiant de la commande est requis</string>
+	<key>740</key>
+	<string>La commande de rapport est requise</string>
+	<key>741</key>
+	<string>Non connecté</string>
+	<key>742</key>
+	<string>Statut d&apos;utilisateur invalide</string>
+	<key>743</key>
+	<string>Pas de négociation</string>
+	<key>744</key>
+	<string>La monnaie virtuelle n&apos;existe pas</string>
+	<key>745</key>
+	<string>La monnaie légale n&apos;existe pas</string>
+	<key>746</key>
+	<string>Aucun fichier téléchargé</string>
+	<key>747</key>
+	<string>Ne télécharger que des images en format png, jpg, bmp</string>
+	<key>748</key>
+	<string>S&apos;il vous plaît télécharger une image dans les 5M</string>
+	<key>749</key>
+	<string>Aucun mode de paiement défini</string>
+	<key>750</key>
+	<string>Seul un appel peut définir le statut de la commande en tant qu&apos;appel</string>
+	<key>751</key>
+	<string>Confirmation de transfert, veuillez réessayer plus tard</string>
+	<key>960200</key>
+	<string>Marge insuffisante</string>
+	<key>961300</key>
+	<string>Solde insuffisant</string>
+	<key>961600</key>
+	<string>Veuillez réessayer plus tard</string>
+	<key>961700</key>
+	<string>Solde insuffisant</string>
+	<key>962900</key>
+	<string>Aucun retrait de marge autorisé pendant l&apos;examen</string>
+	<key>963200</key>
+	<string>La marge de recharge a échoué</string>
+	<key>963800</key>
+	<string>Moins que la quantité de recharge minimale</string>
+	<key>963900</key>
+	<string>Veuillez réessayer plus tard</string>
+	<key>964200</key>
+	<string>Vous avez des commandes non terminées. Veuillez compléter la commande avant de pouvoir retirer votre dépôt.</string>
+	<key>973300</key>
+	<string>Solde insuffisant</string>
+	<key>973400</key>
+	<string>Veuillez réessayer plus tard</string>
+	<key>973500</key>
+	<string>Veuillez réessayer plus tard</string>
+</dict>
+</plist>

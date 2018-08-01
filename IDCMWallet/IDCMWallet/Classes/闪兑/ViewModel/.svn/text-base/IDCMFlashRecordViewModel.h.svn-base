@@ -1,0 +1,20 @@
+//
+//  IDCMFlashRecordViewModel.h
+//  IDCMWallet
+//
+//  Created by huangyi on 2018/3/22.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import "IDCMBaseViewModel.h"
+#import "IDCMFlashRecordModel.h"
+
+
+@interface IDCMFlashRecordViewModel : IDCMBaseViewModel
+
+@property (nonatomic,assign) NSInteger  pageNum;
+@property (nonatomic,assign) NSInteger  pageSize;
+@property (nonatomic,strong) RACCommand *flashRecordDataCommand;
+@property (nonatomic,strong) NSMutableArray<IDCMFlashRecordModel *> *dataArray;
+
+@end

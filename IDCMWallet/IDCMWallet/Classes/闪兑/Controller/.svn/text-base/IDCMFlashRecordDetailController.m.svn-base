@@ -1,0 +1,105 @@
+
+//
+//  IDCMFlashRecordDetailController.m
+//  IDCMWallet
+//
+//  Created by huangyi on 2018/3/14.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+
+#import <IQKeyboardManager/IQKeyboardManager.h>
+#import "IDCMFlashRecordDetailController.h"
+#import "IDCMFlashRecordDetailFooterView.h"
+#import "IDCMFlashRecordDetailViewModel.h"
+#import "IDCMFlashRecordDetailCell.h"
+
+
+@interface IDCMFlashRecordDetailController ()<UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic,strong) IDCMFlashRecordDetailFooterView *footerView;
+@property (nonatomic,readonly) IDCMFlashRecordDetailViewModel *viewModel;
+@property (nonatomic,strong) IDCMTableView *tableView;
+@property (nonatomic,assign) BOOL keyboardShowing;
+@end
+
+
+@implementation IDCMFlashRecordDetailController
+@dynamic viewModel;
+#pragma mark — life cycle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self initConfigure];
+}
+
+#pragma mark — super methods
+- (void)bindViewModel {
+    [super bindViewModel];
+    
+    IDCMFlashRecordDetailViewModel *viewModel = self.viewModel;
+    @weakify(self, viewModel);
+    [[self.viewModel.flashRecordDetailCommand.executionSignals.switchToLatest
+      deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        
+        @strongify(self, viewModel);
+        [self.tableView reloadData];
+        self.footerView.model = viewModel.flashRecordDetailModel;
+    }];
+    [self.viewModel.flashRecordDetailCommand execute:nil];
+}
+
+#pragma mark — private methods
+#pragma mark — 初始化配置
+- (void)initConfigure {
+    [self configUI];
+}
+
+#pragma mark — 配置UI相关
+- (void)configUI {
+    self.navigationItem.title = @"兑换详情";
+    self.view.backgroundColor = viewBackgroundColor;
+    [self.view addSubview:self.tableView];
+}
+
+#pragma mark - UITableViewDataSource && UITableViewDelegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [IDCMFlashRecordDetailCell cellWithTableView:tableView
+                                              indexPath:indexPath
+                                          cellViewModel:self.viewModel.flashRecordDetailModel];
+}
+
+#pragma mark - getters and setters
+- (IDCMTableView *)tableView {
+    return SW_LAZY(_tableView, ({
+        
+        CGRect rect = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64);
+        IDCMTableView *tableView = [[IDCMTableView alloc] initWithFrame:rect style:UITableViewStylePlain];
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        tableView.rowHeight = 188.0f;
+        tableView.tableFooterView = self.footerView;
+        tableView.backgroundColor = viewBackgroundColor;
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, 24, 0);
+        tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+        [tableView registerCellWithCellClass:[IDCMFlashRecordDetailCell class]];
+        tableView;
+    }));
+}
+
+- (IDCMFlashRecordDetailFooterView *)footerView {
+    return SW_LAZY(_footerView, ({
+        
+        IDCMFlashRecordDetailFooterView *footerView = [[IDCMFlashRecordDetailFooterView alloc] init];
+        footerView.size = CGSizeMake(SCREEN_WIDTH, 42 * 3 + 60);
+        footerView;
+    }));
+}
+
+@end
+
+
+

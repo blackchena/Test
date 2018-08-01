@@ -1,0 +1,148 @@
+//
+//  IDCMFlashExchangeViewModel.m
+//  IDCMWallet
+//
+//  Created by wangpu on 2018/3/19.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import "IDCMFlashExchangeViewModel.h"
+#import "IDCMCoinModel.h"
+#import "IDCMCoinRateModel.h"
+@interface IDCMFlashExchangeViewModel (){
+    
+    
+    
+}
+@property (nonatomic,strong) NSMutableArray *coinListData;
+
+@end
+
+
+@implementation IDCMFlashExchangeViewModel
+
+- (instancetype)initWithParams:(NSDictionary *)params
+{
+    if (self = [super initWithParams:params]) {
+        
+        
+        
+    }
+    return self;
+}
+
+
+
+- (void)initialize
+{
+    [super initialize];
+    @weakify(self);
+    _commandGetCoinList  = [RACCommand commandGetNoHUDAuth:ExchangeGetCoinList_URL serverName:ExchangeServerName params:nil handleCommand:^(id input,NSDictionary * response, id<RACSubscriber> subscriber) {
+        @strongify(self);
+        NSString *status= [NSString stringWithFormat:@"%@",response[@"status"]];
+        
+        if ([status isEqualToString:@"100"]) {
+            [subscriber sendError:nil];
+        }else{
+            
+            if ([status isEqualToString:@"1"] && [response[@"data"] isKindOfClass:[NSArray class]]) {
+                
+                self.coinListData = [response[@"data"]  yy_modelListWithModelClass:[IDCMCoinModel class]];
+                
+            }
+            [subscriber sendNext:self.coinListData];
+        }
+        
+        [subscriber sendCompleted];
+        
+    }];
+    
+    //请求GetCoinRate
+    
+
+
+    
+    _commandGetCoinRate  = [RACCommand commandGetNoHUDAuth:ExchangeGetCoinRate_URL serverName:ExchangeServerName params:^id(id input) {
+        
+        return input;
+        
+    } handleCommand:^(id input,NSDictionary * response, id<RACSubscriber> subscriber) {
+        @strongify(self);
+//        NSString *status= [NSString stringWithFormat:@"%@",response[@"status"]];
+//
+//        if ([status isEqualToString:@"100"]) {
+//            [subscriber sendError:nil];
+//        }else{
+//
+//            if ([status isEqualToString:@"1"] && [response[@"data"] isKindOfClass:[NSDictionary class]]) {\
+//
+//
+//
+//                self.coinRate = [IDCMCoinRateModel yy_modelWithDictionary:response[@"data"]] ;
+//            }
+//            [subscriber sendNext:nil];
+//        }
+        
+        
+        self.coinRate =[IDCMCoinRateModel yy_modelWithDictionary:@{
+                                                                   @"fromCoinId":@"2",
+                                                                   @"fromCoin":@"btc",
+                                                                   @"toCoinId":@"ETC",
+                                                                   @"toCoin":@"ETC",
+                                                                   @"exchangeRate":@"1.98",
+                                                                   @"exchangeMin":@2,
+                                                                   @"exchangeMax":@50,
+                                                                   }]  ;
+        [subscriber sendNext:nil];
+        [subscriber sendCompleted];
+    }];
+    
+    
+    _commandExchangeIn = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+        @strongify(self);
+        return [self exhangeIn:input];
+    }];
+    
+    
+}
+
+//兑换
+
+- (RACSignal *)exhangeIn:(id) input
+{
+    return [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        
+        IDCMURLSessionTask *task = [IDCMRequestList requestGetNoHUDAuth:ExchangeExchangeIn_URL params:input success:^(NSDictionary *response) {
+            
+            NSString *status= [NSString stringWithFormat:@"%@",response[@"status"]];
+            
+            if ([status isEqualToString:@"100"]) {
+                [subscriber sendError:nil];
+            }else{
+                [subscriber sendNext:response];
+            }
+            
+            [subscriber sendCompleted];
+            
+        } fail:^(NSError *error, NSURLSessionDataTask *task) {
+            
+            [subscriber sendError:error];
+        }];
+        
+        return [RACDisposable disposableWithBlock:^{
+            [task cancel];
+        }];
+        
+    }] retry:1];
+
+    ;
+    
+}
+
+//懒加载
+
+- (NSMutableArray *)coinListData
+{
+    return SW_LAZY(_coinListData, @[].mutableCopy);
+}
+@end

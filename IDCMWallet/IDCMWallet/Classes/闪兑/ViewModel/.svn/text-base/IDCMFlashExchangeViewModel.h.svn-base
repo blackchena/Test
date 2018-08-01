@@ -1,0 +1,22 @@
+//
+//  IDCMFlashExchangeViewModel.h
+//  IDCMWallet
+//
+//  Created by wangpu on 2018/3/19.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+#import "IDCMBaseViewModel.h"
+
+@class IDCMCoinRateModel;
+
+@interface IDCMFlashExchangeViewModel : IDCMBaseViewModel
+
+@property (nonatomic,strong) RACCommand * commandGetCoinList;
+@property (nonatomic,strong) RACCommand * commandGetCoinRate;
+@property (nonatomic,strong) RACCommand * commandExchangeIn;
+
+@property (nonatomic,strong) IDCMCoinRateModel * coinRate;
+@end

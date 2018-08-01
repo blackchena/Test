@@ -1,0 +1,192 @@
+//
+//  IDCMMarketViewController.m
+//  IDCMWallet
+//
+//  Created by huangyi on 2018/1/12.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import "IDCMCheckPINView.h"
+#import "IDCMMarketViewModel.h"
+#import "IDCMMarketHeaderView.h"
+#import "IDCMPINLoginViewModel.h"
+#import "IDCMPINViewController.h"
+#import "IDCMMarketViewController.h"
+#import "IDCMBioMetricAuthenticator.h"
+#import "IDCMOTCRecordPageController.h"
+#import "IDCMFlashRecordPageController.h"
+#import "IDCMConfigBaseNavigationController.h"
+
+
+@interface IDCMMarketViewController ()
+@property (nonatomic,strong) IDCMMarketHeaderView *headerView;
+@property (nonatomic,strong, readonly) IDCMMarketViewModel *viewModel;
+@end
+
+
+@implementation IDCMMarketViewController
+@dynamic viewModel;
+#pragma mark — life cycle
+- (void)viewDidLoad {
+    [self  configPageController];
+    [super viewDidLoad];
+    [self  initConfigure];
+}
+
+
+#pragma mark — supper methods
+#pragma mark - statusBar
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+#pragma mark — private methods
+#pragma mark — 初始化配置
+- (void)initConfigure {
+    [self configUI];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.viewModel.exchangeDataCommand execute:@10];
+}
+
+
+#pragma mark — 配置UI相关
+- (void)configUI {
+    self.view.backgroundColor = viewBackgroundColor;
+    self.navigationItem.title = NSLocalizedString(@"3.0_Transaction", nil);
+    [self.view addSubview:self.headerView];
+}
+
+- (void)bindViewModel {
+    [super bindViewModel];
+    
+    [[self.viewModel.exchangeDataCommand.executionSignals.switchToLatest deliverOnMainThread]
+     subscribeNext:^(id  _Nullable x) {
+         
+         NSLog(@"%@", x);
+     }];
+    
+<<<<<<< .mine
+=======
+    
+//    [self.viewModel.exchangeDataCommand execute:@10];
+>>>>>>> .r460
+}
+
+#pragma mark — 设置pageVC属性
+- (void)configPageController {
+    
+    self.selectIndex = 0;
+    self.titleSizeNormal = 14;
+    self.titleSizeSelected = 14;
+    self.titleColorNormal = textColor333333;
+    self.titleFontName = @"PingFangSC-Regular";
+    self.titleColorSelected = [UIColor colorWithHexString:@"#2E406B"];
+
+    CGFloat leftProgressWidth = [NSLocalizedString(@"3.0_FlashExchangeRecord", nil)
+                                 widthForFont:textFontPingFangRegularFont(14)];
+    leftProgressWidth = leftProgressWidth > (SCREEN_WIDTH / 2) ? (SCREEN_WIDTH / 2) : leftProgressWidth;
+    
+    CGFloat rightProgressWidth = [NSLocalizedString(@"3.0_OTCExchangeRecord", nil)
+                                  widthForFont:textFontPingFangRegularFont(14)];
+    rightProgressWidth = rightProgressWidth > (SCREEN_WIDTH / 2) ? (SCREEN_WIDTH / 2) : rightProgressWidth;
+    
+    CGFloat itemWidth = MAX(130, MAX(leftProgressWidth, rightProgressWidth));
+    
+    self.progressViewWidths =
+    @[
+      @(leftProgressWidth ) ,
+      @(rightProgressWidth)
+    ];
+    self.progressViewBottomSpace = 4;
+    self.progressViewIsNaughty = YES;
+    self.menuViewStyle = WMMenuViewStyleLine;
+    self.itemsWidths = @[@(itemWidth), @(itemWidth)];
+    self.menuViewLayoutMode = WMMenuViewLayoutModeScatter;
+    self.progressColor = [UIColor colorWithHexString:@"#2E406B"];
+}
+
+#pragma mark - WMPageControllerDataSource
+- (NSInteger)numbersOfChildControllersInPageController:(WMPageController *)pageController {
+    return 2;
+}
+
+- (NSString *)pageController:(WMPageController *)pageController titleAtIndex:(NSInteger)index {
+    return index ?
+    NSLocalizedString(@"3.0_OTCExchangeRecord", nil)  :
+    NSLocalizedString(@"3.0_FlashExchangeRecord", nil);
+}
+
+- (UIViewController *)pageController:(WMPageController *)pageController viewControllerAtIndex:(NSInteger)index {
+    return index ?
+    [[IDCMOTCRecordPageController alloc] initWithViewModel:nil]  :
+    [[IDCMFlashRecordPageController alloc] initWithViewModel:nil];
+}
+
+- (CGRect)pageController:(WMPageController *)pageController preferredFrameForMenuView:(WMMenuView *)menuView {
+    menuView.backgroundColor = [UIColor whiteColor];
+    return CGRectMake(0, self.headerView.bottom + 10, self.view.width , 40);
+}
+
+- (CGRect)pageController:(WMPageController *)pageController preferredFrameForContentView:(WMScrollView *)contentView {
+    CGFloat y = self.headerView.bottom + 40 + 20;
+    return CGRectMake(0, y, self.view.width, self.view.height - y);
+}
+
+#pragma mark  -- setter and getter
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-variable"
+- (IDCMMarketHeaderView *)headerView {
+    return SW_LAZY(_headerView, ({
+        
+        IDCMMarketHeaderView *headerView = [[IDCMMarketHeaderView alloc] init];
+        headerView.frame = CGRectMake(0, 0, self.view.width, 98);
+        
+        typedef BOOL(^filter)(id);
+        filter(^filterWithType)(NSNumber *type) = ^filter(NSNumber *type){
+            return ^BOOL(NSNumber *value){
+                return ([value integerValue] == 0 && [type integerValue] == 0) ?
+                       (!([IDCMCheckPINView hasShow])) :
+                       ([value integerValue] == [type integerValue]);
+            };
+        };
+        
+        @weakify(self);
+        completionAction clickFlashBtnAction = ^(){
+            @strongify(self);
+            [[IDCMMediatorAction sharedInstance]
+             pushViewControllerWithClassName:@"IDCMFlashExchangeViewController" withViewModelName:@"IDCMFlashExchangeViewModel" withParams:nil];
+        };
+        
+        flashExchangeSuber OTCBtnSignalSuber = ^(id x){
+            @strongify(self);
+            [[IDCMMediatorAction sharedInstance]
+             pushViewControllerWithClassName:@"IDCMOTCViewController" withViewModelName:nil withParams:nil];
+        };
+        
+        
+        // 币币闪兑UI信号转化成业务信号
+        RACSignal *flashSignal = [[headerView.actionSignal filter:filterWithType(@(HeaderViewSignalType_clickFlashBtn))]
+                                                       flattenMap:[IDCMMarketViewModel flashExchangeCheckSignalFlattenMap]];
+        
+        [flashSignal subscribeNext:[IDCMMarketViewModel flashExchangeCheckSignalSuberWithCompletionAction:clickFlashBtnAction]];
+        
+        
+        // 法币OTC信号
+        [[headerView.actionSignal filter:filterWithType(@(HeaderViewSignalType_clickOTCBtn))]
+                           subscribeNext:OTCBtnSignalSuber];
+         
+        headerView;
+    }));
+}
+
+#pragma clang diagnostic pop
+
+@end
+
+
+
+

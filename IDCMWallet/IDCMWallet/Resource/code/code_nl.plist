@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>600</key>
+	<string>Gebruiker is bevroren</string>
+	<key>601</key>
+	<string>Geen betaalmethode ingesteld</string>
+	<key>602</key>
+	<string>Onvoldoende marge</string>
+	<key>603</key>
+	<string>Ongeldige parameter</string>
+	<key>608</key>
+	<string>Wordt niet tijdelijk ondersteund</string>
+	<key>609</key>
+	<string>Validatie van de legaliteit van het geheugen</string>
+	<key>610</key>
+	<string>Ondersteunt externe import niet</string>
+	<key>611</key>
+	<string>Onvoldoende ETH</string>
+	<key>612</key>
+	<string>De valuta bestaat niet</string>
+	<key>613</key>
+	<string>Onvoldoende saldo</string>
+	<key>614</key>
+	<string>Probeer het later opnieuw</string>
+	<key>615</key>
+	<string>Probeer het opnieuw uit te pakken</string>
+	<key>616</key>
+	<string>Probeer het later opnieuw</string>
+	<key>617</key>
+	<string>Onvoldoende saldo</string>
+	<key>618</key>
+	<string>Onvoldoende saldo</string>
+	<key>619</key>
+	<string>Stel eerst de betaalmethode in</string>
+	<key>620</key>
+	<string>Stel eerst de betaalmethode in</string>
+	<key>621</key>
+	<string>Er is geen relatie tussen de wettelijke valuta en de betaalmethode</string>
+	<key>622</key>
+	<string>Kan niet herhaaldelijk worden toegevoegd</string>
+	<key>623</key>
+	<string>Gegevens bestaan ​​niet</string>
+	<key>624</key>
+	<string>Stel eerst de betaalmethode in</string>
+	<key>625</key>
+	<string>Valuta bestaat niet</string>
+	<key>626</key>
+	<string>Stel eerst de betaalmethode in</string>
+	<key>627</key>
+	<string>Voer eerst het telefoonnummer in</string>
+	<key>628</key>
+	<string>PIN-fout</string>
+	<key>629</key>
+	<string>Geen marge-opname toegestaan ​​tijdens beoordeling</string>
+	<key>630</key>
+	<string>Laadmarge mislukt</string>
+	<key>631</key>
+	<string>Kan de marge niet intrekken</string>
+	<key>632</key>
+	<string>Laadmarge mislukt</string>
+	<key>633</key>
+	<string>Kan de huidige stap niet instellen</string>
+	<key>634</key>
+	<string>Voltooi alle huidige instellingen</string>
+	<key>635</key>
+	<string>Opladen mislukt, probeer het later nog eens</string>
+	<key>636</key>
+	<string>De valuta bestaat niet</string>
+	<key>637</key>
+	<string>Acceptorregels zijn niet geconfigureerd</string>
+	<key>638</key>
+	<string>Minder dan de minimale oplaadhoeveelheid</string>
+	<key>639</key>
+	<string>Probeer het later opnieuw</string>
+	<key>640</key>
+	<string>Vernieuw en probeer het opnieuw</string>
+	<key>641</key>
+	<string>De laadopdracht is mislukt. Probeer het later opnieuw</string>
+	<key>642</key>
+	<string>Je hebt nog niet afgemaakte bestellingen. Vul de bestelling in voordat je je aanbetaling kunt opnemen.</string>
+	<key>643</key>
+	<string>Probeer het later opnieuw</string>
+	<key>644</key>
+	<string>Kan de marge niet opnemen. Probeer het later opnieuw</string>
+	<key>645</key>
+	<string>Kan de marge niet opnemen. Probeer het later opnieuw</string>
+	<key>646</key>
+	<string>Voer het juiste adres in</string>
+	<key>650</key>
+	<string>Onvoldoende marge, pas de verzonden hoeveelheid aan</string>
+	<key>700</key>
+	<string>Ongeldige bewerking</string>
+	<key>701</key>
+	<string>Voer de juiste hoeveelheid in</string>
+	<key>702</key>
+	<string>Geen OTC-transactie-informatie voor het instellen van deze virtuele valuta</string>
+	<key>703</key>
+	<string>Geen systeem OTC transactie-gerelateerde informatie ingesteld</string>
+	<key>704</key>
+	<string>Geen betaalmethode ingesteld</string>
+	<key>705</key>
+	<string>Bestelling bestaat niet</string>
+	<key>706</key>
+	<string>Geen opname is toegestaan</string>
+	<key>707</key>
+	<string>Bestelling geannuleerd</string>
+	<key>708</key>
+	<string>Selecteer alstublieft de acceptatie</string>
+	<key>709</key>
+	<string>Acceptant is geannuleerd</string>
+	<key>710</key>
+	<string>Bestelling voltooid</string>
+	<key>711</key>
+	<string>Het is vertraagd</string>
+	<key>712</key>
+	<string>Bestelling kan alleen worden vertraagd als deze bezig is</string>
+	<key>713</key>
+	<string>Bestellingen worden alleen uitgevoerd om overdrachten in te stellen</string>
+	<key>714</key>
+	<string>Bestellingen kunnen alleen worden ingesteld om ontvangstbevestigingen te bevestigen als ze zijn overgedragen</string>
+	<key>715</key>
+	<string>Bestellingen kunnen alleen worden ingediend als ze zijn overgedragen</string>
+	<key>716</key>
+	<string>Ongeopende acceptatie vervoerder</string>
+	<key>717</key>
+	<string>Bestellingsstatus kan alleen worden geciteerd om te citeren</string>
+	<key>718</key>
+	<string>Is verlopen</string>
+	<key>719</key>
+	<string>Acceptatiestatus abnormaal</string>
+	<key>720</key>
+	<string>Voer de juiste prijs in</string>
+	<key>721</key>
+	<string>Bestellingsorder bestaat niet</string>
+	<key>722</key>
+	<string>Offertes kunnen alleen worden ingetrokken in afwachting van bevestiging</string>
+	<key>723</key>
+	<string>Bestellingen kunnen alleen worden ingesteld voor offerteaanvragen wanneer ze worden verwerkt</string>
+	<key>724</key>
+	<string>Offertes kunnen alleen worden geselecteerd als ze in afwachting zijn van bevestiging</string>
+	<key>725</key>
+	<string>Probeer het later opnieuw</string>
+	<key>726</key>
+	<string>Probeer het later opnieuw</string>
+	<key>727</key>
+	<string>Citaat kan niet worden herhaald</string>
+	<key>728</key>
+	<string>Er is geen initialisatie-informatie voor de gebruiker geïnitialiseerd</string>
+	<key>729</key>
+	<string>Het mislukken van het initialiseren van virtuele wisselkoersinformatie</string>
+	<key>730</key>
+	<string>Geen initialisatie van de informatie over de acceptorregels</string>
+	<key>731</key>
+	<string>Geen beginletter systeemadres</string>
+	<key>732</key>
+	<string>Probeer het later opnieuw</string>
+	<key>733</key>
+	<string>Onvoldoende saldo</string>
+	<key>734</key>
+	<string>Probeer het later opnieuw</string>
+	<key>735</key>
+	<string>Probeer het later opnieuw</string>
+	<key>736</key>
+	<string>Virtuele valuta is vereist</string>
+	<key>737</key>
+	<string>Betalingsvaluta is vereist</string>
+	<key>738</key>
+	<string>Betalingsmethode is vereist</string>
+	<key>739</key>
+	<string>Bestel-ID is verplicht</string>
+	<key>740</key>
+	<string>Rapportvolgorde is vereist</string>
+	<key>741</key>
+	<string>Niet ingelogd</string>
+	<key>742</key>
+	<string>Ongeldige gebruikersstatus</string>
+	<key>743</key>
+	<string>Geen ruilen</string>
+	<key>744</key>
+	<string>De virtuele valuta bestaat niet</string>
+	<key>745</key>
+	<string>Juridische valuta bestaat niet</string>
+	<key>746</key>
+	<string>Geen bestand geüpload</string>
+	<key>747</key>
+	<string>Upload alleen afbeeldingen in png, jpg, bmp formaat</string>
+	<key>748</key>
+	<string>Upload een foto binnen 5M</string>
+	<key>749</key>
+	<string>Geen betaalmethode ingesteld</string>
+	<key>750</key>
+	<string>Voer alleen een klacht in om de status van de bestelling in te stellen als een bezwaarschrift</string>
+	<key>751</key>
+	<string>Bevestig de overdracht, probeer het later opnieuw</string>
+	<key>960200</key>
+	<string>Onvoldoende marge</string>
+	<key>961300</key>
+	<string>Onvoldoende saldo</string>
+	<key>961600</key>
+	<string>Probeer het later opnieuw</string>
+	<key>961700</key>
+	<string>Onvoldoende saldo</string>
+	<key>962900</key>
+	<string>Geen marge-opname toegestaan ​​tijdens beoordeling</string>
+	<key>963200</key>
+	<string>Laadmarge mislukt</string>
+	<key>963800</key>
+	<string>Minder dan de minimale oplaadhoeveelheid</string>
+	<key>963900</key>
+	<string>Probeer het later opnieuw</string>
+	<key>964200</key>
+	<string>Je hebt nog niet afgemaakte bestellingen. Vul de bestelling in voordat je je aanbetaling kunt opnemen.</string>
+	<key>973300</key>
+	<string>Onvoldoende saldo</string>
+	<key>973400</key>
+	<string>Probeer het later opnieuw</string>
+	<key>973500</key>
+	<string>Probeer het later opnieuw</string>
+</dict>
+</plist>

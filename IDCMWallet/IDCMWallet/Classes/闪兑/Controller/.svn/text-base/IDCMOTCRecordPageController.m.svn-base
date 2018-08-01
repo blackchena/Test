@@ -1,0 +1,77 @@
+//
+//  IDCMOTCRecordPageController.m
+//  IDCMWallet
+//
+//  Created by huangyi on 2018/3/14.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import "IDCMOTCRecordPageController.h"
+#import "IDCMFlashRecordCell.h"
+
+
+@interface IDCMOTCRecordPageController () <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic,strong) IDCMTableView *tableView;
+@end
+
+
+@implementation IDCMOTCRecordPageController
+#pragma mark — life cycle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self initConfigure];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    self.tableView.frame = self.view.bounds;
+}
+
+#pragma mark — private methods
+#pragma mark — 初始化配置
+- (void)initConfigure {
+    [self configUI];
+    [self configViewModel];
+}
+
+#pragma mark — 配置UI相关
+- (void)configUI {
+    [self.view addSubview:self.tableView];
+}
+
+#pragma mark — 配置ViewModel相关
+- (void)configViewModel {
+    
+}
+
+#pragma mark - UITableViewDataSource && UITableViewDelegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return nil;
+}
+
+#pragma mark - getters and setters
+- (IDCMTableView *)tableView {
+    return SW_LAZY(_tableView, ({
+        
+        CGRect rect = self.view.bounds;
+        IDCMTableView *tableView = [[IDCMTableView alloc] initWithFrame:rect
+                                                                  style:UITableViewStylePlain];
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        tableView.sectionHeaderHeight = 114.0f;
+        tableView.backgroundColor = UIColorWhite;
+        tableView.tableFooterView =[[UIView alloc]initWithFrame:CGRectZero];
+        tableView;
+    }));
+}
+
+@end
+
+
+

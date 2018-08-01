@@ -1,0 +1,202 @@
+//
+//  IDCMFlashRecordCell.m
+//  IDCMWallet
+//
+//  Created by huangyi on 2018/3/14.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import "IDCMFlashRecordCell.h"
+#import "IDCMFlashRecordModel.h"
+
+
+@interface IDCMFlashRecordCell ()
+@property (nonatomic,strong) UIView  *line;
+@property (nonatomic,strong) UILabel *timeLabel;
+@property (nonatomic,strong) UILabel *cashOutTitleLabel;
+@property (nonatomic,strong) UILabel *cashOutLabel;
+@property (nonatomic,strong) UILabel *cashEnterTitleLabel;
+@property (nonatomic,strong) UILabel *cashEnterLabel;
+@property (nonatomic,strong) UILabel *cashStateTitleLabel;
+@property (nonatomic,strong) UILabel *cashStateLabel;
+@property (nonatomic,strong) UIView  *bottomLine;
+
+@property (nonatomic,strong) NSIndexPath *indexPath;
+@property (nonatomic,strong) IDCMFlashRecordModel *cellViewModel;
+@end
+
+
+@implementation IDCMFlashRecordCell
+- (instancetype)initWithStyle:(UITableViewCellStyle)style
+              reuseIdentifier:(NSString *)reuseIdentifier {
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        [self initConfigure];
+    }
+    return self;
+}
+
++ (instancetype)cellWithTableView:(UITableView *)tableview
+                        indexPath:(NSIndexPath *)indexPath
+                    cellViewModel:(IDCMFlashRecordModel *)cellViewModel {
+    
+    IDCMFlashRecordCell *cell = [tableview dequeueReusableCellWithIdentifier:NSStringFromClass(self)
+                                                          forIndexPath:indexPath];
+    cell.cellViewModel = cellViewModel;
+    cell.indexPath = indexPath;
+    return cell;
+}
+
+- (void)reloadCellData {
+    self.timeLabel.text = self.cellViewModel.customerTime;
+    self.cashOutLabel.text = self.cellViewModel.customerCashOut;
+    self.cashEnterLabel.text = self.cellViewModel.customerCashEnter;
+    self.cashStateLabel.text = self.cellViewModel.customerState;
+}
+
+- (void)initConfigure {
+    
+    [self.contentView addSubview:self.line];
+    [self.contentView addSubview:self.timeLabel];
+    [self.contentView addSubview:self.cashEnterTitleLabel];
+    [self.contentView addSubview:self.cashEnterLabel];
+    [self.contentView addSubview:self.cashOutTitleLabel];
+    [self.contentView addSubview:self.cashOutLabel];
+    [self.contentView addSubview:self.cashStateTitleLabel];
+    [self.contentView addSubview:self.cashStateLabel];
+    [self.contentView addSubview:self.bottomLine];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.bottomLine.bottom = self.height;
+}
+
+#pragma mark — getters and setters
+- (UIView *)line {
+    return SW_LAZY(_line, ({
+        
+        UIView *line = [[UIView alloc] init];
+        line.frame = CGRectMake(12, 12, 2, 13);
+        line.backgroundColor = kThemeColor;
+        line;
+    }));
+}
+
+- (UILabel *)timeLabel {
+    return SW_LAZY(_timeLabel, ({
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.textColor = textColor333333;
+        label.font = textFontPingFangRegularFont(12);
+        label.width = SCREEN_WIDTH - (self.line.right + 4) - 12;
+        label.height = self.line.height;
+        label.left = self.line.right + 4;
+        label.centerY = self.line.centerY;
+        label;
+    }));
+}
+
+- (UILabel *)cashOutTitleLabel {
+    return SW_LAZY(_cashOutTitleLabel, ({
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.textColor = textColor999999;
+        label.font = textFontPingFangRegularFont(12);
+        label.text = NSLocalizedString(@"3.0_ExchangeOut", nil);
+        [label sizeToFit];
+        label.left = self.line.left;
+        label.top = self.line.bottom + 12;
+        label;
+    }));
+}
+
+- (UILabel *)cashOutLabel {
+    return SW_LAZY(_cashOutLabel, ({
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.textColor = textColor333333;
+        label.font = textFontPingFangRegularFont(12);
+        label.textAlignment = NSTextAlignmentRight;
+        label.width = SCREEN_WIDTH - self.cashOutTitleLabel.right - 10 - 12;
+        label.height = self.cashOutTitleLabel.height;
+        label.left = self.cashOutTitleLabel.right + 10;
+        label.centerY = self.cashOutTitleLabel.centerY;
+        label;
+    }));
+}
+
+- (UILabel *)cashEnterTitleLabel {
+    return SW_LAZY(_cashEnterTitleLabel, ({
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.textColor = textColor999999;
+        label.font = textFontPingFangRegularFont(12);
+        label.text = NSLocalizedString(@"3.0_ExchangeEnter", nil);;
+        [label sizeToFit];
+        label.top = self.cashOutTitleLabel.bottom + 8;
+        label.left = self.cashOutTitleLabel.left;
+        label;
+    }));
+}
+
+- (UILabel *)cashEnterLabel {
+    return SW_LAZY(_cashEnterLabel, ({
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.textColor = textColor333333;
+        label.font = textFontPingFangRegularFont(12);
+        label.textAlignment = NSTextAlignmentRight;
+        label.width = self.cashOutLabel.width;
+        label.height = self.cashEnterTitleLabel.height;
+        label.centerY = self.cashEnterTitleLabel.centerY;
+        label.left = self.cashOutLabel.left;
+        label;
+    }));
+}
+
+- (UILabel *)cashStateTitleLabel {
+    return SW_LAZY(_cashStateTitleLabel, ({
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.textColor = textColor999999;
+        label.font = textFontPingFangRegularFont(12);
+        label.text = NSLocalizedString(@"3.0_ExchangeEnterState", nil);;
+        [label sizeToFit];
+        label.left = self.line.left;
+        label.top = self.cashEnterTitleLabel.bottom + 8;
+        label;
+    }));
+}
+
+- (UILabel *)cashStateLabel {
+    return SW_LAZY(_cashStateLabel, ({
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.textColor = textColor333333;
+        label.font = textFontPingFangRegularFont(12);
+        label.textAlignment = NSTextAlignmentRight;
+        label.height = self.cashStateTitleLabel.height;
+        label.width = SCREEN_WIDTH - self.cashStateTitleLabel.right - 10 - 12;
+        label.centerY = self.cashStateTitleLabel.centerY;
+        label.left = self.cashStateTitleLabel.right + 10;
+        label;
+    }));
+}
+
+- (UIView *)bottomLine {
+    return SW_LAZY(_bottomLine, ({
+        
+        UIView *line = [[UIView alloc] init];
+        line.backgroundColor = viewBackgroundColor;
+        line.height = 1;
+        line.left = self.line.left;
+        line.width = SCREEN_WIDTH - line.left;
+        line;
+    }));
+}
+
+@end
+
+
+

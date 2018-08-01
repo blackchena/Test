@@ -1,0 +1,32 @@
+//
+//  IDCMMarketHeaderView.h
+//  IDCMWallet
+//
+//  Created by huangyi on 2018/3/14.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+typedef NS_ENUM(NSUInteger, HeaderViewSignalType) {
+    HeaderViewSignalType_clickFlashBtn,
+    HeaderViewSignalType_clickOTCBtn
+};
+
+@interface IDCMMarketHeaderView : UIView
+
+
+/**
+ 所有事件信号
+ */
+@property (nonatomic,strong) RACSignal *actionSignal;
+
+
+
+@end
+
+
+
+
+
+

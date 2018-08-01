@@ -1,0 +1,47 @@
+//
+//  IDCMFlashRecordDetailViewModel.m
+//  IDCMWallet
+//
+//  Created by huangyi on 2018/3/22.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import "IDCMFlashRecordDetailViewModel.h"
+
+
+@implementation IDCMFlashRecordDetailViewModel
+
+- (RACCommand *)flashRecordDetailCommand {
+    return SW_LAZY(_flashRecordDetailCommand, ({
+        
+    @weakify(self);
+    self.flashRecordDetailCommand =
+    [RACCommand commandGetNoHUDAuth:ExchangeGetExchangeDetail_URL
+                         serverName:ExchangeServerName
+                             params:^id(id input) { return @{ @"id" : (self.ID.length ? self.ID : @"3")};}
+                      handleCommand:^(id input, id response, id<RACSubscriber> subscriber) {
+                            @strongify(self);
+
+                            NSLog(@"=========%@", response);
+                          
+                            ([response[@"status"] integerValue] == 100) ?
+                            ([subscriber sendError:nil]) :
+                            ({
+                                 if ([response[@"status"] integerValue] == 1) {
+                                     self.flashRecordDetailModel =
+                                     (id)[[IDCMFlashRecordDetailModel yy_modelWithDictionary:response[@"data"]] handleModel];
+                                      [subscriber sendNext:nil];
+                                 }
+                                 [subscriber sendCompleted];
+                            });
+                      }];
+    }));
+}
+
+
+@end
+
+
+
+
+

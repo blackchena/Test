@@ -1,0 +1,42 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, "8.0"
+inhibit_all_warnings!
+
+
+target 'IDCMWallet' do
+
+pod 'AFNetworking', '3.2.1'
+pod 'MJRefresh', '3.1.15.3'
+pod 'MJExtension', '3.0.15.1'
+pod 'Masonry', '1.1.0'
+pod 'CommonElement', :git => 'https://github.com/BinBear/CommonElement.git'
+pod 'IQKeyboardManager', '6.1.1'
+pod 'SDWebImage', ‘4.4.1’
+pod 'WMPageController', '2.5.2'
+pod 'YYModel', '1.0.4'
+pod 'LBXScan/LBXNative','2.3'
+pod 'LBXPermission'
+pod 'DZNEmptyDataSet'
+pod 'ReactiveObjC'
+pod 'QMUIKit'
+pod 'KafkaRefresh', '1.1.0'
+pod 'Bugly'
+pod 'SignalR-ObjC' , :git => 'https://github.com/BinBear/SignalR-ObjC.git'
+pod 'MLeaksFinder'
+pod 'CocoaLumberjack'
+pod 'UIView+FDCollapsibleConstraints'
+pod 'YJBannerView'
+pod 'UINavigation-SXFixSpace'
+pod 'CYLTabBarController'
+pod 'WebViewJavascriptBridge'
+pod 'UMCCommon'
+pod 'UMCShare/UI'
+pod 'UMCShare/Social/WeChat'
+pod 'UMCShare/Social/QQ'
+pod 'UMCShare/Social/Sina'
+pod 'UMCShare/Social/Facebook'
+pod 'UMCShare/Social/Twitter'
+pod 'YYText'
+
+
+end

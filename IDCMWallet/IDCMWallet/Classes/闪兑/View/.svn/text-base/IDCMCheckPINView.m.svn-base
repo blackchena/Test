@@ -1,0 +1,261 @@
+//
+//  IDCMCheckPINView.m
+//  IDCMWallet
+//
+//  Created by huangyi on 2018/3/15.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+
+#import "IDCMCheckPINView.h"
+#import "IQUIWindow+Hierarchy.h"
+#import "IDCMPINLoginViewModel.h"
+#import "IDCMInputPINNumberView.h"
+
+
+@interface IDCMCheckPINView ()
+@property (nonatomic,strong) UIButton *closeBtn;
+@property (nonatomic,strong) UILabel *titleLabel;
+@property (nonatomic,strong) UITextField *textField;
+@property (nonatomic,strong) UIImageView *logoImageView;
+@property (nonatomic,copy)   void(^closeCallback)(void);
+@property (nonatomic,copy)   void(^suceessCallback)(void);
+@property (nonatomic,strong) UIVisualEffectView *effectView;
+@property (nonatomic,strong) IDCMPINLoginViewModel *viewModel;
+@property (nonatomic,strong) IDCMInputPINNumberView *numberView;
+@end
+
+
+@implementation IDCMCheckPINView
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self initConfigure];
+    }
+    return self;
+}
+
+- (void)initConfigure {
+    
+    self.backgroundColor = [UIColor clearColor];
+    [self addSubview:self.effectView];
+    [self addSubview:self.logoImageView];
+    [self addSubview:self.numberView];
+    [self addSubview:self.titleLabel];
+    [self addSubview:self.closeBtn];
+    [self addSubview:self.textField];
+}
+
++ (void)showWithContentTitle:(NSString *)title
+             suceessCallback:(void(^)(void))suceessCallback
+               closeCallback:(void(^)(void))closeCallback {
+    
+    if ([self hasShow]) { return; }
+    UIView *kewWindow =  [UIApplication sharedApplication].keyWindow;
+    IDCMCheckPINView *view = [[self alloc] init];
+    view.suceessCallback = [suceessCallback copy];
+    view.closeCallback = [closeCallback copy];
+    view.titleLabel.text = title;
+    view.frame = kewWindow.bounds;
+    [kewWindow addSubview:view];
+    [view configSignal];
+    [view show];
+}
+
++ (void)dismissWithCompletion:(void(^)(void))completion {
+    IDCMCheckPINView *pinView = [self getInstance];
+    pinView ? [pinView dismissWithCompletion:completion] : nil;
+}
+
++ (BOOL)hasShow {
+    return [self getInstance] ? YES : NO;
+}
+
++ (instancetype)getInstance {
+    
+    __block IDCMCheckPINView *pinView = nil;
+    UIView *kewWindow =  [UIApplication sharedApplication].keyWindow;
+    [kewWindow.subviews enumerateObjectsUsingBlock:^(UIView *obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isKindOfClass:[self class]]) {
+            pinView = (IDCMCheckPINView *)obj;
+            *stop = YES;
+        }
+    }];
+    return pinView;
+}
+
+- (void)configSignal {
+    
+    @weakify(self);
+    [[self.viewModel.verifyPIN.executionSignals.switchToLatest  deliverOnMainThread]
+     subscribeNext:^(NSDictionary *responseObj) {
+         @strongify(self)
+         if ([[NSString stringWithFormat:@"%@",[responseObj objectForKey:@"status"]] isEqualToString:@"121"]) {
+             
+             self.textField.userInteractionEnabled = NO;
+             [[RACScheduler mainThreadScheduler] afterDelay:.2 schedule:^{
+                 self.textField.userInteractionEnabled = YES;
+             }];
+             self.numberView.password = self.textField.text = nil;
+             [self.numberView showShakingMobilePhoneVibrate:YES];
+             
+         } else {
+             [self dismissWithCompletion:self.suceessCallback];
+         }
+     }];
+    
+    
+    [[self.closeBtn rac_signalForControlEvents:UIControlEventTouchUpInside]
+     subscribeNext:^(__kindof UIControl * _Nullable x) {
+         
+         @strongify(self);
+         [self dismissWithCompletion:self.closeCallback];
+     }];
+    
+    
+    RACChannelTerminal *channel = self.textField.rac_newTextChannel;
+    [[channel map:^id _Nullable(NSString *value) {
+        return value.length > 6 ? [value substringToIndex: 6] : value;
+    }] subscribe:channel];
+    
+    [self.textField.rac_textSignal subscribeNext:^(NSString * _Nullable x) {
+        @strongify(self)
+        self.numberView.password = self.textField.text;
+        if (self.textField.text.length == 6) {
+            [self.viewModel.verifyPIN execute:x];
+        }
+    }];
+}
+
+- (void)show {
+    
+    self.alpha = .0;
+    self.effectView.alpha = .0;
+    self.transform = CGAffineTransformMakeTranslation(0, self.height);
+    [UIView animateWithDuration: .35
+                          delay: .03
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         
+                         self.transform = CGAffineTransformIdentity;
+                         self.effectView.alpha = 1.0;
+                         self.alpha = 1.0;
+                     } completion:^(BOOL finished) {
+//                         [self.textField becomeFirstResponder];
+                     }];
+}
+
+- (void)dismissWithCompletion:(void(^)(void))completion {
+    
+    [self.textField resignFirstResponder];
+    [UIView animateWithDuration:.3 animations:^{
+        
+        self.alpha = .0;
+        self.closeBtn.transform =
+        self.textField.transform =
+        self.numberView.transform =
+        self.titleLabel.transform =
+        self.logoImageView.transform = CGAffineTransformMakeTranslation(0, 25);
+       
+    } completion:^(BOOL finished) {
+        [[RACScheduler mainThreadScheduler] afterDelay:.01 schedule:^{
+            completion ? completion() : nil;
+        }];
+        [self removeFromSuperview];
+    }];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    self.effectView.frame = self.bounds;
+    
+    self.numberView.size = CGSizeMake(330, 86);
+    self.numberView.centerX = self.width / 2;
+    self.numberView.centerY = self.height / 2;
+    self.textField.frame = self.numberView.frame;
+    self.numberView.sd_layout.centerXEqualToView(self);
+    
+    self.titleLabel.size = CGSizeMake(200, 40);
+    self.titleLabel.bottom = self.numberView.top - 36;
+    self.titleLabel.centerX = self.numberView.centerX;
+    
+    self.logoImageView.size = CGSizeMake(60, 58);
+    self.logoImageView.centerX = self.numberView.centerX;
+    self.logoImageView.bottom = self.titleLabel.top - 30;
+}
+
+- (IDCMInputPINNumberView *)numberView {
+    return SW_LAZY(_numberView, ({
+        
+       IDCMInputPINNumberView *numberView = [[IDCMInputPINNumberView alloc] initWithFrame:CGRectMake(23, 278, 330, 86)];
+        numberView.backgroundColor = [UIColor clearColor];
+        numberView;
+    }));
+}
+
+- (UIImageView *)logoImageView {
+    return SW_LAZY(_logoImageView, ({
+        
+        UIImageView *logo =
+        [UIImageView createImageViewWithSuperView:self
+                                      contentMode:UIViewContentModeScaleAspectFit
+                                            image:[UIImage imageNamed:@"3.0_PINLogo"]
+                                    clipsToBounds:YES]; logo;
+    }));
+}
+
+- (UIButton *)closeBtn {
+    return SW_LAZY(_closeBtn, ({
+        
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn setImage:[UIImage imageNamed:@"3.0_closePIN"] forState:UIControlStateNormal];
+        CGFloat y = isiPhoneX ? (35 + 20) : 35;
+        btn.frame = CGRectMake(13, y, 30, 30);
+        btn;
+    }));
+}
+
+- (UILabel *)titleLabel {
+    return SW_LAZY(_titleLabel, ({
+        
+        UILabel *label = [[UILabel alloc] init];
+        label.textColor = textColor333333;
+        label.font = textFontPingFangRegularFont(14);
+        label.numberOfLines = 2;
+        label;
+    }));
+}
+
+- (UIVisualEffectView *)effectView {
+    return SW_LAZY(_effectView, ({
+        
+        UIVisualEffectView *effectView =
+        [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+        effectView;
+    }));
+}
+
+- (UITextField *)textField {
+    return SW_LAZY(_textField, ({
+        
+        UITextField *textField = [[UITextField alloc] initWithFrame:self.numberView.frame];
+        textField.tintColor = [UIColor clearColor];
+        textField.backgroundColor = [UIColor clearColor];
+        textField.textColor = [UIColor clearColor];
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+        textField;
+    }));
+}
+
+- (IDCMPINLoginViewModel *)viewModel {
+    return SW_LAZY(_viewModel, ({
+        
+        IDCMPINLoginViewModel *viewModel = [[IDCMPINLoginViewModel alloc] initWithParams:nil];
+        viewModel;
+    }));
+}
+
+@end
+
+
+

@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/IOS/!svn/ver/473/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Controller
+END
+IDCMFlashRecordPageController.h
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/IOS/!svn/ver/397/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Controller/IDCMFlashRecordPageController.h
+END
+IDCMFlashExchangeViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/IOS/!svn/ver/450/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Controller/IDCMFlashExchangeViewController.h
+END
+IDCMFlashRecordPageController.m
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/IOS/!svn/ver/473/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Controller/IDCMFlashRecordPageController.m
+END
+IDCMMarketViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/IOS/!svn/ver/423/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Controller/IDCMMarketViewController.h
+END
+IDCMFlashRecordDetailController.h
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/IOS/!svn/ver/397/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Controller/IDCMFlashRecordDetailController.h
+END
+IDCMFlashExchangeViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/IOS/!svn/ver/471/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Controller/IDCMFlashExchangeViewController.m
+END
+IDCMOTCViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/IOS/!svn/ver/397/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Controller/IDCMOTCViewController.h
+END
+IDCMOTCRecordPageController.h
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/IOS/!svn/ver/397/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Controller/IDCMOTCRecordPageController.h
+END
+IDCMBBChangeResultViViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/IOS/!svn/ver/403/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Controller/IDCMBBChangeResultViViewController.h
+END
+IDCMMarketViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/IOS/!svn/ver/477/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Controller/IDCMMarketViewController.m
+END
+IDCMFlashRecordDetailController.m
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/IOS/!svn/ver/473/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Controller/IDCMFlashRecordDetailController.m
+END
+IDCMOTCViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/IOS/!svn/ver/414/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Controller/IDCMOTCViewController.m
+END
+IDCMOTCRecordPageController.m
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/IOS/!svn/ver/473/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Controller/IDCMOTCRecordPageController.m
+END
+IDCMBBChangeResultViViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/IOS/!svn/ver/407/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Controller/IDCMBBChangeResultViViewController.m
+END

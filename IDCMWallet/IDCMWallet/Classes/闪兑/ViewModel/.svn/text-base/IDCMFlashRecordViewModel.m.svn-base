@@ -1,0 +1,62 @@
+//
+//  IDCMFlashRecordViewModel.m
+//  IDCMWallet
+//
+//  Created by huangyi on 2018/3/22.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import "IDCMFlashRecordViewModel.h"
+
+
+@implementation IDCMFlashRecordViewModel
+
+- (void)initialize {
+    @weakify(self);
+    
+    self.pageSize = 10;
+    self.pageNum = 1;
+    id(^paramsBlock)(NSNumber *input) = ^(NSNumber *input) {
+        return @{@"pageSize" : @(self.pageSize), @"pageNum" : input};
+    };
+    
+    self.flashRecordDataCommand =
+    [RACCommand commandGetNoHUDAuth:ExchangeGetExchangeDataList_URL
+                         serverName:ExchangeServerName
+                             params:paramsBlock
+                      handleCommand:^(id input, id response, id<RACSubscriber> subscriber) {
+                          @strongify(self);
+                     
+                          NSLog(@"======%@", response);
+                     
+                         id status = response[kStatus];
+                         ([status integerValue] == 100) ?
+                         ([subscriber sendError:nil])   :
+                         ({
+                             NSArray *dataArray = response[kData];
+                             if ([status integerValue] == 1 &&
+                                 [dataArray isKindOfClass:[NSArray class]]) {
+                                 
+                                 NSMutableArray *tempArray = @[].mutableCopy;
+                                 [dataArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+                                     [tempArray addObject:
+                                     [[IDCMFlashRecordModel  yy_modelWithDictionary:obj] handleModel]];
+                                 }];
+                                 
+                                 ([input integerValue] == 1) ?
+                                 ({self.dataArray = tempArray; self.pageNum = 2;}) :
+                                 ({[self.dataArray addObjectsFromArray:tempArray]; self.pageNum++;});
+                                 
+                                 [subscriber sendNext:@((tempArray.count < self.pageSize))]; // 隐藏显示footer
+                                 [subscriber sendCompleted];
+                             } else {
+                                 [subscriber sendError:nil];
+                             }
+                         });
+                     }];
+}
+
+@end
+
+
+

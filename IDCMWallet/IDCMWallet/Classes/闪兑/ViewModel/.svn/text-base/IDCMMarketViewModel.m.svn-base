@@ -1,0 +1,111 @@
+//
+//  IDCMMarketViewModel.m
+//  IDCMWallet
+//
+//  Created by BinBear on 2018/1/12.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import "IDCMBioMetricAuthenticator.h"
+#import "IDCMMarketViewModel.h"
+#import "IDCMUserStateModel.h"
+#import "IDCMUserInfoModel.h"
+#import "IDCMCheckPINView.h"
+
+
+
+
+@implementation IDCMMarketViewModel
+
++ (RACSignal *(^)(id))flashExchangeCheckSignalFlattenMap {
+    
+    return ^RACSignal *(id value) {
+        
+        NSNumber *checkResult = @0;
+        
+        IDCMUserStateModel *model = [IDCMUtilsMethod getKeyedArchiverWithKey:UserStatusInfokey];
+        if ([model.payPassword isEqualToString:@"0"]) {             // 没有设置PIN
+            checkResult = @(FlashExchangeCheckSignalType_NoSetPIN);
+            
+        } else {
+            
+            BOOL __block IDTouch = NO;
+            [self checkTouchIDKeyWithCompletion:^{ IDTouch = YES; }];
+            
+            ([IDCMBioMetricAuthenticator canAuthenticate] && IDTouch)  ?
+            (checkResult = @(FlashExchangeCheckSignalType_HasIDTouch)) :         // 设置了PIN 设置了指纹首选
+            (checkResult = @(FlashExchangeCheckSignalType_HasSetPIN))  ;        // 没有设置指纹首选 设置了PIN
+        }
+        
+        return [RACSignal return:checkResult];
+    };
+}
+
+
++ (flashExchangeSuber)flashExchangeCheckSignalSuberWithCompletionAction:(completionAction)action {
+    
+    return ^(NSNumber *value){
+
+        NSInteger signaltype = [value integerValue];
+        switch (signaltype) {
+            case FlashExchangeCheckSignalType_NoSetPIN: {
+                [IDCMShowMessageView
+                 showErrorWithMessage:NSLocalizedString(@"2.0_PleaseSetPayWord", nil)];
+            }break;
+                
+            case FlashExchangeCheckSignalType_HasIDTouch:
+            case FlashExchangeCheckSignalType_HasSetPIN : {
+                
+                NSString *title = NSLocalizedString(@"3.0_FlashExchangeCheckPINTip", nil);
+                [IDCMCheckPINView showWithContentTitle:title
+                                       suceessCallback:action
+                                         closeCallback:nil];
+                
+                if (FlashExchangeCheckSignalType_HasIDTouch) {
+                    [[RACScheduler mainThreadScheduler] afterDelay:.05 schedule:^{
+                        [self validationIDTouchWithcompletionAction:^{
+                            [IDCMCheckPINView dismissWithCompletion:action];
+                        }];
+                    }];
+                }
+            }break;
+            default:
+            break;
+        }
+    };
+}
+
+//验证指纹
++ (void)validationIDTouchWithcompletionAction:(completionAction)action {
+    
+    [self checkTouchIDKeyWithCompletion:^{
+        NSString *reason = isiPhoneX ?
+        NSLocalizedString(@"2.0_VerifyFaceID", nil) :
+        NSLocalizedString(@"2.0_VerifyTouchID", nil);
+        [IDCMBioMetricAuthenticator authenticateWithBioMetricsOfReason:reason
+                                                          successBlock:action
+                                                          failureBlock:nil];
+    }];
+}
+
++ (void)checkTouchIDKeyWithCompletion:(void(^)(void))completion {
+    
+    NSMutableDictionary *dataDic = [IDCMUtilsMethod getKeyedArchiverWithKey:FaceIDOrTouchIDKey];
+    if ([dataDic count] > 0) {
+        IDCMUserInfoModel *model = [IDCMUtilsMethod getKeyedArchiverWithKey:UserModelArchiverkey];
+        [dataDic enumerateKeysAndObjectsUsingBlock:^(NSString *key, id obj, BOOL *stop) {
+            if ([model.user_name isEqualToString:key]) {
+                completion ? completion() : nil;
+                *stop = YES;
+            }
+        }];
+    }
+}
+
+@end
+
+
+
+
+
+

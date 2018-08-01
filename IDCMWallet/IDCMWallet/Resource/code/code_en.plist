@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>600</key>
+	<string>User account is frozen</string>
+	<key>601</key>
+	<string>Payment method not set</string>
+	<key>602</key>
+	<string>Insufficient margin</string>
+	<key>603</key>
+	<string>Invalid parameter</string>
+	<key>608</key>
+	<string>Not currently supported</string>
+	<key>609</key>
+	<string>Validate the legality of mnemonic phrase</string>
+	<key>610</key>
+	<string>No support for external import</string>
+	<key>611</key>
+	<string>Insufficient ETH</string>
+	<key>612</key>
+	<string>Currency does not exist</string>
+	<key>613</key>
+	<string>Insufficient balance</string>
+	<key>614</key>
+	<string>Try again later</string>
+	<key>615</key>
+	<string>Please withdraw again</string>
+	<key>616</key>
+	<string>Try again later</string>
+	<key>617</key>
+	<string>Insufficient balance</string>
+	<key>618</key>
+	<string>Insufficient balance</string>
+	<key>619</key>
+	<string>Please set payment method first</string>
+	<key>620</key>
+	<string>Please set payment method first</string>
+	<key>621</key>
+	<string>There is no relationship between the fiat currency and payment method.</string>
+	<key>622</key>
+	<string>Cannot be added repeatedly</string>
+	<key>623</key>
+	<string>Data does not exist</string>
+	<key>624</key>
+	<string>Please set payment method first</string>
+	<key>625</key>
+	<string>Currency does not exist</string>
+	<key>626</key>
+	<string>Please set payment method first</string>
+	<key>627</key>
+	<string>Bind your phone first</string>
+	<key>628</key>
+	<string>Incorrect PIN</string>
+	<key>629</key>
+	<string>No margin withdrawal during audit</string>
+	<key>630</key>
+	<string>Failed to deposit margin</string>
+	<key>631</key>
+	<string>Failed to withdraw margin</string>
+	<key>632</key>
+	<string>Failed to deposit margin</string>
+	<key>633</key>
+	<string>Failed to set current step</string>
+	<key>634</key>
+	<string>Complete all settings</string>
+	<key>635</key>
+	<string>Deposit failed. Please try again later. </string>
+	<key>636</key>
+	<string>Currency does not exist</string>
+	<key>637</key>
+	<string>Merchant rules not set</string>
+	<key>638</key>
+	<string>Deposit amount is less than the minimum</string>
+	<key>639</key>
+	<string>Try again later</string>
+	<key>640</key>
+	<string>Please refresh and try again</string>
+	<key>641</key>
+	<string>Failed to set withdrawal. Please try again later.</string>
+	<key>642</key>
+	<string>You have ongoing orders. Please complete the order before you withdraw your deposit. </string>
+	<key>643</key>
+	<string>Try again later</string>
+	<key>644</key>
+	<string>Failed to withdraw margin. Please try again later.</string>
+	<key>645</key>
+	<string>Failed to withdraw margin. Please try again later.</string>
+	<key>646</key>
+	<string>Please enter the correct address</string>
+	<key>650</key>
+	<string>Insufficient margin, adjust quantity sent</string>
+	<key>700</key>
+	<string>Illegal operation</string>
+	<key>701</key>
+	<string>Please enter a valid quantity</string>
+	<key>702</key>
+	<string>Digital Currency information in OTC not set</string>
+	<key>703</key>
+	<string>OTC information not set</string>
+	<key>704</key>
+	<string>Payment method not set</string>
+	<key>705</key>
+	<string>Order does not exist</string>
+	<key>706</key>
+	<string>Order cannot be cancelled</string>
+	<key>707</key>
+	<string>Order cancelled</string>
+	<key>708</key>
+	<string>Please select merchant</string>
+	<key>709</key>
+	<string>Merchant cancelled</string>
+	<key>710</key>
+	<string>Order completed</string>
+	<key>711</key>
+	<string>Time extended</string>
+	<key>712</key>
+	<string>Only ongoing orders can have time extended</string>
+	<key>713</key>
+	<string>Only ongoing orders can be set to &quot;Transfer Confirmed&quot;</string>
+	<key>714</key>
+	<string>Only paid orders can be set to &quot;Receipt Confirmed&quot;</string>
+	<key>715</key>
+	<string>Only paid orders can be set to &quot;Appeal&quot;</string>
+	<key>716</key>
+	<string>Merchant not available</string>
+	<key>717</key>
+	<string>Quotation is only available for to-be-quoted order</string>
+	<key>718</key>
+	<string>Timed out </string>
+	<key>719</key>
+	<string>Merchant status abnormal</string>
+	<key>720</key>
+	<string>Please enter a valid price</string>
+	<key>721</key>
+	<string>Order does not exist</string>
+	<key>722</key>
+	<string>Quotes can only be cancelled if they are pending</string>
+	<key>723</key>
+	<string>Quotes can only be offered for orders in progress</string>
+	<key>724</key>
+	<string>Quotes can only be selected if they are pending</string>
+	<key>725</key>
+	<string>Try again later</string>
+	<key>726</key>
+	<string>Try again later</string>
+	<key>727</key>
+	<string>Cannot quote repeatedly </string>
+	<key>728</key>
+	<string>Failed to initialize user information</string>
+	<key>729</key>
+	<string>Failed to initialize digital currency exchange rate information </string>
+	<key>730</key>
+	<string>Failed to initialize the merchant rules</string>
+	<key>731</key>
+	<string>Failed to initialize wallet address</string>
+	<key>732</key>
+	<string>Try again later</string>
+	<key>733</key>
+	<string>Insuffcient balance</string>
+	<key>734</key>
+	<string>Try again later</string>
+	<key>735</key>
+	<string>Try again later</string>
+	<key>736</key>
+	<string>Digital Currency required</string>
+	<key>737</key>
+	<string>Payment currency required</string>
+	<key>738</key>
+	<string>Payment method required</string>
+	<key>739</key>
+	<string>Order ID required</string>
+	<key>740</key>
+	<string>Declared order required</string>
+	<key>741</key>
+	<string>Not logged in</string>
+	<key>742</key>
+	<string>Invalid user status</string>
+	<key>743</key>
+	<string>No Trading</string>
+	<key>744</key>
+	<string>Digital currency does not exist</string>
+	<key>745</key>
+	<string>Fiat currency does not exist</string>
+	<key>746</key>
+	<string>No file uploaded</string>
+	<key>747</key>
+	<string>Only upload pictures in png, jpg, bmp formats</string>
+	<key>748</key>
+	<string>Maximum upload size is 5MB</string>
+	<key>749</key>
+	<string>Payment method not set</string>
+	<key>750</key>
+	<string>The status of your order can be set to &quot;Under Review&quot; only if you have lodged an appeal.</string>
+	<key>751</key>
+	<string>Transfer is waiting for confirmation, please try again later.</string>
+	<key>960200</key>
+	<string>Insufficient margin</string>
+	<key>961300</key>
+	<string>Insufficient balance</string>
+	<key>961600</key>
+	<string>Try again later</string>
+	<key>961700</key>
+	<string>Insufficient balance</string>
+	<key>962900</key>
+	<string>No margin withdrawal during audit</string>
+	<key>963200</key>
+	<string>Failed to deposit margin</string>
+	<key>963800</key>
+	<string>Deposit amount is less than the minimum</string>
+	<key>963900</key>
+	<string>Try again later</string>
+	<key>964200</key>
+	<string>You have ongoing orders. Please complete the order before you withdraw your deposit. </string>
+	<key>973300</key>
+	<string>Insuffcient balance</string>
+	<key>973400</key>
+	<string>Try again later</string>
+	<key>973500</key>
+	<string>Try again later</string>
+</dict>
+</plist>

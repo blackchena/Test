@@ -1,0 +1,27 @@
+//
+//  IDCMCustomeTF.h
+//  IDCMExchange
+//
+//  Created by yhp on 2018/2/12.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@protocol  IDCMCustomeTFDelegage <UITextFieldDelegate>
+
+-(void)textFieldDelayDone:(UITextField *) textfield;
+
+@end
+
+typedef void(^InputBlock)(NSString * inputStr);
+
+@interface IDCMCustomeTF : UITextField
+
+@property (copy,nonatomic) InputBlock block;
+@property (assign,nonatomic) CGFloat delayValue;
+@property (nonatomic,strong) UIImage * clearImage;
+
+
+@property (nonatomic,weak) id <IDCMCustomeTFDelegage> delayDelegate;
+@end

@@ -1,0 +1,13 @@
+//
+//  IDCMMarketViewController.h
+//  IDCMWallet
+//
+//  Created by huangyi on 2018/1/12.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import "IDCMBasePageViewController.h"
+
+@interface IDCMMarketViewController : IDCMBasePageViewController
+
+@end

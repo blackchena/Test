@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/IOS/!svn/ver/473/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Model
+END
+IDCMFlashRecordModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/IOS/!svn/ver/468/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Model/IDCMFlashRecordModel.h
+END
+IDCMIconModel.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/IOS/!svn/ver/401/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Model/IDCMIconModel.m
+END
+IDCMCoinModel.m
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/IOS/!svn/ver/460/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Model/IDCMCoinModel.m
+END
+IDCMFlashRecordDetailModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/IOS/!svn/ver/468/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Model/IDCMFlashRecordDetailModel.h
+END
+IDCMFlashRecordModel.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/IOS/!svn/ver/473/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Model/IDCMFlashRecordModel.m
+END
+IDCMMarketModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/IOS/!svn/ver/451/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Model/IDCMMarketModel.h
+END
+IDCMCoinRateModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/IOS/!svn/ver/460/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Model/IDCMCoinRateModel.h
+END
+IDCMFlashRecordDetailModel.m
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/IOS/!svn/ver/473/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Model/IDCMFlashRecordDetailModel.m
+END
+IDCMIconModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/IOS/!svn/ver/412/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Model/IDCMIconModel.h
+END
+IDCMCoinModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/IOS/!svn/ver/471/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Model/IDCMCoinModel.h
+END
+IDCMMarketModel.m
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/IOS/!svn/ver/451/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Model/IDCMMarketModel.m
+END
+IDCMCoinRateModel.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/IOS/!svn/ver/460/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/Model/IDCMCoinRateModel.m
+END

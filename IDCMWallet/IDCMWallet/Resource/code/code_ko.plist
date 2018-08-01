@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>600</key>
+	<string>사용자가 고정되었습니다.</string>
+	<key>601</key>
+	<string>결제 수단이 설정되지 않았습니다.</string>
+	<key>602</key>
+	<string>불충분 한 마진</string>
+	<key>603</key>
+	<string>매개 변수가 잘못되었습니다.</string>
+	<key>608</key>
+	<string>일시적으로 지원되지 않음</string>
+	<key>609</key>
+	<string>니모 닉 적법성 확인</string>
+	<key>610</key>
+	<string>외부 가져 오기를 지원하지 않습니다.</string>
+	<key>611</key>
+	<string>불충분 한 ETH</string>
+	<key>612</key>
+	<string>통화가 존재하지 않습니다.</string>
+	<key>613</key>
+	<string>불충분 한 균형</string>
+	<key>614</key>
+	<string>나중에 다시 시도하십시오.</string>
+	<key>615</key>
+	<string>다시 추출하십시오.</string>
+	<key>616</key>
+	<string>나중에 다시 시도하십시오.</string>
+	<key>617</key>
+	<string>불충분 한 균형</string>
+	<key>618</key>
+	<string>불충분 한 균형</string>
+	<key>619</key>
+	<string>먼저 결제 수단을 설정하십시오.</string>
+	<key>620</key>
+	<string>먼저 결제 수단을 설정하십시오.</string>
+	<key>621</key>
+	<string>법정 화폐와 지불 방법 간에는 아무런 관련이 없습니다.</string>
+	<key>622</key>
+	<string>반복해서 추가 할 수 없습니다.</string>
+	<key>623</key>
+	<string>데이터가 존재하지 않습니다.</string>
+	<key>624</key>
+	<string>먼저 결제 수단을 설정하십시오.</string>
+	<key>625</key>
+	<string>통화가 존재하지 않습니다.</string>
+	<key>626</key>
+	<string>먼저 결제 수단을 설정하십시오.</string>
+	<key>627</key>
+	<string>먼저 전화 번호를 묶어주십시오.</string>
+	<key>628</key>
+	<string>PIN 오류</string>
+	<key>629</key>
+	<string>검토 도중 마진 철회는 허용되지 않습니다.</string>
+	<key>630</key>
+	<string>충전 마진이 실패했습니다.</string>
+	<key>631</key>
+	<string>증거금을 인출하지 못함</string>
+	<key>632</key>
+	<string>충전 마진이 실패했습니다.</string>
+	<key>633</key>
+	<string>현재 단계를 설정하지 못했습니다.</string>
+	<key>634</key>
+	<string>현재 설정을 모두 완료하십시오.</string>
+	<key>635</key>
+	<string>충전에 실패했습니다. 나중에 다시 시도하십시오.</string>
+	<key>636</key>
+	<string>통화가 존재하지 않습니다.</string>
+	<key>637</key>
+	<string>수락 자 규칙이 구성되지 않았습니다.</string>
+	<key>638</key>
+	<string>최저 충전량보다 적음</string>
+	<key>639</key>
+	<string>나중에 다시 시도하십시오.</string>
+	<key>640</key>
+	<string>새로 고침하고 다시 시도하십시오.</string>
+	<key>641</key>
+	<string>청구 명령을 설정하지 못했습니다. 나중에 다시 시도하십시오.</string>
+	<key>642</key>
+	<string>미완성 주문이 있습니다. 예금을 인출하기 전에 주문을 완료하십시오.</string>
+	<key>643</key>
+	<string>나중에 다시 시도하십시오.</string>
+	<key>644</key>
+	<string>증거금을 인출하지 못했습니다. 나중에 다시 시도하십시오.</string>
+	<key>645</key>
+	<string>증거금을 인출하지 못했습니다. 나중에 다시 시도하십시오.</string>
+	<key>646</key>
+	<string>올바른 주소를 입력하십시오.</string>
+	<key>650</key>
+	<string>여유가 없으므로 송부 수량을 조정하십시오</string>
+	<key>700</key>
+	<string>불법적 인 조작</string>
+	<key>701</key>
+	<string>올바른 수량을 입력하십시오.</string>
+	<key>702</key>
+	<string>이 가상 화폐 설정을위한 OTC 거래 정보 없음</string>
+	<key>703</key>
+	<string>시스템 OTC 거래 관련 정보가 설정되지 않았습니다.</string>
+	<key>704</key>
+	<string>결제 수단이 설정되지 않았습니다.</string>
+	<key>705</key>
+	<string>주문이 없습니다.</string>
+	<key>706</key>
+	<string>철회는 허용되지 않습니다.</string>
+	<key>707</key>
+	<string>주문 취소됨</string>
+	<key>708</key>
+	<string>수락을 선택하십시오.</string>
+	<key>709</key>
+	<string>수락 자 취소됨</string>
+	<key>710</key>
+	<string>주문 완료 됨</string>
+	<key>711</key>
+	<string>지연된</string>
+	<key>712</key>
+	<string>주문이 진행중인 경우에만 지연 될 수 있습니다.</string>
+	<key>713</key>
+	<string>송금을 설정하기위한 주문 만 진행 중입니다.</string>
+	<key>714</key>
+	<string>전송 된 영수증을 확인하는 주문 만 설정할 수 있습니다.</string>
+	<key>715</key>
+	<string>주문이 전송 된 경우에만 주문을 제출할 수 있습니다.</string>
+	<key>716</key>
+	<string>미개봉 수락 대</string>
+	<key>717</key>
+	<string>주문 상태는 견적으로 만 인용 할 수 있습니다.</string>
+	<key>718</key>
+	<string>시간이 초과되었습니다.</string>
+	<key>719</key>
+	<string>수락 자 상태 비정상</string>
+	<key>720</key>
+	<string>올바른 가격을 입력하십시오.</string>
+	<key>721</key>
+	<string>견적 순서가 존재하지 않습니다.</string>
+	<key>722</key>
+	<string>견적은 확인 대기 중으로 만 취소 될 수 있습니다.</string>
+	<key>723</key>
+	<string>주문을 처리 할 때만 견적을 주문할 수 있습니다.</string>
+	<key>724</key>
+	<string>견적이 보류중인 경우에만 견적을 선택할 수 있습니다</string>
+	<key>725</key>
+	<string>나중에 다시 시도하십시오.</string>
+	<key>726</key>
+	<string>나중에 다시 시도하십시오.</string>
+	<key>727</key>
+	<string>견적을 반복 할 수 없습니다.</string>
+	<key>728</key>
+	<string>사용자 초기화 정보가 초기화되지 않았습니다.</string>
+	<key>729</key>
+	<string>가상 환율 정보를 초기화하지 못했습니다.</string>
+	<key>730</key>
+	<string>수락 자 규칙 정보의 초기화가 없습니다.</string>
+	<key>731</key>
+	<string>초기 시스템 지갑 주소 없음</string>
+	<key>732</key>
+	<string>나중에 다시 시도하십시오.</string>
+	<key>733</key>
+	<string>불충분 한 균형</string>
+	<key>734</key>
+	<string>나중에 다시 시도하십시오.</string>
+	<key>735</key>
+	<string>나중에 다시 시도하십시오.</string>
+	<key>736</key>
+	<string>가상 통화가 필요합니다.</string>
+	<key>737</key>
+	<string>지불 통화가 필요합니다.</string>
+	<key>738</key>
+	<string>지불 방법이 필요합니다.</string>
+	<key>739</key>
+	<string>주문 ID가 필요합니다.</string>
+	<key>740</key>
+	<string>보고서 주문이 필요합니다.</string>
+	<key>741</key>
+	<string>로그인하지 않았습니다.</string>
+	<key>742</key>
+	<string>사용자 상태가 잘못되었습니다.</string>
+	<key>743</key>
+	<string>거래 없음</string>
+	<key>744</key>
+	<string>가상 화폐가 존재하지 않습니다.</string>
+	<key>745</key>
+	<string>법적 통화가 존재하지 않습니다.</string>
+	<key>746</key>
+	<string>파일이 업로드되지 않았습니다.</string>
+	<key>747</key>
+	<string>png, jpg, bmp 형식의 사진 만 업로드하십시오.</string>
+	<key>748</key>
+	<string>5M 이내의 사진을 업로드하십시오.</string>
+	<key>749</key>
+	<string>결제 수단이 설정되지 않았습니다.</string>
+	<key>750</key>
+	<string>항소로 주문 상태를 설정하는 불만 제기</string>
+	<key>751</key>
+	<string>이전을 확인한 후 나중에 다시 시도하십시오.</string>
+	<key>960200</key>
+	<string>불충분 한 마진</string>
+	<key>961300</key>
+	<string>불충분 한 균형</string>
+	<key>961600</key>
+	<string>나중에 다시 시도하십시오.</string>
+	<key>961700</key>
+	<string>불충분 한 균형</string>
+	<key>962900</key>
+	<string>검토 도중 마진 철회는 허용되지 않습니다.</string>
+	<key>963200</key>
+	<string>충전 마진이 실패했습니다.</string>
+	<key>963800</key>
+	<string>최저 충전량보다 적음</string>
+	<key>963900</key>
+	<string>나중에 다시 시도하십시오.</string>
+	<key>964200</key>
+	<string>미완성 주문이 있습니다. 예금을 인출하기 전에 주문을 완료하십시오.</string>
+	<key>973300</key>
+	<string>불충분 한 균형</string>
+	<key>973400</key>
+	<string>나중에 다시 시도하십시오.</string>
+	<key>973500</key>
+	<string>나중에 다시 시도하십시오.</string>
+</dict>
+</plist>

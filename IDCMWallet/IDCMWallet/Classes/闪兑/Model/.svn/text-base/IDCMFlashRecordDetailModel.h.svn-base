@@ -1,0 +1,64 @@
+//
+//  IDCMFlashRecordDetailModel.h
+//  IDCMWallet
+//
+//  Created by huangyi on 2018/3/22.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import "IDCMBaseViewModel.h"
+
+@interface IDCMFlashRecordDetailModel : IDCMBaseViewModel
+
+@property (nonatomic,copy) NSString *Id;
+@property (nonatomic,copy) NSString *ToTxId;
+@property (nonatomic,copy) NSString *UserId;
+@property (nonatomic,copy) NSString *TxId;
+
+@property (nonatomic,copy) NSString *CreateTime;
+@property (nonatomic,copy) NSString *SendConfirmTime;
+@property (nonatomic,copy) NSString *ReceiveConfirmTime;
+@property (nonatomic,copy) NSString *CompleteTime;
+
+@property (nonatomic,copy) NSString *Currency;
+@property (nonatomic,copy) NSString *ToCurrency;
+
+@property (nonatomic,strong) NSNumber *Amount;
+@property (nonatomic,strong) NSNumber *ToAmount;
+
+@property (nonatomic,strong) NSNumber *MinCount;
+@property (nonatomic,strong) NSNumber *ConfirmCount;
+@property (nonatomic,strong) NSNumber *ToMinCount;
+@property (nonatomic,strong) NSNumber *ToConfirmCount;
+
+@property (nonatomic,strong) NSNumber *Fee;
+@property (nonatomic,strong) NSNumber *ToFee;
+@property (nonatomic,strong) NSNumber *ExchangeRate;
+
+@property (nonatomic,copy) NSString *Status;
+@property (nonatomic,copy) NSString *StatusDescription;
+@property (nonatomic,copy) NSString *SearchStartTime;
+@property (nonatomic,copy) NSString *SearchEndTime;
+@property (nonatomic,copy) NSString *intervalUnit;
+
+
+// 自定义属性
+@property (nonatomic,copy) NSString *customerCashOut;
+@property (nonatomic,copy) NSString *customerCashOutState;
+
+@property (nonatomic,copy) NSString *customerCashEnter;
+@property (nonatomic,copy) NSString *customerCashEnterState;
+
+@property (nonatomic,copy) NSString *customerExchangeOutFee;
+@property (nonatomic,copy) NSString *customerExchangeRate;
+@property (nonatomic,copy) NSString *customerExchangeTime;
+
+- (instancetype)handleModel;
+
+
+@end
+
+
+
+
+

@@ -1,0 +1,13 @@
+/* 
+  InfoPlist.strings
+  IDCMWallet
+
+  Created by BinBear on 2017/12/5.
+  Copyright © 2017年 BinBear. All rights reserved.
+*/
+
+{
+NSCameraUsageDescription = "Allow IDC Wallet to use your camera？";
+NSMicrophoneUsageDescription = "Allow IDC Wallet to use your microphone？";
+NSPhotoLibraryUsageDescription = "Allow IDC Wallet to access your album?";
+}

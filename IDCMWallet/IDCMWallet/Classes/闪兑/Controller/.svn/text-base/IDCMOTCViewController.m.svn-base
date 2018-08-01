@@ -1,0 +1,67 @@
+//
+//  IDCMOTCViewController.m
+//  IDCMWallet
+//
+//  Created by huangyi on 2018/3/14.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import "IDCMOTCViewController.h"
+
+@interface IDCMOTCViewController ()
+@property (nonatomic,strong) UIImageView *statusImageView;
+@property (nonatomic,strong) UILabel *tipsLabel;
+@end
+
+
+@implementation IDCMOTCViewController
+#pragma mark — life cycle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self initConfigure];
+}
+
+#pragma mark — private methods
+#pragma mark — 初始化配置
+- (void)initConfigure {
+    [self configUI];
+}
+
+#pragma mark — 配置UI相关
+- (void)configUI {
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.title = @"法币OTC";
+    [self tipsLabel];
+}
+
+#pragma mark - getters and setters
+-(UIImageView *)statusImageView
+{
+    if (!_statusImageView) {
+        _statusImageView = [UIImageView createImageViewWithSuperView:self.view contentMode:UIViewContentModeScaleAspectFill image:[UIImage imageNamed:@"2.1_ market_page_empty_icon"] clipsToBounds:YES];
+        _statusImageView.sd_layout
+        .centerXEqualToView(self.view)
+        .topEqualToView(self.view).offset(56)
+        .widthIs(208)
+        .heightIs(128);
+        
+    }
+    return _statusImageView;
+}
+
+- (UILabel *)tipsLabel
+{
+    if (!_tipsLabel) {
+        _tipsLabel = [UILabel createLabelWithTitle:SWLocaloziString(@"2.1_market_empty_tips") titleColor:textColor333333 font:textFontPingFangRegularFont(16) textAlignment:NSTextAlignmentCenter];
+        [self.view addSubview:_tipsLabel];
+        self.tipsLabel.sd_layout
+        .leftEqualToView(self.view).offset(12)
+        .rightEqualToView(self.view).offset(-12)
+        .topSpaceToView(self.statusImageView, 43)
+        .autoHeightRatio(0);
+    }
+    return _tipsLabel;
+}
+
+
+@end

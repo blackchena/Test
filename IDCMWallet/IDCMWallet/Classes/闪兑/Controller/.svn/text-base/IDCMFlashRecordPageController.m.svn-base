@@ -1,0 +1,153 @@
+//
+//  IDCMFlashRecordPageController.m
+//  IDCMWallet
+//
+//  Created by huangyi on 2018/3/14.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import "IDCMFlashRecordPageController.h"
+#import "IDCMEmptyPlacerholderView.h"
+#import "IDCMFlashRecordViewModel.h"
+#import "IDCMFlashRecordCell.h"
+
+
+@interface IDCMFlashRecordPageController () <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic,strong) IDCMEmptyPlacerholderView *placerholderView;
+@property (nonatomic,strong) IDCMFlashRecordViewModel *viewModel;
+@property (nonatomic,strong) IDCMTableView *tableView;
+@end
+
+
+@implementation IDCMFlashRecordPageController
+@dynamic viewModel;
+#pragma mark — life cycle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self initConfigure];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    self.tableView.frame = self.view.bounds;
+    self.placerholderView.centerX = self.tableView.width / 2;
+    self.placerholderView.top = 30;
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.tableView endRefreshWithTitle:nil];
+}
+
+#pragma mark — super methods
+- (void)bindViewModel {
+    [super bindViewModel];
+    
+    [IDCMHUD show];
+    IDCMFlashRecordViewModel *viewModel = self.viewModel;
+    @weakify(self, viewModel);
+    [[self.viewModel.flashRecordDataCommand.executionSignals.switchToLatest deliverOnMainThread]
+     subscribeNext:^(NSNumber *x) {
+         
+         @strongify(self);
+         [self.tableView reloadData];
+         ([x boolValue]) ?
+         ([self.tableView.mj_footer endRefreshingWithNoMoreData]) :
+         ([self.tableView.mj_footer resetNoMoreData]);
+         [self.tableView endRefreshWithTitle:SWLocaloziString(@"2.1_DidLoadSuccess")];
+     }];
+    
+    [[[self.viewModel.flashRecordDataCommand.executing skip:1] deliverOnMainThread]
+     subscribeNext:^(NSNumber * executing) {
+         
+         @strongify(self, viewModel);
+         if (!executing.boolValue) {
+             [IDCMHUD dismiss];
+             [self.tableView endRefreshWithTitle:nil];
+             self.placerholderView.hidden = viewModel.dataArray.count;
+         } else {
+             self.placerholderView.hidden = YES;
+         }
+     }];
+    
+    [self.viewModel.flashRecordDataCommand execute:@1];
+    [self.tableView addRefreshForTableViewHeaderWithKaKaHeaderBlock:^{
+
+        @strongify(self);
+        [self.viewModel.flashRecordDataCommand execute:@1];
+    } footerWithKaKaFooterBlock:^{
+
+        @strongify(self);
+        [self.viewModel.flashRecordDataCommand execute:@(self.viewModel.pageNum)];
+    }];
+    [self.tableView.mj_footer endRefreshingWithNoMoreData];
+}
+
+#pragma mark — private methods
+#pragma mark — 初始化配置
+- (void)initConfigure {
+    [self configUI];
+}
+
+#pragma mark — 配置UI相关
+- (void)configUI {
+    [self.view addSubview:self.tableView];
+}
+
+#pragma mark - UITableViewDataSource && UITableViewDelegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.viewModel.dataArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [IDCMFlashRecordCell cellWithTableView:tableView
+                                        indexPath:indexPath
+                                    cellViewModel:nil];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(IDCMFlashRecordCell *)cell
+                                         forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [cell reloadCellData];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *tempStr = self.viewModel.dataArray[indexPath.row].ID;
+    tempStr = tempStr.length ? tempStr : @"";
+    [[IDCMMediatorAction sharedInstance] pushViewControllerWithClassName:@"IDCMFlashRecordDetailController"
+                                                       withViewModelName:@"IDCMFlashRecordDetailViewModel"
+                                                              withParams:nil];
+}
+
+#pragma mark - getters and setters
+- (IDCMTableView *)tableView {
+    return SW_LAZY(_tableView, ({
+        
+        CGRect rect = self.view.bounds;
+        IDCMTableView *tableView = [[IDCMTableView alloc] initWithFrame:rect style:UITableViewStylePlain];
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        tableView.rowHeight = 114.0f;
+        tableView.backgroundColor = UIColorWhite;
+        tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+        [tableView registerCellWithCellClass:[IDCMFlashRecordCell class]];
+        tableView.tableFooterView =[[UIView alloc]initWithFrame:CGRectZero];
+        [tableView insertSubview:self.placerholderView atIndex:1000];
+        tableView;
+    }));
+}
+
+- (IDCMEmptyPlacerholderView *)placerholderView {
+    return SW_LAZY(_placerholderView, ({
+        
+        IDCMEmptyPlacerholderView *emptyView = [[IDCMEmptyPlacerholderView alloc] init];
+        emptyView.titleString = NSLocalizedString(@"3.0_ExchangeNoData", nil);
+        emptyView.backgroundColor = [UIColor whiteColor];
+        emptyView.size = CGSizeMake(200, 170);
+        emptyView.hidden = YES;
+        emptyView;
+    }));
+}
+
+@end
+

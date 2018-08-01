@@ -1,0 +1,956 @@
+/*
+ Localizable.strings
+ IDCMWallet
+ 
+ Created by BinBear on 2017/11/23.
+ Copyright © 2017年 BinBear. All rights reserved.
+ */
+
+// 提示语
+"2.0_NotNetWork" = "网络较差，请检查网络设置";
+"2.0_RequestError" = "服务器正忙";
+"2.0_Note" = "通知";
+"2.0_LoginAgain" = "您已下线，请重新登录";
+
+// TabBar
+"2.1_Home" = "资产" ;
+"2.1_Market" = "交易" ;
+"2.1_Found" = "发现" ;
+"2.1_Settings" = "我的" ;
+
+
+// 主页
+"2.0_Fluctuation" = "一天变化 (%)";
+"2.0_Amount" = "总资产";
+"2.0_NoBackups" = "为了保障您的钱包资产\n请先备份助记词";
+"2.0_NoBackupsMessage" = "退出钱包后必须使用助记词恢复资产";
+"2.0_GoBackups" = "现在备份";
+"2.0_NoGoBackups" = "下次再说";
+"2.0_AddCoinVC" = "添加资产";
+"2.0_Done" = "确定";
+"2.0_DeleteCoin" = "移除不会删除该币种资产及转汇记录，您可以通过添加方式重新加入该币种到资产列表";
+"2.0_Cancel" = "取消";
+"2.0_Remove" = "移除";
+"2.0_NoSetPayPw" = "您尚未设置PIN";
+"2.0_NoSetPayPwMessage" = "为了保障您的资产安全\n请先完成设置，才能发送数字资产";
+"2.0_GoSetPayPw" = "现在设置";
+"2.0_AmountTrend" = "资产";
+"2.0_AmountTrendTitle" = "近七天总资产走势";
+"2.0_Verify" = "验证";
+"2.0_AllButton" = "全部";
+"2.0_ReciveButton" = "接收";
+"2.0_SendButton" = "发送";
+"2.0_BlanceTitle" = "余额";
+"2.0_TradingTitle" = "转汇记录";
+"2.0_ReciveSuccess" = "接收成功";
+"2.0_SendSuccess" = "发送成功";
+"2.0_SendFail" = "发送失败";
+"2.0_From" = "来自";
+"2.0_Send" = "发至";
+"2.0_Status" = "状态";
+"2.0_TradDetailVC" = "转汇详情";
+"2.0_CopyID" = "复制 TxID";
+"2.0_SendAddress" = "发送地址";
+"2.0_ReciveAddress" = "接收地址";
+"2.0_SendReciveAddress" = "地址";
+"2.0_MinersCost" = "矿工费";
+"2.0_ConfirmBlock" = "区块哈希";
+"2.0_ConfirmNum" = "确认数";
+"2.0_TradTime" = "转汇时间";
+"2.0_Describe" = "描述";
+"2.0_SendNum" = "发送数量";
+"2.0_MinerFee" = "矿工费";
+"2.0_MinerFeeHalf" = "(提高确认速度会增加矿工费)";
+"2.0_LeaveTitle" = "附言描述";
+"2.0_ConfirmationSend" = "确认发送";
+"2.0_Address" = "地址";
+"2.0_CopyAddress" = "复制地址";
+"2.0_AddressHint" = "为保护您的隐私，每次接收操作时，系统都将使用新地址，已经使用过的仍可使用";
+"2.0_ReciveHint" = "仅限于接收[IDCW],如接收其他币种将无法找回";
+"2.0_CopySuccess" = "复制成功";
+"2.0_Confirmed" = "已确认";
+"2.0_Unconfirmed" = "未确认";
+"2.0_GetAddressFail" = "获取接收地址失败";
+"2.0_Balance" = "余额";
+"2.0_ImmediatelySend" = "立即发送";
+"2.0_QueryRecord" = "可查询转汇记录";
+"2.0_ImmediatelyBack" = "立即返回";
+"2.0_SendBlance" = "余额";
+"2.0_SendNumorrect" = "请输入正确的发送数量";
+"2.0_AddressInvalid" = "无效的发送地址";
+"2.0_WalletInsuff" = "可转余额不足";
+"2.0_MinNum" = "最小发送数量为";
+"2.0_AutoBack" = "秒后自动回到";
+"2.0_AmountView" = "资产页面";
+"2.0_TransferSend" = "转汇在确认中，请确认完毕后再继续发送";
+"2.0_PleaseEnterPayWord" = "请输入PIN";
+"2.0_LeaveDes" = "仅本人可见(50字以内)";
+"2.0_ReciveRecordButton" = "接收";
+"2.0_SendRecordButton" = "发送";
+"2.0_gongxi" = "恭喜";
+"2.0_gongxiContent" = "已领取成功，请在资产页面查看";
+"2.0_gongxiButton" = "我知道了";
+
+
+"2.1_ScanClose" = "关闭";
+"2.1_ScanAlbum" = "相册";
+"2.1_ScanFlash" = "闪光灯";
+"2.1_ScanFail" = "扫描失败";
+"2.1_SelectSingleImage" = "选择照片";
+"2.1_UseImage" = "使用";
+"2.1_ScanNotes" = "提示";
+"2.1_DragSort" = "拖动排序";
+"2.1_sendSlow" = "慢";
+"2.1_sendRecommended" = "推荐";
+"2.1_sendFast" = "快";
+"2.1_doneexit" = "确定退出?";
+"2.1_exit" = "退出";
+"2.1_NextTime" = "下次再说";
+"2.1_Ongoing" = "进行中";
+"2.1_Editable" = "(可编辑)";
+"2.0_ConfirmLeaveDes" = "(仅本人可见)";
+"2.1_OpenCamerPermissions" = "开启相机权限";
+"2.1_SetCamerPermissionsTips" = "请手动设置相机权限";
+"2.1_SetCamerPermissions" = "设置";
+"2.1_ViewBlockchain" = "区块浏览查看";
+"2.1_Maximum" = "内容不能超过50个字符";
+"2.1_EnterAmount" = "请输入数量";
+"2.1_EnterAddress" = "请输入地址";
+
+
+
+// 设置
+"2.0_SetVC" = "设置";
+"2.0_SetBackup" = "备份助记词";
+"2.0_SetPayPw" = "PIN码管理";
+"2.0_SetChangePw" = "修改钱包密码";
+"2.0_SetCurency" = "本地货币";
+"2.0_SetLanguage" = "语言";
+"2.0_SetSafe" = "安全";
+"2.0_SetInter" = "地区";
+"2.0_SetCustom" = "自定义";
+"2.0_SetExit" = "退出登录";
+"2.0_SetVersion" = "版本：IDC Wallet V";
+"2.0_SignOutSucceess" = "成功退出";
+"2.0_RetrievePhrasesVC" = "备份助记词";
+"2.0_RetrievePhrasesMessage" = "请准确的将12个单词按顺序写下\n放在最安全的地方";
+"2.0_LastStep" = "上一个";
+"2.0_NextWord" = "下一个";
+"2.0_NextWordStep" = "下一步";
+"2.0_VerifyPhrases" = "请输入您的助记词中的\n各个单词以完成流程";
+"2.0_VerifyPhrasesFind" = "使用12个单词助记词\n创建新钱包恢复资产";
+"2.0_SignOutSucceess" = "成功退出";
+"2.0_GetPhraseFail" = "助记词获取失败";
+"2.0_1PhraseEnter" = "第1个单词输入";
+"2.0_2PhraseEnter" = "第2个单词输入";
+"2.0_3PhraseEnter" = "第3个单词输入";
+"2.0_4PhraseEnter" = "第4个单词输入";
+"2.0_5PhraseEnter" = "第5个单词输入";
+"2.0_6PhraseEnter" = "第6个单词输入";
+"2.0_7PhraseEnter" = "第7个单词输入";
+"2.0_8PhraseEnter" = "第8个单词输入";
+"2.0_9PhraseEnter" = "第9个单词输入";
+"2.0_10PhraseEnter" = "第10个单词输入";
+"2.0_11PhraseEnter" = "第11个单词输入";
+"2.0_12PhraseEnter" = "第12个单词输入";
+"2.0_PhraseEnterError" = "输入错误请再输入";
+"2.0_PhraseVerifyError" = "验证失败";
+"2.0_PhraseVerifyFindError" = "请输入正确的助记词";
+"2.0_AaginBackup" = "再次备份";
+"2.0_Complete" = "完成";
+"2.0_BackupSuccess" = "备份成功";
+"2.0_HintLabel" = "如果丢失钱包密码\n钱包的助记词，可用于恢复资产\n请注意保密";
+"2.0_TradingDeatailFail" = "转汇详情获取失败";
+"2.0_FindWalletPW" = "恢复资产";
+"2.0_EmailFind" = "邮箱验证";
+"2.0_MobileFind" = "手机验证";
+"2.0_FindPassWordVC" = "设置密码";
+"2.0_SetPayPassWordVC" = "设置PIN";
+"2.0_PayPassWordMannger" = "管理PIN";
+"2.0_ForgetPayPassWord" = "忘记PIN";
+"2.0_BeenSet" = "已设置";
+"2.0_Setting" = "设置";
+"2.0_NotSet" = "未设置";
+"2.0_Change" = "修改";
+"2.0_PayPWPreferences" = "PIN首选项";
+"2.0_PleaseSetPayWord" = "设置PIN";
+"2.0_OnlyNum" = "PIN只能为数字";
+"2.0_PleaseAgainSetPayWord" = "确认PIN";
+"2.0_SetPayWordFail" = "设置PIN失败";
+"2.0_SetPayWordSuccess" = "设置PIN成功";
+"2.0_RememberPayWord" = "请牢记PIN";
+"2.0_LocalCurrencyVC" = "本地货币";
+"2.0_Language" = "语言";
+"2.0_renminbi" = "人民币";
+"2.0_gangbi" = "港元";
+"2.0_riyuan" = "日元";
+"2.0_meiyuan" = "美元";
+"2.0_yingbang" = "英镑";
+"2.0_hangyuan" = "韩元";
+"2.0_ouyuan" = "欧元";
+"2.0_yuenandun" = "越南盾";
+"2.0_SetCurrencyFail" = "设置失败";
+"2.0_zhongwenjianti" = "简体中文";
+"2.0_zhongwenfanti" = "繁体中文";
+"2.0_riyu" = "日语";
+"2.0_yingyu" = "英语";
+"2.0_helanyu" = "荷兰语";
+"2.0_hanyu" = "韩语";
+"2.0_fayu" = "法语";
+"2.0_yuenanyu" = "越南语";
+"2.0_xibanyayu" = "西班牙语";
+"2.0_EnterCurrentPassword" = "请输入现有密码";
+"2.0_EnterNewPassword" = "请输入新密码";
+"2.0_EnterAgainNewPassword" = "请确认新密码";
+"2.0_ChangeWalletPasswordVC" = "修改钱包密码";
+"2.0_EnterPWError" = "输入错误请再输入";
+"2.0_NewPWNotOldPW" = "新密码不能与现有密码相同";
+"2.0_OldPWError" = "现有密码错误";
+"2.0_ChangeWalletSuccess" = "修改成功";
+"2.0_NeedAgainLogin" = "请牢记新密码\n修改密码后需重新登录";
+"2.0_FindPayPassWord" = "找回PIN";
+"2.0_ChangePayPassWord" = "修改PIN";
+"2.0_ChangePaySuccess" = "修改PIN成功";
+"2.0_EnterOldPayPW" = "输入现有PIN";
+"2.0_EnterNewPayPW" = "设置新PIN";
+"2.0_EnterAgainNewPayPW" = "确认新PIN";
+"2.0_TouchIDLock" = "由于您失败的次数太多,Touch ID被锁定.请输入iPhone密码进行解锁";
+"2.0_FaceIDLock" = "由于您失败的次数太多,Face ID被锁定.请输入iPhone密码进行解锁";
+"2.0_IDVerifyError" = "验证失败";
+"2.0_VerifyFaceID" = "验证Face ID";
+"2.0_VerifyTouchID" = "验证Touch ID";
+"2.0_NotSetFaceID" = "未设置Face ID，请设置Face ID";
+"2.0_NotSetTouchID" = "未设置Touch ID，请设置Touch ID";
+"2.0_UseFaceID" = "使用Face ID发送数字货币";
+"2.0_UseTouchID" = "使用Touch ID发送数字货币";
+"2.0_AutoScan" = "将取景框对准二维码即可自动扫描";
+"2.0_NoRecordData" = "暂无转汇记录";
+"2.0_pasteAddress" = "粘贴";
+"2.0_RememberChangePayWord" = "请牢记新PIN";
+"2.0_SetTouchIDSuccess" = "设置成功";
+"2.0_payPasswordError" = "PIN错误";
+"2.0_NewPayPWNotOldPW" = "新PIN不能与现有PIN相同";
+
+
+
+"2.1_screensShots" = "为了保障您的钱包资产，请不要截屏保存，请抄写在安全的地方。";
+"2.1_LogBackIn" = "重新登录";
+"2.1_ForgetPINSetPW" = "设置PIN";
+"2.1_ForgetPINConfirmPW" = "确认PIN";
+"2.1_ForgetPINSixDigits" = "6位数字";
+"2.1_ForgetPINPleaseConfirmPW" = "确认PIN";
+"2.1_OpenTouchIDPermissions" = "开启Touch ID权限";
+"2.1_SetTouchIDPermissionsTips" = "请手动设置Touch ID权限";
+"2.1_OpenFaceIDPermissions" = "开启Face ID权限";
+"2.1_SetFacePermissionsTips" = "请手动设置Face ID权限";
+
+
+
+// Logoin & Register
+"2.0_LoginWallet" = "登录我的钱包";
+"2.0_RegisterWallet" = "创建钱包";
+"2.0_ForgetPW" = "忘记密码?";
+"2.0_FindWallet" = "恢复资产";
+"2.0_Country" = "地区";
+"2.0_Mobile" = "手机";
+"2.0_Password" = "密码";
+"2.0_SelectCountry" = "选择手机号归属地区";
+"2.0_EnterMobile" = "输入手机号";
+"2.0_EnterPassword" = "输入登录密码";
+"2.0_Login" = "登录";
+"2.0_Register" = "创建";
+"2.0_MobileLogin" = "手机登录";
+"2.0_EmailLogin" = "邮箱/用户名登录";
+"2.0_Email" = "邮箱";
+"2.0_EnterEmail" = "输入电子邮箱/用户名";
+"2.0_Search" = "搜索";
+"2.0_SearchResults" = "搜索结果";
+"2.0_SelectCountryVC" = "选择地区";
+"2.0_MoblieFomatNotCorrect" = "请输入正确手机号";
+"2.0_EamilFomatNotCorrect" = "请输入正确邮箱";
+"2.0_UserNameError" = "用户名或密码错误";
+"2.0_UserNameBeing" = "Wallet ID已经存在";
+"2.0_GetVerificationCode" = "获取验证码";
+"2.0_GetNewCode" = "重新发送";
+"2.0_MobileRegister" = "手机创建";
+"2.0_EmailRegister" = "邮箱创建";
+"2.0_EnterVerificationCode" = "输入验证码";
+"2.0_NextStep" = "下一步";
+"2.0_NextStep_Next" = "下一步";
+"2.0_UserAgree" = "创建钱包表示您同意";
+"2.0_TermsService" = "《IDCW服务条款》";
+"2.0_AccountPassWord" = "设置密码";
+"2.0_ConfirmPassWord" = "确认密码";
+"2.0_UserName" = "设置用户名";
+"2.0_EnterAccountPassWord" = "设置密码，6-16位字母和数字";
+"2.0_EnterConfirmPassWord" = "确认密码，6-16位字母和数字";
+"2.0_EnterUserName" = "设置用户名，4-16位字母或数字";
+"2.0_TermsServiceVC" = "IDCW服务条款";
+"2.0_VerificationCodeSend" = "验证码已发送到您的手机";
+"2.0_VerificationCodeSendEmail" = "验证码已发送到您的邮箱";
+"2.0_VerificationCodeSendEmailFail" = "验证码发送失败";
+"2.0_AccountBeingMobile" = "手机已注册";
+"2.0_AccountBeingEmail" = "邮箱已注册";
+"2.0_PasswordMismatch" = "两次密码不一致";
+"2.0_VerificationCodeError" = "验证码错误或已失效，请重新获取";
+"2.0_RegisterFail" = "创建钱包失败";
+"2.0_SuccessAgain" = "创建成功，请重新登录";
+"2.0_EnterRegidterEmail" = "输入电子邮箱";
+"2.0_PayPasswordMismatch" = "PIN不一致";
+"2.0_EamilPayFomatNotCorrect" = "请输入已绑定的邮箱";
+"2.0_MobilePayFomatNotCorrect" = "请输入已绑定的手机";
+"2.0_NewVersion" = "发现新版本";
+"2.0_UpdateVersion" = "请下载新版本";
+"2.0_Update" = "更新";
+
+
+
+"2.1_login" = "登录钱包";
+"2.1_FindWalletNewVC" = "恢复资产-新钱包";
+"2.1_PassWordFormat" = "密码必须为6-16位，至少包含一个字母和数字";
+"2.1_FindWalletSuccess" = "恢复资产成功";
+"2.1_IntoWallet" = "进入钱包";
+"2.1_FindVerifySuccess" = "验证成功";
+"2.1_FindWalletSafe" = "为了保障您的资产安全\n旧钱包已失效，请重新创建新钱包";
+"2.1_FindWalletRecover" = "找回的资产恢复至新钱包里";
+"2.1_FindCreatWallet" = "创建新钱包";
+"2.0_Space" = "不能有空格";
+
+
+
+//
+"2.1_Record_Time_Year_key" = "年";
+"2.1_Record_Time_Month_key" = "月";
+"2.1_Record_Time_Week_key" = "周";
+"2.1_Record_Time_Day_key" = "天";
+"2.1_Record_Time_Hour_key" = "小时";
+"2.1_Record_Time_Min_key" = "分钟";
+"2.1_Record_Time_Sec_key" = "秒";
+"2.1_Record_Time_Later_key" = "之前";
+"2.1_Save_To_Album" = "保存至相册";
+"2.1_Receive_Tips_Text" = "为了保护您的隐私，每次接收操作时，\n系统都将使用新的地址，旧地址仍可使用";
+"2.1_app_version" ="版本号";
+"2.1_market_empty_tips" ="即将开放，敬请期待";
+"2.1_Recover_Back_Order_tips" = "请按顺序点击单词\n以确认您已备份";
+"2.1_Clear_Select_Text" = "清空";
+"2.1_Confirmed" = "个确认";
+"2.1_Customer_Service" = "客户服务";
+"2.1_Business_Cooperatio" = "商务合作";
+"2.1_QQ_Group" = "QQ群";
+"2.1_Facebook" = "Facebook";
+"2.1_Twitter" = "Twitter";
+"2.1_Telegram" = "Telegram";
+"2.1_Open_Album_Permissions_Tips" = "开启相册权限";
+"2.1_Open_Album_Permissions_Action_Tips" = "请手动设置相册权限";
+"2.1_Save_To_Album_Success" = "保存至相册成功";
+"2.1_Save_To_Album_Failure" = "保存至相册失败";
+"2.1_Word_Order_Error_Tips" = "单词顺序错误，请核实后重新输入";
+"2.1_About_App" = "关于";
+"2.1_PhraseDone" = "确定";
+
+
+
+
+
+"2.1_MJRefreshBackHeaderIdleText" = "下拉加载更多";
+"2.1_MJRefreshBackFooterIdleText" = "上拉加载更多";
+"2.1_MJRefreshBackFooterPullingText" = "松开立即加载更多";
+"2.1_MJRefreshBackFooterRefreshingText" = "正在加载";
+"2.1_MJRefreshBackFooterNoMoreDataText" = "————————  END  ————————";
+
+
+
+// 2.1.2 增加
+"2.1_Notifications" = "通知";
+"2.1_Delete" = "删除";
+"2.1_DidLoadSuccess" = "刷新成功";
+"2.1_ScanButton" = "扫一扫";
+
+
+// 2.1.3 增加
+"2.1_Feedback" = "用户反馈";
+"2.1_Introduction" = "功能介绍";
+"2.1_CheckUpdate" = "检查新版本";
+"2.1_NewVersionFound" = "检测到新版本";
+"2.1_UpdateNow" = "现在更新";
+"2.1_LatestVersion" = "已是最新版本";
+"2.1_FeedBackPlaceHolder" = "请输入反馈，我们将为您不断改进。";
+"2.1_FeedBackAddress" = "填写您的手机或邮箱";
+"2.1_Submit" = "提交";
+"2.1_SubmitSuccessful" = "提交成功";
+"2.1_Chart" = "走势图";
+"2.1_DefaulView" = "默认显示";
+"2.1_Asset" = "资产走势";
+"2.1_Price" = "行情走势";
+"2.1_SevenDay" = "近七天";
+"2.1_AssetValueTitle" = "资产走势";
+"2.1_UserNameFormat" = "Wallet ID必须为4-16位字母或数字，不能有特殊符号或汉字";
+"2.1_NoNotifications" = "暂时没有消息";
+"2.1_NoIntroduction" = "暂时没有版本信息";
+"2.1_MarketPrice" = "近24小时行情走势";
+
+
+// 2.2 增加
+"2.2_RecoverEmail" = "邮箱找回";
+"2.2_RecoverMobile" = "手机找回";
+"2.2_SetNewPIN" = "设置新PIN";
+"2.2_ConfirmNewPIN" = "确认新PIN";
+"2.2_SignUp" = "创建";
+
+
+// 2.2.1 增加
+"2.2.1_ConfirmPay" = "确认支付";
+"2.2.1_PINError" = "\nPIN不正确，请重新输入\n";
+"2.2.1_AgainEnter" = "重新输入";
+"2.2.1_ForgotPIN" = "忘记PIN";
+"2.2.1_InsufficientBalance" = "余额不足";
+"2.2.1_PaymentTimeout" = "发送超时";
+"2.2.1_ServerError" = "服务器异常";
+"2.2.1_Retry" = "重试";
+"2.2.1_Back" = "返回";
+"2.2.1_VerifyTouchID" = "请以指纹验证支付";
+"2.2.1_VerifyFaceID" = "请以Face ID验证支付";
+"2.2.1_RepeatPayment" = "重复支付";
+"2.2.1_TokenWalletInsuff" = "余额不足，无法发送";
+"2.2.1_FailedTransfer" = "转汇失败";
+"2.2.1_IsPending" = "您有基于以太坊(Ethereum)的数字资产正在等待发送，\n该笔发送有确认以后才能发起另一笔。";
+"2.2.1_WhyFailed" = "为什么显示转汇失败?";
+"2.2.1_GeneralCause" = "\t一般的原因：\n\n\t1、矿工费不够：这种情况会在 etherscan.io 上显示红色的 “out of gas” 字样，遇到这种情况可以调高矿工费；\n\t2、代币余额不足；\n\t3、其他原因；\n\n\t请点击链接跳转至区块浏览查询";
+
+
+// 2.2.3增加
+"2.2.3_Me" = "我";
+"2.2.3_AcountSafe" = "账户与安全";
+"2.2.3_WalletName" = "Wallet ID";
+"2.2.3_AcountMobile" = "手机号";
+"2.2.3_AcountEmail" = "邮箱";
+"2.2.3_AcountBackUpSeed" = "备份助记词";
+"2.2.3_AcountPINManagment" = "PIN管理";
+"2.2.3_AcountNotBind" = "未绑定";
+"2.2.3_AcountBackUpNot" = "未备份";
+"2.2.3_AcountBackUp" = "已备份";
+"2.2.3_AcountPINSet" = "已设置";
+"2.2.3_LogOutWallet" = "退出钱包";
+"2.2.3_Bind" = "绑定";
+"2.2.3_Modification" = "更改";
+"2.2.3_BindSuccess" = "绑定成功";
+"2.2.3_ModificationSuccess" = "更改成功";
+"2.2.3_BindFail" = "绑定失败";
+"2.2.3_ModificationFail" = "更改失败";
+"2.2.3_CreatWallet" = "创建钱包";
+"2.2.3_RecoverWallet" = "使用IDCW助记词恢复";
+"2.2.3_OldVersion" = "旧版入口";
+"2.2.3_OldLogin" = "该账号已备份过助记词，不可登录旧版本\n请使用助记词恢复资产";
+"2.2.3_ExitTips" = "退出前请牢记助记词";
+"2.2.3_BackupExit" = "请先备份助记词才能退出";
+"2.2.3_IKnow" = "知道了";
+"2.2.3_BindMobile" = "绑定手机号";
+"2.2.3_BindEmail" = "绑定邮箱";
+"2.2.3_ModifyMobile" = "更改手机号";
+"2.2.3_ModifyEmail" = "更改邮箱";
+"2.2.3_AlreadyBindMobile" = "手机号已经绑定过";
+"2.2.3_AlreadyBindEmail" = "邮箱已经绑定过";
+"2.2.3_PINIsLock" = "PIN已锁定，请在[IDCWH]小时[IDCWM]分后重试";
+"2.2.3_PINIsLockHours" = "PIN已锁定，请在[IDCWH]小时后重试";
+"2.2.3_PINIsLockMintues" = "PIN已锁定，请在[IDCWH]分后重试";
+"2.2.3_PINIsValid" = "你还可以输入[IDCW]次";
+"2.2.3_SeedDevices" = "该钱包在其他设备上使用助记词恢复";
+
+"2.2.3_WalletIDSettingTipBlack" = "不区分大小写，使用4-16位字母或数字\n";
+"2.2.3_WalletIDSettingTipRed" = "Wallet ID 确定之后不可更改";
+"2.2.3_BackupMemorizingWordsTipBlack" = "为了保障您的资产安全，\n请准确地将12个单词按顺序写下放在安全的地方";
+"2.2.3_BackupMemorizingWordsTipRed" = "退出钱包后必须使用助记词恢复资产\n未及时备份助记词，如丢失资产，概不负责";
+"2.2.3_SettingMemorizingWordsTip" = "输入12个助记词";
+"2.2.3_InvalidSeed" = "无效的助记词";
+"2.2.3_Scan" = "二维码";
+"2.2.3_ScanLoginTip" = "仅用于授权登录，请勿扫描收币地址";
+"2.2.3_PCLoginSure" = "IDCW PC端登录确认";
+"2.2.3_PCLoginInvalid" = "登录确认已经失效，请重新扫描二维码";
+"2.2.3_ReScan" = "重新扫一扫";
+"2.2.3_InvalidScan" = "无效二维码";
+"2.2.3_WalletIDSettingTitle" = "请输入Wallet ID";
+"2.2.3_SettingMemorizingWordsTitle" = "助记词";
+"2.2.3_NowBackupMemorizingWordsTipRed" = "旧版入口仅能使用一次，请牢记助记词\n助记词是恢复资产的唯一方式";
+"2.2.3_BackupMemorizingWordsSuccessTitle" = "备份助记词";
+"2.2.3_BackupMemorizingWordsSuccessInfo" = "备份助记词成功\n请使用助记词恢复资产";
+"2.2.3_UnopendFindWalletPW" = "暂未开放导入功能";
+"2.2.3_UnsupportImport" = "暂不支持非IDCW助记词导入";
+"2.2.3_ContactIDCW" = "忘记登录密码请联系\nsupport@idcw.io";
+"2.2.3_IPRetry" = "请勿使用同一IP频繁创建";
+
+
+// 3.0 增加交易模块相关
+"3.0_FlashExchange"       = "币币闪兑";
+"3.0_OTCExchange"         = "法币OTC";
+"3.0_FlashExchangeRecord" = "闪兑记录";
+"3.0_OTCExchangeRecord"   = "OTC记录";
+"3.0_ExchangeDetail"      = "兑换详情";
+"3.0_ExchangeNoData"      = "暂无交易记录";
+
+"3.0_ExchangeOut"         = "兑出";
+"3.0_ExchangeOutDetialState"   = "兑出状态";
+"3.0_ExchangeEnterDetialState" = "兑入状态";
+"3.0_ExchangeEnter"       = "兑入";
+"3.0_ExchangeEnterState"  = "兑入状态";
+"3.0_ExchangeRate"              = "兑换汇率";
+"3.0_ExchangeTimer"             = "兑换时间";
+"3.0_ExchangeOutTotalMinerFee"  = "兑出矿工费";
+"3.0_FlashExchangeCheckPINTip"  = "闪兑为实时交易，需每次开启前\n输入PIN，以保证您的资产安全";
+
+//王朴 币币兑换
+"3.0_BBExchange" = "币币闪兑";
+"3.0_RealTimeExchangRate" = "实时汇率";
+"3.0_ExchangeOutType" = "兑出币种";
+"3.0_ExchangeInType" = "兑入币种";
+"3.0_InputExchangOut" = "输入兑出数量";
+"3.0_InputExchangIn" = "输入兑入数量";
+"3.0_CanExchangeOutBalance" = "可兑出余额";
+"3.0_MinCanExchangBalance" = "最小可兑出";
+"3.0_MaxCanExchangeBalance" = "最大可兑出";
+"3.0_Exchange" = "兑换";
+"3.0_BottomTips" = "点击兑换之后将自动完成，不能返回";
+"3.0_RightHeadTips" = "Swap!t 是一个服务全球上百万用户的币币闪兑系统，去中心化，简单，轻松，无交易手续费。\n\n左边是您兑出 (卖) 的币，右边是您兑入 (买) 的币。输入数量后，请点击“兑换”数字货币将自动提取存入。兑换后可立刻看到状态，但不同币种有不同确认数。\n\nSwap!t 目前提供BTC和VHKD兑换市场，其他兑换市场即将开放。去中心化加密数字货币交易更安全、更透明，是未来的趋势。";
+"3.0_SelectExchangIn" = "选择兑入币种";
+"3.0_SelectExchangOut" = "选择兑出币种";
+"3.0_HelpTitle" = "Swap!t";
+"3.0_ExchangeAlert_1" = "请输入合适的币额";
+"3.0_WrongPair" = "暂不支持该交易对";
+//兑换Result
+"3.0_ExchangeResult" = "兑换结果";
+"3.0_ExchangeSucess" = "兑换成功";
+"3.0_ExchangeOut" = "兑出";
+"3.0_ExchangeIn" = "兑入";
+"3.0_ExchangeTips" = "完成后，兑入的币种将自动显示在您的闪兑记录";
+"3.0_IKnow" = "我知道了";
+"3.0_Refresh" = "刷新";
+"3.0_NetWorkBusy" = "网络繁忙";
+"3.0_BalanceInsuff" = "可兑出余额不足";
+"3.0_SwapFail" = "兑换失败";
+"3.0_TokenWalletInsuff" = "余额不足，无法兑换";
+"3.0_MinNum" = "最小兑换数量为";
+
+
+// OTC相关
+"3.0_NowTimeExhangeRecordTip"  = "最多同时处理5笔买卖单";
+"3.0_OTCExchangeBuyCurrency"  = "买币";
+"3.0_OTCExchangeBuyCurrencyType"  = "买入币种";
+"3.0_OTCExchangeBuyCurrencyTypePlacehoder"  = "选择买入币种";
+"3.0_OTCExchangeBuyCurrencyCount"  = "买入数量";
+"3.0_OTCExchangeBuyCurrencyPay"  = "支付法币";
+"3.0_OTCExchangeBuyCurrencyPayPlacehoder"  = "选择支付法币";
+"3.0_OTCExchangeBuyCurrencyPayMthod"  = "支付方式";
+"3.0_OTCExchangeBuyCurrencyPayMthodPlacehoder"  = "选择支付方式";
+"3.0_OTCExchangeBuyCurrencyRule"  = "《OTC买卖币规则》";
+"3.0_OTCExchangeBuyCurrencyBtn"  = "询价";
+
+"3.0_OTCExchangeBuyAndSellCurrencyRule"  = "我已阅读并同意";
+"3.0_OTCExchangeBuyAndSellCurrencyRulePlese"  = "请先阅读并同意";
+
+"3.0_OTCExchangeSellCurrency"  = "卖币";
+"3.0_OTCExchangeSellCurrencyType"  = "卖出币种";
+"3.0_OTCExchangeSellCurrencyTypePlacehoder"  = "选择卖出币种";
+"3.0_OTCExchangeSellCurrencyCount"  = "卖出数量";
+"3.0_OTCExchangeSellCurrencyPay"  = "收款法币";
+"3.0_OTCExchangeSellCurrencyPayPlacehoder"  = "选择收款法币";
+"3.0_OTCExchangeSellCurrencyPayMthod"  = "收款方式";
+"3.0_OTCExchangeSellCurrencyPayMthodPlacehoder"  = "选择收款方式";
+"3.0_OTCExchangeSellCurrencyBtn"  = "询价";
+
+
+
+// 承兑商相关
+"3.0_Save"  = "保存";
+"3.0_Acceptant"  = "承兑商";
+"3.0_AcceptantOfRight"  = "承兑商的权利:";
+"3.0_AcceptantOfRightInfo"  = "成为承兑商可以收到系统匹配的用户买币单和卖币单，作出报价，\n与之交易。";
+"3.0_AcceptantApplyStart"  = "申请开通";
+"3.0_AcceptantApply"  = "申请承兑商";
+
+"3.0_AcceptantApplySwitch"  = "如何成为承兑商:";
+"3.0_AcceptantApplySwitchInfo"  = "1. 填写提供流动性的法币币种及资金量，接卖币单；填写接收流动性的法币币种，接买币单；\n\n2. 提交并充值相应的保证金，24小时内客服审核通过，并开通承兑商权限。";
+
+"3.0_AcceptantApplyObligation"  = "承兑商的义务:";
+"3.0_AcceptantApplyObligationInfo"  = "1. IDCW将从承兑商保证金扣除一定金额作为服务费，具体费用详见《保证金交易规则》，用户不用承担任何费用；\n\n2. 承兑商在交易过程中因未足额支付被用户申诉，判断为承兑商的问题，将从保证金账户扣除一定金额作为违约金，具体费用详见《保证金交易规则》；\n\n3. 承兑商在处理用户卖单过程中，主动取消交易视为违约，违约一定次数，将从承兑商保证金扣除一定金额作为违约金，具体费用详见《保证金交易规则》；\n\n4. 承兑商保证金额度不足时，需补充后才能继续接单。";
+
+"3.0_AcceptantApplyBondDescribe"  = "保证金可支持多种数字货币，更多信息请查看";
+"3.0_AcceptantApplyBondRuleRead"  = "《保证金交易规则》";
+"3.0_AcceptantApplyBondRule"  = "保证金交易规则";
+"3.0_AcceptantApplyRead"  = "我已阅读，马上申请" ;
+
+"3.0_CurrencyTypeSwitch"  = "选择币种";
+"3.0_CurrencyTypeSwitchDigital"  = "选择币种";
+"3.0_AcceptantCurrencyTypeSwitch"  = "选择币种";
+"3.0_AcceptantAddBuyCurrency"  = "添加币种及限额";
+"3.0_AcceptantEditAddBuyCurrency"  = "编辑币种及限额";
+"3.0_AcceptantAddSellCurrency"  = "添加币种及限额";
+"3.0_AcceptantEditAddSellCurrency"  = "编辑币种及限额";
+"3.0_CurrencyType"  = "法币币种";
+"3.0_CurrencyTypeSwith"  = "选择法币";
+"3.0_CurrencyCount"  = "资金量";
+
+"3.0_AcceptantCurrencyType"  = "币种";
+"3.0_AcceptantCurrencyMax"  = "上限";
+"3.0_AcceptantCurrencyMin"  = "下限";
+"3.0_OfferPricePremium"  = "报价溢价";
+"3.0_AcceptantBondCurrencyType" = "保证金币种";
+"3.0_AcceptantBondCurrencyTypeSwitch" = "选择保证金币种";
+"3.0_AcceptantBondCount" = "保证金数量";
+"3.0_AcceptantBondCountPlaceholder" = "请输入数量";
+"3.0_AcceptantBondPickIn" = "充值保证金";
+"3.0_AcceptantBondPickInInfo" = "矿工费将从余额中扣除，如果余额不足，将从发送数量中扣除";
+
+"3.0_AcceptantPickUpBond" = "提取保证金";
+"3.0_AcceptantPickUpCountPlaceholder" = "输入提取数量";
+"3.0_AcceptantOTCWater" = "[IDCW]保证金流水";
+
+"3.0_SurePickIn" = "确认充值";
+"3.0_SurePickUp" = "确认提取";
+"3.0_NowTimePickUp" = "立即提取";
+"3.0_NowTimePickIn" = "立即充值";
+"3.0_PickInComplete" = "充值完成";
+"3.0_PickUpComplete" = "提取完成";
+"3.0_PickUpCompleteInfo" = "成功提取保证金";
+"3.0_PickInCompleteInfo" = "成功充值保证金";
+"3.0_AcceptantApplySuccessInfo"  = "恭喜您， 已经成功申请开通承兑商\n请耐心等待， 客服将在24小时内完成审核";
+
+
+
+// 支付方式管理相关
+"3.0_PayMethodsManager" = "支付方式管理";
+"3.0_PleseAddPayMethods" = "请添加支付方式";
+"3.0_AddPayMethods" = "添加支付方式";
+"3.0_EditPayMethods" = "编辑支付方式";
+"3.0_AddPayMethodsSuccess" = "支付方式添加成功";
+"3.0_EditPayMethodsSuccess" = "支付方式编辑成功";
+"3.0_DeletePayMethodsSure" = "确认移除此支付方式";
+
+"3.0_CurrencySwith"  = "选择法币";
+"3.0_PayMethods"  = "支付方式";
+"3.0_PayMethodsSwitch"  = "选择支付方式";
+"3.0_Name"  = "姓名";
+"3.0_NamePlaceholder"  = "输入姓名";
+"3.0_BankNamePlaceholder"  = "输入持卡人姓名";
+"3.0_Account"  = "账号";
+"3.0_AccountPlaceholder"  = "输入银行卡账号";
+"3.0_Bank"  = "银行";
+"3.0_BankCard"  = "银行卡";
+"3.0_BankTip"  = "(只能使用借记卡)";
+"3.0_BankPlaceholder"  = "输入银行名称";
+"3.0_BankSub"  = "支行";
+"3.0_BankBranchPlaceholder"  = "输入开户支行";
+"3.0_BankAddress"  = "银行地址";
+"3.0_BankAddressPlaceholder"  = "输入开户银行地址";
+"3.0_BankCodePlaceholder"  = "输入8-11位数字或英文组合";
+"3.0_BankCity"  = "城市";
+"3.0_BankCityPlaceholder"  = "输入开户银行所在城市";
+"3.0_paylist_ali"  = "支付宝";
+
+// 3.0 OTC增加  DK
+"3.0_DK_settPay" = "请先设置支付方式";
+"3.0_DK_sayLatter" = "稍后再说";
+"3.0_DK_goSetting" = "去设置";
+"3.0_DK_enterNum" = "输入数量";
+"3.0_DK_buyIn" = "确认买入";
+"3.0_DK_sellOut" = "确认卖出";
+"3.0_DK_matchTime" = "确定之后系统将在[IDCWS]s内给您匹配承兑商";
+"3.0_DK_otcRule" = "OTC买卖币规则";
+"3.0_DK_otcChooseType" = "选择支付方式";
+"3.0_DK_otcChooseReceiveType" = "选择收款方式";
+"3.0_DK_otcAlipay" = "支付宝";
+"3.0_DK_otcMinBuy" = "买入数量小于最小可买数量";
+"3.0_DK_otcMaxBuy" = "买入数量大于最大可买数量";
+"3.0_DK_otcMinSell" = "卖出数量小于最小可买数量";
+"3.0_DK_otcMaxSell" = "卖出数量大于最大可买数量";
+"3.0_DK_otcGoBind" = "去绑定";
+"3.0_DK_otcBindLater" = "稍后再说";
+"3.0_DK_otcGoBindTitle" = "请先绑定手机号";
+"3.0_DK_otcForbidTime" = "您已被禁止交易,[IDCWD]天[IDCWH]小时后才可下单";
+"3.0_DK_otcForbidTimeHour" = "您已被禁止交易,[IDCWH]小时后才可下单";
+"3.0_DK_otcForbidTimeDay" = "您已被禁止交易,[IDCWD]天后才可下单";
+"3.0_DK_lackMoney" = "余额不足";
+"3.0_DK_unavaiableAmount" = "申报数量无效";
+"3.0_DK_requestError" = "网络出错";
+"3.0_DK_orderStatus0" = "待报价";
+"3.0_DK_orderStatus1" = "待转账";
+"3.0_DK_orderStatus2" = "已转账";
+"3.0_DK_orderStatus3" = "已支付";
+"3.0_DK_orderStatus4" = "申诉中";
+"3.0_DK_orderStatus5" = "上传凭证";
+"3.0_DK_orderStatus6" = "等待审核";
+"3.0_DK_orderStatus7" = "审核退回";
+"3.0_DK_orderStatus8" = "审核放币";
+"3.0_DK_orderStatus9" = "已取消";
+"3.0_DK_orderStatus10" = "待退币";
+"3.0_DK_orderStatus11" = "同意退还";
+"3.0_DK_orderStatus12" = "已完成";
+
+// 3.0 OTC增加  BinBear
+"3.0_Bin_PayTypeManager" = "支付方式管理";
+"3.0_Bin_AcceptanceTitle" = "承兑商";
+"3.0_Bin_AcceptBuyCoin" = "买币设置";
+"3.0_Bin_AcceptSellCoin" = "卖币设置";
+"3.0_Bin_RechargeDeposit" = "充值保证金";
+"3.0_Bin_RechargeComplite" = "完成";
+"3.0_Bin_AcceptBuyCoinLimit" = "币种及限额";
+"3.0_Bin_AcceptBuyCurrency" = "币种";
+"3.0_Bin_EachAcceptanceLimit" = "每单上下限";
+"3.0_Bin_PricePremium" = "报价溢价";
+"3.0_Bin_AddCurrencyLimit_Buy" = "请添加币种和限额";
+"3.0_Bin_AddCurrencyLimit_Sell" = "请添加币种和限额";
+"3.0_Bin_LocalCuccencyType" = "收款币种及方式";
+"3.0_Bin_FiatCurrency" = "法币币种";
+"3.0_Bin_PayType" = "收款方式";
+"3.0_Bin_AddPayType" = "请添加法币币种和收款方式";
+"3.0_Bin_RestTime" = "剩余时间";
+"3.0_Bin_RestTimeTips" = "请在[IDCW]秒内处理，超时将自动关闭";
+"3.0_Bin_RestTimeOver" = "时间到";
+"3.0_Bin_NotChosse" = "很遗憾，未被选中";
+"3.0_Bin_NumberComplaints" = "被申诉次数:";
+"3.0_Bin_PaymentTime" = "平均响应时间:";
+"3.0_Bin_BuyingTime" = "平均支付时间:";
+"3.0_Bin_ResponseTime" = "平均响应时间:";
+"3.0_Bin_CollectionTime" = "平均确认收款时间:";
+"3.0_Bin_UnitPrice" = "单价";
+"3.0_Bin_TotalPrice" = "总价";
+"3.0_Bin_SellHe" = "报卖价";
+"3.0_Bin_BuyHe" = "报买价";
+"3.0_Bin_PremiumPrice" = "价格为溢价价格，可手动更改";
+"3.0_Bin_ConfirmSell" = "确认卖出";
+"3.0_Bin_ConfirmBuy" = "确认买入";
+"3.0_Bin_CancelSellOrBuy" = "取消";
+"3.0_Bin_ConfirmSellOrBuy" = "确认";
+"3.0_Bin_Buy" = "买";
+"3.0_Bin_Sell" = "卖";
+"3.0_Bin_TheBuyer" = "买家即将做出选择，请耐心等待";
+"3.0_Bin_TheSeller" = "卖家即将做出选择，请耐心等待";
+"3.0_Bin_InputPriceorrect" = "请输入正确的价格";
+"3.0_Bin_TotalPriceNotZeor" = "总价不能为0";
+"3.0_Bin_InputUnitPrice" = "输入单价";
+"3.0_Bin_DappTips" = "平台的DApp均由第三方提供\n你可自由选择区块链产品与服务";
+"3.0_Bin_Authorization" = "IDCW 授权";
+"3.0_Bin_ApplyID" = "申请获得您的Wallet ID";
+"3.0_Bin_Refused" = "拒绝";
+"3.0_Bin_Allow" = "允许";
+"3.0_Bin_AuthorizationFail" = "授权失败";
+"3.0_Bin_ReceivingParty" = "接收方";
+"3.0_Bin_Extraction" = "提取";
+"3.0_Bin_ConfirmExtraction" = "确认提取";
+"3.0_Bin_InputExtractionAddress" = "输入提取地址";
+"3.0_Bin_ExtractionAddress" = "地址";
+"3.0_Bin_RepeatWithdrawl" = "重复提现";
+
+
+
+
+
+// 3.0 Acceptant  王朴
+"3.0_AcceptantAddCurrencyAndAmount"  = "请添加付款币种和资金量";
+"3.0_AcceptantInputPercentage"  = "输入百分比";
+"3.0_AcceptantMinLimitation"  = "输入下限数量";
+"3.0_AcceptantMaxLimitation"  = "输入上限数量";
+"3.0_AcceptantPremiumPriceTips"  = "1. 溢价设置是为了方便承兑商报价的时候有个参考；\n2. 溢价范围 -10%～+10%；\n3. 正数代表高于市场价，负数代表低于市场价；\n4. 市场价是系统从idcm.io换算的，仅为参考。";
+"3.0_AcceptantSellCoinCurrencyAndLimitation"  = "币种及限额";
+"3.0_AcceptantAcceptCurrencyTypeAndAmount"  = "付款币种及资金量";
+"3.0_AcceptantEdit"  = "编辑";
+"3.0_AcceptantConfirmRemoveCurrecyAndAmount"  = "确定移除该付款币种及资金量";
+"3.0_AcceptantRechargeCashDepositSuccessful"  = "保证金充值成功";
+"3.0_AcceptantCashDepositManage"  = "保证金管理";
+"3.0_AcceptantCashDepositBalance"  = "保证金余额";
+"3.0_AcceptantCashDepositOut"  = "审核期间(24小时内)\n暂无法提取保证金";
+"3.0_AcceptantNoCashDepositError"  = "暂无流水";
+"3.0_AcceptantCashDepositManageTips"  = "点击币种可查看保证金流水，拖动设置扣款顺序";
+"3.0_AcceptantCashDepositOutTips"  = "您有未完成订单，完成订单后\n再提取保证金";
+"3.0_AcceptantPickIn" = "充值";
+"3.0_AcceptantPickUp" = "提取";
+"3.0_AcceptantBalance" = "余额";
+"3.0_AcceptantSuspend" = "已暂停";
+"3.0_AcceptantCoinDeleteTip" = "确定移除该币种及限额";
+"3.0_AcceptantCurrencyDeleteTip" = "确定移除该收款币种及方式";
+"3.0_AcceptantEditCurrencyAndMout" = "编辑法币及资金量";
+"3.0_AcceptantAddCurrencyAndMout" = "添加法币及资金量";
+"3.0_AcceptantFrozen" = "系统已暂停您的承兑商权限\n请及时补充保证金";
+"3.0_AcceptantBalanceNotEnough" = "保证金不足";
+"3.0_AcceptantBalanceRecharge" = "补充保证金";
+
+"3.0_AcceptantStateCheck" = "审核中";
+"3.0_AcceptantStateNotPass" = "去开通";
+"3.0_AcceptantStateNotset" = "去设置";
+"3.0_AcceptantInputCurrencyAmount" = "输入资金量";
+"3.0_AcceptantOutPremium" = "超出了溢价范围：-10%～+10%";
+"3.0_AcceptantOutLimitation" = "上限必须大于下限";
+"3.0_AcceptantReAddCoinType" = "该币种已添加";
+"3.0_AcceptantReAddPayType" = "该支付方式已添加";
+"3.0_AcceptantRecievePayType" = "选择收款方式";
+// 3.0 承兑商 保证金 fisker
+"3.0_AcceptantBondCountPlaceholder_in" = "请输入数量(最小充值数量为[IDCW])";
+"3.0_AcceptantBondCountBalance" = "保证金余额";
+
+"3.0_Acceptant_order_relation" = "关联订单号";
+"2.1_No_Acceptantce_water" = "暂无流水";
+
+
+
+// 3.0 OTC zjw
+"3.0_JWAcceptance_Buy" = "买";
+"3.0_JWAcceptance_Sell" = "卖";
+"3.0_JWAcceptance_Buyer" = "买家";
+"3.0_JWAcceptance_Seller" = "卖家";
+"3.0_JWAcceptance_DidOffer" = "已报价，等待[IDC]做出选择";
+"3.0_JWAcceptance_NOOffer" = "未报价";
+"3.0_JWAcceptance_OfferDidSelected" = "交易中，请及时跟进";
+
+"3.0_WorkStation_Buy" = "买入";
+"3.0_WorkStation_Sell" = "卖出";
+"3.0_WorkStation_PriceSort" = "价格排序";
+"3.0_WorkStation_AvgResTimeSort" = "平均收款时间排序";
+"3.0_WorkStation_AvgPayTimeSort" = "平均支付时间排序";
+"3.0_WorkStation_RestTime" = "剩余时间";
+"3.0_WorkStation_CancelOrder" = "确认取消";
+"3.0_WorkStation_CancelOrderTip" = "今日是第[IDC1]次取消交易，[IDC2]小时内取消[IDC3]次将禁止交易[IDC4]小时";
+"3.0_WorkStation_TimeOut" = "时间到";
+"3.0_WorkStation_TimeOutTip1" = "很遗憾没有承兑商报价";
+"3.0_WorkStation_TimeOutTip2" = "很遗憾你未做出选择";
+"3.0_WorkStation_IKown" = "我知道了";
+"3.0_WorkStation_ConfirmOrder" = "确认交易";
+"3.0_WorkStation_ConfirmOrderTip" = "确认以 [IDC1] [IDC2] 价格与 [IDC3] 交易";
+"3.0_WorkStation_Wait" = "请稍等，系统正在匹配中…";
+"3.0_WorkStation_ComplaintsCount" = "被申诉次数";
+"3.0_WorkStation_AvgResTime" = "平均收款时间";
+"3.0_WorkStation_AvgPayTime" = "平均支付时间";
+
+"3.0_Chat_TakePhoto" = "拍摄";
+"3.0_Chat_Photo" = "从相册中选中";
+"3.0_Chat_Cancle" = "取消";
+"3.0_Chat_InputPlaceholder" = "请跟卖家联系";
+"3.0_Chat_InputPlaceholder1" = "请跟买家联系";
+
+"3.0_JWRecord_IKown" = "我知道了";
+"3.0_JWRecord_NoUserBuySell" = "暂无用户下单";
+
+
+//In.提取;Out.充值;Appeal.申诉违约金;CancelOrder.撤销订单违约;Buy.买币服务费;Sell.卖币服务费
+"3.0_Acceptantcell_type_In" = "充值";
+"3.0_Acceptantcell_type_Out" = "提取";
+"3.0_Acceptantcell_type_Appeal" = "申诉违约金";
+"3.0_Acceptantcell_type_Sell" = "卖币服务费";
+"3.0_Acceptantcell_type_Buy" = "买币服务费";
+"3.0_Acceptantcell_type_CancelOrder" = "取消订单违约金";
+
+"3.0_PayMethods_ali_account"  = "支付宝账号";
+
+
+// OTC详情
+"3.0_Hy_OTCExchangeDetailTitle"  = "交易详情";
+"3.0_Hy_OTCExchangeDetailOrderNoTitle"  = "订单号";
+"3.0_Hy_OTCExchangeDetailBuy"  = "买入";
+"3.0_Hy_OTCExchangeDetailSell"  = "卖出";
+"3.0_Hy_OTCExchangeDetailPay"  = "付款";
+"3.0_Hy_OTCExchangeDetailRecive"  = "收款";
+"3.0_Hy_OTCExchangeDetailSeller"  = "卖家";
+"3.0_Hy_OTCExchangeDetailBuyer"  = "买家";
+"3.0_Hy_OTCExchangeDetailPayNo"  = "付款参考号";
+"3.0_Hy_OTCExchangeDetailReciveNo"  = "收款参考号";
+"3.0_Hy_OTCExchangeDetailPayMethodNoTitle"  = "付款时请备注付款参考号";
+"3.0_Hy_OTCExchangeDetailCancelOrder"  = "取消交易";
+"3.0_Hy_OTCExchangeDetailPayedOrder"  = "已转账";
+"3.0_Hy_OTCExchangeDetailOtherPhone"  = "对方电话";
+"3.0_Hy_OTCExchangeDetailCallPhone"  = "呼叫";
+"3.0_Hy_OTCExchangeDetailSwicthPayMethod"  = "选择对方收款方式";
+"3.0_Hy_OTCExchangeDetailHandleDelay"  = "很遗憾未能成交";
+"3.0_Hy_OTCExchangeDetailSurePayTitle"  = "确认转账";
+"3.0_Hy_OTCExchangeDetailSurePaySubTitle"  = "已向卖家转账";
+"3.0_Hy_OTCExchangeDetailCancelSubTitle"  = "您将不会收到数字资产";
+"3.0_Hy_OTCExchangeDetailUpload"  = "上传";
+"3.0_Hy_OTCExchangeDetailUploadTip"  = "请提供付款界面截图，保持信息清晰";
+"3.0_Hy_OTCExchangeDetailSellSetDelay"  = "延长时间";
+"3.0_Hy_OTCExchangeDetailSellHasSetDelay"  = "已延长时间";
+"3.0_Hy_OTCExchangeDetailSellAppeal"  = "提请申诉";
+"3.0_Hy_OTCExchangeDetailSellReciveTitle"  = "确认收款";
+"3.0_Hy_OTCExchangeDetailSellReciveSubTitle"  = "请确认您的到账金额和订单金额\n一致，一旦确认将无法取回";
+"3.0_Hy_OTCExchangeDetailUploadTitle"  = "上传凭证";
+
+"3.0_Hy_OTCExchangeDetailBuyStateDoing"  = "请在[IDCW_HY]分钟内完成付款，超时将自动取消订单!\n如果需要延长时间，请联系卖家协商。";
+"3.0_Hy_OTCExchangeDetailBuyStatePayed"  = "耐心等待卖家确认款项是否到账";
+"3.0_Hy_OTCExchangeDetailBuyStatePayedHandleDelay"  = "对方超时未操作，客服介入中";
+"3.0_Hy_OTCExchangeDetailBuyStateCompleted"  = "交易完成，[IDCW_HY]已发到您的地址";
+"3.0_Hy_OTCExchangeDetailBuyStateCancelled"  = "已取消";
+"3.0_Hy_OTCExchangeDetailBuyStateAppeal"  = "对方提请申诉，请在[IDCW_HY]分钟内操作";
+"3.0_Hy_OTCExchangeDetailBuyStateAppealDelay"  = "您超时未操作，客服介入中";
+"3.0_Hy_OTCExchangeDetailBuyStateAppealDoing"  = "申诉中，请上传凭证";
+"3.0_Hy_OTCExchangeDetailBuyStateAppealCheching"  = "等待审核";
+"3.0_Hy_OTCExchangeDetailBuyStateAppealCheched"  = "审核完成";
+
+
+"3.0_Hy_OTCExchangeDetailSellStateDoing"  = "请耐心等待买家完成付款，如果买家长时间没回应，\n您可以联系对方，超时将自动取消订单。";
+"3.0_Hy_OTCExchangeDetailSellStatePayed"  = "对方已转账，请在[IDCW_HY]分钟内操作";
+"3.0_Hy_OTCExchangeDetailSellStateCancelled"  = "对方已取消";
+"3.0_Hy_OTCExchangeDetailSellStateCompleted"  = "交易完成";
+"3.0_Hy_OTCExchangeDetailSellStateAppealDoing"  = "申诉中，请等待对方的处理结果";
+"3.0_Hy_OTCExchangeDetailSellStateAppealUploadWaitting"  = "申诉中，请等待对方上传凭证";
+"3.0_Hy_OTCExchangeDetailSellStateAppealUploadedCheckPicture"  = "对方已上传凭证，等待审核";
+"3.0_Hy_OTCExchangeDetailSellStateAppealCheched"  = "申诉完成";
+"3.0_Hy_SureDeletePhoto"  = "确定要删除此照片";
+"3.0_Hy_cancel"  = "取消";
+"3.0_Hy_selectPhotoMaxCount"  = "最多只能选择[IDCW_HY]张图片";
+
+
+"3.0_AcceptantBondCountTip_in" = "最小充值数量为 [IDCWN] [IDCWC]";
+// OTC支付方式
+"3.0_jf_pay_edit" = "保存";
+
+"3.0_Hy_NoPhotoAuthority"  = "请在设备的\"设置-隐私-照片\"选项中，允许IDCW访问你的手机相册";
+"3.0_Hy_PhotoAlbumPreview"  = "预览";
+"3.0_Bin_SendNumberNotZero" = "发送数量不能为0";
+
+"3.0_jf_pay_Complete" = "完成";
+"3.0_del_PayMethods_Success_msg" = "移除成功";
+"3.0_Bin_OngoingOTCOrders" = "您有未完成的OTC订单";
+"3.0_jf_pickup_fail_msg" = "提取失败";
+"3.0_jf_pickin_fail_msg" = "充值失败";
+"3.0_Bin_WitdrawlMinNum" = "最小提取数量为";
+"3.0_DK_lackSellMoney" = "可卖出余额不足";
+"3.0_Bin_ParameterError" = "参数错误";
+"3.0_Bin_WithdrawalConfirmation" = "确认提取";
+"3.0_jf_pay_add" = "提交";
+"3.0_Bin_TokenWalletInsuff" = "ETH余额不足，无法卖出";
+"3.0_jw_Yes" = "是";
+"3.0_jw_No" = "否";
+"3.0_BinBear_ETHInsufficientSend" = "ETH余额不足，无法发送";
+"3.0_BinBear_ETHInsufficientWithdrawl" = "ETH余额不足，无法提现";
+
+// OTC优化
+"3.0_BinBear_YouOffer" = "你的报价";
+"3.0_BinBear_Price" = "(单价)";
+"3.0_BinBear_PriceNum" = "(单价*数量)";
+"3.0_BinBear_TotalPrice" = "总价";
+"3.0_BinBear_PremiumPrice" = "(单价，已设置溢价 [IDCW])";
+"3.0_BinBear_LastPrice" = "市场价格";
+"3.0_Hy_OptionalCoinTitle" = "自选";
+
+"3.0_PayMethods_wechat_account"  = "微信账号";
+"3.0_PayMethods_qrcode_title"  = "添加收款二维码";
+"3.0_paylist_wechat"  = "微信";
+"3.0_DeleteQRCodeSure" = "确认移除此二维码";
+
+// 邀请链
+"3.0_Bin_InvitationFriends"  = "邀请好友";
+"3.0_Bin_InvitationCode" = "邀请码(选填)";
+"3.0_Bin_ShareWechat"  = "微信好友";
+"3.0_Bin_ShareMoments" = "微信朋友圈";
+"3.0_Bin_ShareWeibo"  = "新浪微博";
+"3.0_Bin_ShareTwitter" = "Twitter";
+"3.0_Bin_ShareFacebook"  = "Facebook";
+"3.0_Bin_ShareTelegram" = "Telegram";
+"3.0_Bin_ShareCopy" = "已复制邀请码";
+"3.0_Bin_InstallWeChat" = "请安装微信后分享";
+
+// 维护
+"3.0_Bin_MaintenanceUser" = "尊敬的IDC Wallet用户：";
+"3.0_Bin_MaintenanceContent" = "为了给您带来更好的使用体验，IDCW正在进行系统的优化升级，升级期间将暂停服务。若您遇到任何问题，请通过support@idcw.io联系客服，我们将竭诚为您解决。非常感谢您的理解与支持。";
+"3.0_Bin_MaintenanceTips" = "IDCW 团队";
+"3.0_Bin_MaintenanceUpgrading" = "正在升级中… ";
+"3.0_Bin_SafeUpdateTitle" = "IDCW 安全升级";
+"3.0_Bin_SafeUpdateTipOne" = "系统升级后旧助记词已失效\n请备份好下方您的新助记词";
+"3.0_Bin_SafeUpdateTipTwo" = "温馨提醒：";
+"3.0_Bin_SafeUpdateTipThree" = "1. 退出钱包后需要使用新的助记词恢复资产。为了保障您的资产安全，请务必将您的新助记词按顺序抄写在安全的地方保存好，以防丢失。";
+"3.0_Bin_SafeUpdateTipFour" = "2. 系统升级后，所有的旧地址已失效，并无法接收任何币种。";

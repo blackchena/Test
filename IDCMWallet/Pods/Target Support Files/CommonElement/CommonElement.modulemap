@@ -1,0 +1,6 @@
+framework module CommonElement {
+  umbrella header "CommonElement-umbrella.h"
+
+  export *
+  module * { export * }
+}

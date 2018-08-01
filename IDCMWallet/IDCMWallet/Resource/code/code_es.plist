@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>600</key>
+	<string>El usuario está congelado</string>
+	<key>601</key>
+	<string>Sin método de pago establecido</string>
+	<key>602</key>
+	<string>Margen insuficiente</string>
+	<key>603</key>
+	<string>Parámetro inválido</string>
+	<key>608</key>
+	<string>No admitido temporalmente</string>
+	<key>609</key>
+	<string>Validar legalidad mnemónica</string>
+	<key>610</key>
+	<string>No admite importación externa</string>
+	<key>611</key>
+	<string>Insuficiente ETH</string>
+	<key>612</key>
+	<string>La moneda no existe</string>
+	<key>613</key>
+	<string>Equilibrio insuficiente</string>
+	<key>614</key>
+	<string>Por favor intente de nuevo más tarde</string>
+	<key>615</key>
+	<string>Por favor vuelve a extraer</string>
+	<key>616</key>
+	<string>Por favor intente de nuevo más tarde</string>
+	<key>617</key>
+	<string>Equilibrio insuficiente</string>
+	<key>618</key>
+	<string>Equilibrio insuficiente</string>
+	<key>619</key>
+	<string>Configura primero el método de pago</string>
+	<key>620</key>
+	<string>Configura primero el método de pago</string>
+	<key>621</key>
+	<string>No hay relación entre la moneda legal y el método de pago</string>
+	<key>622</key>
+	<string>No se puede agregar repetidamente</string>
+	<key>623</key>
+	<string>Los datos no existen</string>
+	<key>624</key>
+	<string>Configura primero el método de pago</string>
+	<key>625</key>
+	<string>La moneda no existe</string>
+	<key>626</key>
+	<string>Configura primero el método de pago</string>
+	<key>627</key>
+	<string>Por favor unir número de teléfono primero</string>
+	<key>628</key>
+	<string>Error de PIN</string>
+	<key>629</key>
+	<string>No se permite el retiro de margen durante la revisión</string>
+	<key>630</key>
+	<string>Margen de recarga fallido</string>
+	<key>631</key>
+	<string>No se pudo retirar el margen</string>
+	<key>632</key>
+	<string>Margen de recarga fallido</string>
+	<key>633</key>
+	<string>Error al establecer el paso actual</string>
+	<key>634</key>
+	<string>Por favor complete todos los ajustes actuales</string>
+	<key>635</key>
+	<string>Recarga fallida, intente de nuevo más tarde</string>
+	<key>636</key>
+	<string>La moneda no existe</string>
+	<key>637</key>
+	<string>Las reglas de aceptación no están configuradas</string>
+	<key>638</key>
+	<string>Menos que la cantidad mínima de recarga</string>
+	<key>639</key>
+	<string>Por favor intente de nuevo más tarde</string>
+	<key>640</key>
+	<string>Por favor actualice y vuelva a intentar</string>
+	<key>641</key>
+	<string>No se pudo establecer el orden de carga. Vuelva a intentarlo más tarde</string>
+	<key>642</key>
+	<string>Tiene pedidos sin terminar. Complete el pedido antes de retirar su depósito.</string>
+	<key>643</key>
+	<string>Por favor intente de nuevo más tarde</string>
+	<key>644</key>
+	<string>Error al retirar el margen. Vuelve a intentarlo más tarde</string>
+	<key>645</key>
+	<string>Error al retirar el margen. Vuelve a intentarlo más tarde</string>
+	<key>646</key>
+	<string>Por favor ingrese la dirección correcta</string>
+	<key>650</key>
+	<string>Margen insuficiente, ajuste la cantidad enviada</string>
+	<key>700</key>
+	<string>Operación ilegal</string>
+	<key>701</key>
+	<string>Por favor ingrese la cantidad correcta</string>
+	<key>702</key>
+	<string>No hay información de transacción OTC para configurar esta moneda virtual</string>
+	<key>703</key>
+	<string>No se establece ninguna información relacionada con la transacción OTC del sistema</string>
+	<key>704</key>
+	<string>Sin método de pago establecido</string>
+	<key>705</key>
+	<string>El orden no existe</string>
+	<key>706</key>
+	<string>No se permite la extracción</string>
+	<key>707</key>
+	<string>Orden cancelada</string>
+	<key>708</key>
+	<string>Por favor seleccione la aceptación</string>
+	<key>709</key>
+	<string>El aceptador ha sido cancelado</string>
+	<key>710</key>
+	<string>Pedido completado</string>
+	<key>711</key>
+	<string>Retrasado</string>
+	<key>712</key>
+	<string>El pedido solo se puede retrasar si está en progreso</string>
+	<key>713</key>
+	<string>Los pedidos solo están en progreso para configurar transferencias</string>
+	<key>714</key>
+	<string>Los pedidos solo se pueden configurar para confirmar los recibos si se han transferido</string>
+	<key>715</key>
+	<string>Los pedidos solo pueden presentarse si han sido transferidos</string>
+	<key>716</key>
+	<string>Operador de aceptación sin abrir</string>
+	<key>717</key>
+	<string>El estado del pedido solo puede citarse para cotizar</string>
+	<key>718</key>
+	<string>Ha excedido el tiempo de espera</string>
+	<key>719</key>
+	<string>Estado del receptor anormal</string>
+	<key>720</key>
+	<string>Por favor ingrese el precio correcto</string>
+	<key>721</key>
+	<string>El orden de cotización no existe</string>
+	<key>722</key>
+	<string>Las citas solo pueden revocarse hasta que se confirme</string>
+	<key>723</key>
+	<string>Los pedidos solo se pueden configurar para pedidos de presupuestos cuando se procesan</string>
+	<key>724</key>
+	<string>Las citas solo se pueden seleccionar si están pendientes de confirmación</string>
+	<key>725</key>
+	<string>Por favor intente de nuevo más tarde</string>
+	<key>726</key>
+	<string>Por favor intente de nuevo más tarde</string>
+	<key>727</key>
+	<string>No puedo repetir la cita</string>
+	<key>728</key>
+	<string>No se inicializa la información de inicialización del usuario</string>
+	<key>729</key>
+	<string>Error al inicializar la información del tipo de cambio de moneda virtual</string>
+	<key>730</key>
+	<string>Sin inicialización de la información de las reglas del aceptador</string>
+	<key>731</key>
+	<string>Sin dirección inicial de la cartera del sistema</string>
+	<key>732</key>
+	<string>Por favor intente de nuevo más tarde</string>
+	<key>733</key>
+	<string>Equilibrio insuficiente</string>
+	<key>734</key>
+	<string>Por favor intente de nuevo más tarde</string>
+	<key>735</key>
+	<string>Por favor intente de nuevo más tarde</string>
+	<key>736</key>
+	<string>Se requiere moneda virtual</string>
+	<key>737</key>
+	<string>Se requiere una moneda de pago</string>
+	<key>738</key>
+	<string>El método de pago es obligatorio</string>
+	<key>739</key>
+	<string>Se requiere una ID de pedido</string>
+	<key>740</key>
+	<string>Se requiere una orden de informe</string>
+	<key>741</key>
+	<string>No iniciado sesión</string>
+	<key>742</key>
+	<string>Estado de usuario no válido</string>
+	<key>743</key>
+	<string>Sin negociación</string>
+	<key>744</key>
+	<string>La moneda virtual no existe</string>
+	<key>745</key>
+	<string>La moneda legal no existe</string>
+	<key>746</key>
+	<string>No se ha subido ningún archivo</string>
+	<key>747</key>
+	<string>Cargue imágenes solo en formato png, jpg, bmp</string>
+	<key>748</key>
+	<string>Cargue una imagen dentro de los 5M</string>
+	<key>749</key>
+	<string>Sin método de pago establecido</string>
+	<key>750</key>
+	<string>Solo presentar una queja para establecer el estado del pedido como una apelación</string>
+	<key>751</key>
+	<string>Confirmación de transferencia, intente de nuevo más tarde</string>
+	<key>960200</key>
+	<string>Margen insuficiente</string>
+	<key>961300</key>
+	<string>Equilibrio insuficiente</string>
+	<key>961600</key>
+	<string>Por favor intente de nuevo más tarde</string>
+	<key>961700</key>
+	<string>Equilibrio insuficiente</string>
+	<key>962900</key>
+	<string>No se permite el retiro de margen durante la revisión</string>
+	<key>963200</key>
+	<string>Margen de recarga fallido</string>
+	<key>963800</key>
+	<string>Menos que la cantidad mínima de recarga</string>
+	<key>963900</key>
+	<string>Por favor intente de nuevo más tarde</string>
+	<key>964200</key>
+	<string>Tiene pedidos sin terminar. Complete el pedido antes de retirar su depósito.</string>
+	<key>973300</key>
+	<string>Equilibrio insuficiente</string>
+	<key>973400</key>
+	<string>Por favor intente de nuevo más tarde</string>
+	<key>973500</key>
+	<string>Por favor intente de nuevo más tarde</string>
+</dict>
+</plist>

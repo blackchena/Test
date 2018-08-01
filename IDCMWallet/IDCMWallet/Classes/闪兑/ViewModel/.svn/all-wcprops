@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/IOS/!svn/ver/473/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/ViewModel
+END
+IDCMFlashExchangeViewModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/IOS/!svn/ver/476/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/ViewModel/IDCMFlashExchangeViewModel.h
+END
+IDCMFlashRecordViewModel.m
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/IOS/!svn/ver/473/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/ViewModel/IDCMFlashRecordViewModel.m
+END
+IDCMMarketViewModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/IOS/!svn/ver/468/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/ViewModel/IDCMMarketViewModel.h
+END
+IDCMFlashRecordDetailViewModel.m
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/IOS/!svn/ver/473/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/ViewModel/IDCMFlashRecordDetailViewModel.m
+END
+IDCMFlashExchangeViewModel.m
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/IOS/!svn/ver/473/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/ViewModel/IDCMFlashExchangeViewModel.m
+END
+IDCMMarketViewModel.m
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/IOS/!svn/ver/477/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/ViewModel/IDCMMarketViewModel.m
+END
+IDCMFlashRecordViewModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/IOS/!svn/ver/477/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/ViewModel/IDCMFlashRecordViewModel.h
+END
+IDCMFlashRecordDetailViewModel.h
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/IOS/!svn/ver/468/IDCW/IDCMWallet/IDCMWallet/Classes/%E9%97%AA%E5%85%91/ViewModel/IDCMFlashRecordDetailViewModel.h
+END

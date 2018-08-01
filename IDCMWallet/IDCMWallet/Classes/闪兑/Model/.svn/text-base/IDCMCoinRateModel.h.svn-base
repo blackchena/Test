@@ -1,0 +1,22 @@
+//
+//  IDCMCoinRateModel.h
+//  IDCMWallet
+//
+//  Created by wangpu on 2018/3/22.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface IDCMCoinRateModel : NSObject
+
+@property (nonatomic,copy) NSString *     fromCoinId;
+@property (nonatomic,copy) NSString *     fromCoin;
+@property (nonatomic,copy) NSString *     toCoinId;
+@property (nonatomic,copy) NSString *     toCoin;
+@property (nonatomic,copy) NSString *     exchangeRate;
+@property (nonatomic,strong) NSNumber *    exchangeMin;
+@property (nonatomic,strong) NSNumber *    exchangeMax;
+
+
+@end

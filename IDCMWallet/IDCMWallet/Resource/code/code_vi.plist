@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>600</key>
+	<string>Người dùng bị đóng băng</string>
+	<key>601</key>
+	<string>Không có phương thức thanh toán nào được đặt</string>
+	<key>602</key>
+	<string>Không đủ tiền ký quỹ</string>
+	<key>603</key>
+	<string>Tham số không hợp lệ</string>
+	<key>608</key>
+	<string>Không được hỗ trợ tạm thời</string>
+	<key>609</key>
+	<string>Xác thực tính hợp pháp</string>
+	<key>610</key>
+	<string>Không hỗ trợ nhập bên ngoài</string>
+	<key>611</key>
+	<string>Không đủ ETH</string>
+	<key>612</key>
+	<string>Tiền tệ không tồn tại</string>
+	<key>613</key>
+	<string>Không đủ số dư</string>
+	<key>614</key>
+	<string>Vui lòng thử lại sau</string>
+	<key>615</key>
+	<string>Vui lòng trích xuất lại</string>
+	<key>616</key>
+	<string>Vui lòng thử lại sau</string>
+	<key>617</key>
+	<string>Không đủ số dư</string>
+	<key>618</key>
+	<string>Không đủ số dư</string>
+	<key>619</key>
+	<string>Vui lòng thiết lập phương thức thanh toán trước</string>
+	<key>620</key>
+	<string>Vui lòng thiết lập phương thức thanh toán trước</string>
+	<key>621</key>
+	<string>Không có mối quan hệ giữa tiền tệ pháp lý và phương thức thanh toán</string>
+	<key>622</key>
+	<string>Không thể được thêm nhiều lần</string>
+	<key>623</key>
+	<string>Dữ liệu không tồn tại</string>
+	<key>624</key>
+	<string>Vui lòng thiết lập phương thức thanh toán trước</string>
+	<key>625</key>
+	<string>Tiền tệ không tồn tại</string>
+	<key>626</key>
+	<string>Vui lòng thiết lập phương thức thanh toán trước</string>
+	<key>627</key>
+	<string>Vui lòng liên kết số điện thoại trước</string>
+	<key>628</key>
+	<string>Sai PIN</string>
+	<key>629</key>
+	<string>Không được phép rút tiền trong khi xem xét</string>
+	<key>630</key>
+	<string>Biên độ nạp tiền không thành công</string>
+	<key>631</key>
+	<string>Không thể rút tiền ký quỹ</string>
+	<key>632</key>
+	<string>Biên độ nạp tiền không thành công</string>
+	<key>633</key>
+	<string>Không đặt được bước hiện tại</string>
+	<key>634</key>
+	<string>Vui lòng hoàn tất tất cả cài đặt hiện tại</string>
+	<key>635</key>
+	<string>Nạp tiền không thành công, vui lòng thử lại sau</string>
+	<key>636</key>
+	<string>Tiền tệ không tồn tại</string>
+	<key>637</key>
+	<string>Quy tắc chấp nhận không được định cấu hình</string>
+	<key>638</key>
+	<string>Ít hơn số lượng nạp tiền tối thiểu</string>
+	<key>639</key>
+	<string>Vui lòng thử lại sau</string>
+	<key>640</key>
+	<string>Vui lòng làm mới và thử lại</string>
+	<key>641</key>
+	<string>Không đặt được đơn đặt hàng. Vui lòng thử lại sau</string>
+	<key>642</key>
+	<string>Bạn đã hoàn thành đơn đặt hàng trước khi bạn có thể rút tiền gửi của mình.</string>
+	<key>643</key>
+	<string>Vui lòng thử lại sau</string>
+	<key>644</key>
+	<string>Không thể rút tiền ký quỹ. Vui lòng thử lại sau</string>
+	<key>645</key>
+	<string>Không thể rút tiền ký quỹ. Vui lòng thử lại sau</string>
+	<key>646</key>
+	<string>Vui lòng nhập địa chỉ chính xác</string>
+	<key>650</key>
+	<string>Không đủ số dư, vui lòng điều chỉnh số lượng đã gửi</string>
+	<key>700</key>
+	<string>Hoạt động bất hợp pháp</string>
+	<key>701</key>
+	<string>Vui lòng nhập số lượng chính xác</string>
+	<key>702</key>
+	<string>Không có thông tin giao dịch OTC để thiết lập loại tiền ảo này</string>
+	<key>703</key>
+	<string>Không có thông tin liên quan đến giao dịch OTC của hệ thống được đặt</string>
+	<key>704</key>
+	<string>Không có phương thức thanh toán nào được đặt</string>
+	<key>705</key>
+	<string>Đơn đặt hàng không tồn tại</string>
+	<key>706</key>
+	<string>Không cho phép rút tiền</string>
+	<key>707</key>
+	<string>Đơn đặt hàng đã bị hủy</string>
+	<key>708</key>
+	<string>Vui lòng chọn chấp nhận</string>
+	<key>709</key>
+	<string>Người chấp nhận đã bị hủy</string>
+	<key>710</key>
+	<string>Đã hoàn tất đơn đặt hàng</string>
+	<key>711</key>
+	<string>Đã hoãn</string>
+	<key>712</key>
+	<string>Đơn đặt hàng chỉ có thể bị trì hoãn nếu đang được tiến hành</string>
+	<key>713</key>
+	<string>Đơn đặt hàng chỉ đang được tiến hành để thiết lập chuyển khoản</string>
+	<key>714</key>
+	<string>Đơn đặt hàng chỉ có thể được đặt để xác nhận biên lai nếu chúng đã được chuyển</string>
+	<key>715</key>
+	<string>Đơn đặt hàng chỉ có thể được nộp nếu chúng đã được chuyển giao</string>
+	<key>716</key>
+	<string>Tàu sân bay chấp nhận chưa mở</string>
+	<key>717</key>
+	<string>Trạng thái đơn đặt hàng chỉ có thể được trích dẫn để báo giá</string>
+	<key>718</key>
+	<string>Đã hết thời gian chờ</string>
+	<key>719</key>
+	<string>Trạng thái chấp nhận bất thường</string>
+	<key>720</key>
+	<string>Vui lòng nhập giá chính xác</string>
+	<key>721</key>
+	<string>Thứ tự trích dẫn không tồn tại</string>
+	<key>722</key>
+	<string>Báo giá chỉ có thể bị thu hồi đang chờ xác nhận</string>
+	<key>723</key>
+	<string>Đơn đặt hàng chỉ có thể được thiết lập cho các đơn đặt hàng báo giá khi chúng được xử lý</string>
+	<key>724</key>
+	<string>Chỉ có thể chọn báo giá nếu chúng đang chờ xác nhận</string>
+	<key>725</key>
+	<string>Vui lòng thử lại sau</string>
+	<key>726</key>
+	<string>Vui lòng thử lại sau</string>
+	<key>727</key>
+	<string>Không thể lặp lại báo giá</string>
+	<key>728</key>
+	<string>Không có thông tin khởi tạo người dùng nào được khởi tạo</string>
+	<key>729</key>
+	<string>Không thể khởi tạo thông tin tỷ giá hối đoái ảo</string>
+	<key>730</key>
+	<string>Không khởi tạo thông tin quy tắc chấp nhận</string>
+	<key>731</key>
+	<string>Không có địa chỉ ví hệ thống ban đầu</string>
+	<key>732</key>
+	<string>Vui lòng thử lại sau</string>
+	<key>733</key>
+	<string>Không đủ số dư</string>
+	<key>734</key>
+	<string>Vui lòng thử lại sau</string>
+	<key>735</key>
+	<string>Vui lòng thử lại sau</string>
+	<key>736</key>
+	<string>Tiền ảo là bắt buộc</string>
+	<key>737</key>
+	<string>Đơn vị tiền tệ thanh toán là bắt buộc</string>
+	<key>738</key>
+	<string>Phương thức thanh toán là bắt buộc</string>
+	<key>739</key>
+	<string>ID đơn đặt hàng là bắt buộc</string>
+	<key>740</key>
+	<string>Yêu cầu báo cáo</string>
+	<key>741</key>
+	<string>Chưa đăng nhập</string>
+	<key>742</key>
+	<string>Trạng thái người dùng không hợp lệ</string>
+	<key>743</key>
+	<string>Không giao dịch</string>
+	<key>744</key>
+	<string>Tiền ảo không tồn tại</string>
+	<key>745</key>
+	<string>Đơn vị tiền tệ hợp pháp không tồn tại</string>
+	<key>746</key>
+	<string>Không có tệp nào được tải lên</string>
+	<key>747</key>
+	<string>Chỉ tải lên hình ảnh ở định dạng png, jpg, bmp</string>
+	<key>748</key>
+	<string>Vui lòng tải lên hình ảnh trong vòng 5 triệu</string>
+	<key>749</key>
+	<string>Không có phương thức thanh toán nào được đặt</string>
+	<key>750</key>
+	<string>Chỉ kháng nghị mới có thể đặt trạng thái đơn hàng là kháng nghị</string>
+	<key>751</key>
+	<string>Chuyển xác nhận, vui lòng thử lại sau</string>
+	<key>960200</key>
+	<string>Không đủ tiền ký quỹ</string>
+	<key>961300</key>
+	<string>Không đủ số dư</string>
+	<key>961600</key>
+	<string>Vui lòng thử lại sau</string>
+	<key>961700</key>
+	<string>Không đủ số dư</string>
+	<key>962900</key>
+	<string>Không được phép rút tiền trong khi xem xét</string>
+	<key>963200</key>
+	<string>Biên độ nạp tiền không thành công</string>
+	<key>963800</key>
+	<string>Ít hơn số lượng nạp tiền tối thiểu</string>
+	<key>963900</key>
+	<string>Vui lòng thử lại sau</string>
+	<key>964200</key>
+	<string>Bạn đã hoàn thành đơn đặt hàng trước khi bạn có thể rút tiền gửi của mình.</string>
+	<key>973300</key>
+	<string>Không đủ số dư</string>
+	<key>973400</key>
+	<string>Vui lòng thử lại sau</string>
+	<key>973500</key>
+	<string>Vui lòng thử lại sau</string>
+</dict>
+</plist>

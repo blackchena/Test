@@ -1,0 +1,202 @@
+//
+//  IDCMChooseBTypeView.m
+//  IDCMWallet
+//
+//  Created by wangpu on 2018/3/15.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import "IDCMChooseBTypeView.h"
+#import "IDCMIconModel.h"
+#import "IDCMAlertWindow.h"
+@interface IDCMChooseBTypeView ()<UICollectionViewDelegate,UICollectionViewDataSource>
+{
+    UICollectionView * collectView;
+    
+    NSIndexPath * currenSelect;
+    
+    UIButton * dimissBackView;
+}
+@property (nonatomic,strong) NSArray * iconsArr;
+@end
+
+@implementation IDCMChooseBTypeView
+
+
+-(instancetype) initWithFrame:(CGRect)frame bTypes:(NSArray *) types
+
+{
+    self =[super initWithFrame:frame];
+    if (self) {
+        _iconsArr = [types copy];
+        self.layer.cornerRadius = 10;
+        self.clipsToBounds = YES;
+        self.backgroundColor = [UIColor whiteColor];
+
+        [self setUpUI];
+    }
+    return self;
+}
+
+-(void)setUpUI{
+    
+    UILabel * title = [UILabel new];
+    title.font =SetFont(@"PingFangSC-Regular", 16);
+    title.textColor =[UIColor colorWithHexString:@"#333333"];
+    title.textAlignment = NSTextAlignmentCenter;
+    title.text = @"选择兑出币种";
+    [self addSubview:title];
+    
+    [title mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_top).offset(14);
+        make.centerX.equalTo(self.mas_centerX);
+        make.height.equalTo(@22);
+        
+    }];
+    
+    UIButton * cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [cancelBtn setImage:[UIImage imageNamed:@"3.0_groupclose"] forState:UIControlStateNormal];
+    [cancelBtn addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self addSubview:cancelBtn];
+    
+    [cancelBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.mas_top).offset(14);
+        make.right.equalTo(self.mas_right).offset(-12);
+        make.size.mas_equalTo(CGSizeMake(15, 15));
+    }];
+    
+    
+    UICollectionViewFlowLayout * layout=[[UICollectionViewFlowLayout alloc] init];
+    //同一行相邻两个cell的最小间距
+    layout.minimumInteritemSpacing = 10;
+    //最小两行之间的间距
+    layout.minimumLineSpacing = 20;
+    layout.scrollDirection=UICollectionViewScrollDirectionVertical;
+    collectView=[[UICollectionView alloc]initWithFrame:CGRectMake(20, 52, self.frame.size.width-40,self.frame.size.height-52-30) collectionViewLayout:layout];
+    collectView.backgroundColor=[UIColor whiteColor];
+    collectView.delegate=self;
+    collectView.dataSource=self;
+    
+    [collectView registerClass:[BTypeCollectionViewCell class] forCellWithReuseIdentifier:@"iconImageIdentifier"];
+    
+    [self addSubview:collectView];
+    
+}
+
+
+-(void)dismiss{
+    
+    if ( [[UIApplication sharedApplication].keyWindow isKindOfClass:[IDCMAlertWindow class]]) {
+        [[UIApplication sharedApplication].keyWindow performSelector:@selector(dismiss)];
+    }
+}
+
+
+#pragma mark - delegate
+
+//一共有多少个组
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+//每一组有多少个cell
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return _iconsArr.count;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    BTypeCollectionViewCell *cell=[collectionView dequeueReusableCellWithReuseIdentifier:@"iconImageIdentifier" forIndexPath:indexPath];
+    
+    IDCMIconModel *iconModel = _iconsArr[indexPath.row];
+    cell.model =iconModel;
+    
+    if (iconModel.isSelect) {
+        currenSelect = indexPath;
+    }
+    return cell;
+}
+
+
+//定义每一个cell的大小
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(70, 70);
+}
+
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    //cell 点击
+    
+    if (indexPath.row != currenSelect.row ) {
+        
+        if ([self.delegate respondsToSelector:@selector(iconWindow:clickedButtonAtIndex: selectIndex:)]) {
+            
+            [self.delegate iconWindow:self clickedButtonAtIndex:indexPath selectIndex:currenSelect];
+        }
+    }
+
+    [self dismiss];
+}
+@end
+
+
+@interface BTypeCollectionViewCell(){
+    
+    UIView * backView;
+    UIImageView *bTypeImage;
+    UILabel *bType;
+}
+
+
+@end
+@implementation BTypeCollectionViewCell
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        _backGroundColor =[UIColor whiteColor];
+        
+        backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        backView.backgroundColor =[UIColor whiteColor];
+        backView.layer.cornerRadius = 5;
+        backView.layer.borderWidth = 0.5;
+        backView.layer.borderColor = [UIColor colorWithHexString:@"#E1E7F7"].CGColor;
+        backView.clipsToBounds = YES;
+        
+        [self.contentView addSubview:backView];
+        
+        bTypeImage  = [[UIImageView alloc] initWithFrame:CGRectMake(frame.size.width/2-18, 8, 36, 36)];
+        bTypeImage.backgroundColor = [UIColor  whiteColor];
+        bTypeImage.image = [UIImage imageNamed:@"2.1_setGuanyu"];
+        [backView addSubview:bTypeImage];
+        
+        bType = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height-24, frame.size.width, 20)];
+        bType.textAlignment = NSTextAlignmentCenter;
+        bType.textColor = [UIColor colorWithHexString:@"#333333"];
+        bType.font = SetFont(@"PingFangSC-Regular", 14);
+        [backView addSubview:bType];
+    }
+    
+    return self;
+}
+-(void)setBackGroundColor:(UIColor *)backGroundColor{
+
+    _backGroundColor=backGroundColor;
+    backView.backgroundColor = _backGroundColor;
+    bType.textColor = [UIColor whiteColor];
+    
+}
+-(void)setModel:(IDCMIconModel *)model{
+    
+    bTypeImage.image = [UIImage imageNamed:model.icon];
+    bType.text = model.title;
+    if (model.isSelect) {
+        self.backGroundColor = [UIColor colorWithHexString:@"#2968B9"];
+    }
+}
+
+@end
+

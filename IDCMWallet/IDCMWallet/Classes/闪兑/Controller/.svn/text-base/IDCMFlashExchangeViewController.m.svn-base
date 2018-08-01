@@ -1,0 +1,892 @@
+//
+//  IDCMFlashExchangeViewController.m
+//  IDCMWallet
+//
+//  Created by wangpu on 2018/3/14.
+//  Copyright © 2018年 BinBear. All rights reserved.
+//
+
+#import "IDCMFlashExchangeViewController.h"
+#import "IDCMChooseBTypeView.h"
+#import "IDCMIconModel.h"
+#import "IDCMBBChangeResultViViewController.h"
+#import "IDCMConfigBaseNavigationController.h"
+#import "IDCMAlertWindow.h"
+#import "IDCMBBHelpView.h"
+#import "IDCMTapView.h"
+#import "IDCMFlashExchangeViewModel.h"
+#import "IDCMCoinRateModel.h"
+
+@interface IDCMFlashExchangeViewController ()<IconWindowDelegate>
+{
+    NSMutableArray * exchangOutBTypeArr;
+    NSMutableArray * exchangInBTypeArr;
+    UILabel * leftBTypeLabel;//左侧显示币种
+    UILabel * rightBTypeLabel;//右侧显示币种
+
+    UILabel * balanceLabel;//余额label
+    UILabel * realRateLabel;//实时兑汇率
+    UILabel * minMountLabel;//最小可兑换额
+    UILabel * maxMountLabel;//最大可兑换额
+    UIButton * exchangButton;//兑换按键
+    IDCMTapView * tapeBViewLeft;//左侧币种选择
+    IDCMTapView * tapeBViewRight;//右侧币种选择
+    NSTimer * timer;//输入框延时 计时器
+    
+    IDCMIconModel * currentSelectCoinModelLeft;//当前左边选择的币种
+    IDCMIconModel * currentSelectCoinModelRight;//当前右边选择的币种
+    
+}
+
+@property (strong, nonatomic, readonly) IDCMFlashExchangeViewModel *viewModel;
+@property (nonatomic,strong)  IDCMAlertWindow * showWindow;
+@property (nonatomic,copy)    NSString * canExchangeOutMount;
+@property (nonatomic,strong)   NSMutableDictionary * changeDict;;
+
+@property (nonatomic,assign) BOOL exchangeBtnEnable;
+
+@end
+
+@implementation IDCMFlashExchangeViewController
+@dynamic viewModel;
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.navigationItem.rightBarButtonItem = [self createRightBarButtonItem:nil target:self selector:@selector(showHelpTip:) ImageName:@"3.0_help"];
+    exchangOutBTypeArr=@[@"ETHM",@"BTGF",@"CT"].mutableCopy;
+    exchangInBTypeArr = @[@"E",@"BTGG",@"CTCT",@"TYU"].mutableCopy;
+    self.navigationItem.title = NSLocalizedString(@"3.0_BBExchange", nil);
+    
+    _canExchangeOutMount = @"20.2341";
+
+    
+
+    IDCMIconModel * mode =[[IDCMIconModel alloc ]init];
+    mode.icon=@"2.1_setGuanyu";
+    mode.title=@"HTC";
+    
+    IDCMIconModel * mode2 =[[IDCMIconModel alloc ]init];
+    mode2.icon=@"2.1_setGuanyu";
+    mode2.title=@"MTC";
+    mode2.isSelect = YES;
+    
+    IDCMIconModel * mode3 =[[IDCMIconModel alloc ]init];
+    mode3.icon=@"2.1_setGuanyu";
+    mode3.title=@"MTC";
+    mode3.isSelect = NO;
+    IDCMIconModel * mode4 =[[IDCMIconModel alloc ]init];
+    mode4.icon=@"2.1_setGuanyu";
+    mode4.title=@"MTC";
+    mode4.isSelect = NO;
+    _iconModelArr = @[mode,mode2,mode3,mode4];
+    
+
+    
+    [self setUpView];
+    // Do any additional setup after loading the view.
+}
+- (void)bindViewModel
+{
+    [super bindViewModel];
+    
+//
+//    [[self.viewModel.commandGetCoinList.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(NSMutableArray *  _Nullable coinList) {
+//        NSLog(@"___%@",coinList);
+//
+//
+//    }];
+//
+//    @weakify(self);
+//
+//    //刷新界面
+//
+//    [[self.viewModel.commandGetCoinRate.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+//        @strongify(self);
+//
+//        NSLog(@"_______%@",x);
+//    } ];
+    
+    @weakify(self);
+    
+    [[self.viewModel.commandGetCoinList.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(NSMutableArray *  _Nullable coinList) {
+        NSLog(@"___%@",coinList);
+        
+        
+    }];
+
+    //刷新界面
+    
+    [[self.viewModel.commandGetCoinRate.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+           @strongify(self);
+        
+        realRateLabel.text = self.viewModel.coinRate.exchangeRate;
+        
+        NSString *minNum = [IDCMUtilsMethod precisionControl:self.viewModel.coinRate.exchangeMin];
+        NSString *minBalance = [NSString stringFromNumber:[NSDecimalNumber decimalNumberWithString:minNum] fractionDigits:4];
+        NSString *minStr = [IDCMUtilsMethod separateNumberUseCommaWith:minBalance];
+        minMountLabel.text = minStr;
+        
+        
+        NSString *maxNum = [IDCMUtilsMethod precisionControl:self.viewModel.coinRate.exchangeMax];
+        NSString *maxBalance = [NSString stringFromNumber:[NSDecimalNumber decimalNumberWithString:maxNum] fractionDigits:4];
+        NSString *maxStr = [IDCMUtilsMethod separateNumberUseCommaWith:maxBalance];
+        maxMountLabel.text = maxStr;
+        
+    } ];
+    
+    [[self.viewModel.commandExchangeIn.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(NSDictionary *  _Nullable response) {
+
+        @strongify(self);
+    
+        if ([response[@"status"] isEqualToString:@"1"]) {
+            IDCMBBChangeResultViViewController * resultVC= [IDCMBBChangeResultViViewController new];
+            
+            IDCMConfigBaseNavigationController * nav = [[IDCMConfigBaseNavigationController alloc] initWithRootViewController:resultVC];
+            
+            [self presentViewController:nav animated:YES completion:nil];
+        }
+    }];
+    
+    //
+    [self.viewModel.commandExchangeIn.errors subscribeNext:^(NSError * _Nullable x) {
+
+        
+    }];
+
+    //
+    [self.viewModel.commandExchangeIn.executionSignals.switchToLatest subscribeError:^(NSError * _Nullable error) {
+        
+        NSLog(@"============");
+    }];
+    
+    [[self.viewModel.commandExchangeIn.executing skip:1] subscribeNext:^(NSNumber * _Nullable executing) {
+
+        if (!executing.boolValue) {
+            [IDCMHUD dismiss];
+        }
+    }];
+
+    self.changeDict= @{@"from":@"1",@"to":@"1013"}.mutableCopy;
+    
+    //轮询
+
+    [[[RACSignal interval:20 onScheduler:[RACScheduler mainThreadScheduler]] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id x) {
+        
+        @strongify(self);
+        if (self.changeDict) {
+            [self.viewModel.commandGetCoinRate execute:self.changeDict];
+        }
+    }];
+    
+    [self.viewModel.commandGetCoinList execute:nil];
+}
+
+#pragma mark  -View
+
+-(void)setUpView{
+    
+    UIScrollView * scrollView = [[UIScrollView alloc] init];
+    scrollView.backgroundColor = [UIColor whiteColor];
+    scrollView.alwaysBounceVertical = YES;
+    scrollView.showsVerticalScrollIndicator =NO;
+    [self.view addSubview:scrollView];
+//
+    [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view);
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view);
+        make.bottom.equalTo(self.view);
+    }];
+    
+    UIView * contentView=[UIView new];
+    contentView.backgroundColor = [UIColor whiteColor];
+    [scrollView addSubview:contentView];
+    
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.bottom.and.right.equalTo(scrollView).with.insets(UIEdgeInsetsZero);
+        make.width.equalTo(scrollView.mas_width);
+    }];
+    //头部View
+    UIView  * headRealExchangeRate = [UIView new];
+    [contentView addSubview:headRealExchangeRate];
+    
+    [headRealExchangeRate mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(contentView);
+        make.left.equalTo(contentView);
+        make.right.equalTo(contentView);
+        make.height.mas_equalTo(80);
+    }];
+//    //背景
+    UIImageView *  backImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"2.1_back_phrases_bg_image_box"]];
+    backImageView.contentMode = UIViewContentModeScaleToFill;
+    [headRealExchangeRate addSubview:backImageView];
+
+    [backImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(headRealExchangeRate).insets(UIEdgeInsetsMake(12, 10, 10,12));
+    }];
+    //实时汇率
+    UILabel * realExchangeLabel = [UILabel new];
+    realExchangeLabel.text = NSLocalizedString(@"3.0_RealTimeExchangRate", nil);
+    realExchangeLabel.font = SetFont(@"PingFangSC-Medium", 14);
+    realExchangeLabel.textColor = [UIColor colorWithHexString:@"#333333"];
+    realExchangeLabel.textAlignment = NSTextAlignmentCenter;
+    [headRealExchangeRate addSubview:realExchangeLabel];
+
+    [realExchangeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(backImageView.mas_top).offset(6);
+        make.centerX.equalTo(headRealExchangeRate.mas_centerX);
+    }];
+    //汇率
+    realRateLabel = [UILabel new];
+    realRateLabel.font = SetFont(@"PingFangSC-Regular", 16);
+    realRateLabel.textColor = [UIColor colorWithHexString:@"#333333"];
+    realRateLabel.textAlignment = NSTextAlignmentCenter;
+    [headRealExchangeRate addSubview:realRateLabel];
+
+    [realRateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(realExchangeLabel.mas_bottom).offset(4);
+        make.centerX.equalTo(headRealExchangeRate.mas_centerX);
+    }];
+//
+//    //中间的View
+    UIView  * middleExchangeView = [UIView new];
+    [contentView addSubview:middleExchangeView];
+
+    [middleExchangeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(headRealExchangeRate.mas_bottom);
+        make.left.equalTo(contentView);
+        make.right.equalTo(contentView);
+        make.height.mas_equalTo(235);
+    }];
+    //背景2
+    UIImageView *  backImageView2 = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"2.1_back_phrases_bg_image_box"]];
+    backImageView2.contentMode = UIViewContentModeScaleToFill;
+    [middleExchangeView addSubview:backImageView2];
+
+    [backImageView2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(middleExchangeView.mas_top);
+        make.bottom.equalTo(middleExchangeView.mas_bottom);
+        make.left.equalTo(middleExchangeView.mas_left).offset(12);
+        make.right.equalTo(middleExchangeView.mas_right).offset(-12);
+    }];
+    //兑出币种label
+    UILabel * exchangeOutLabel = [UILabel new];
+    exchangeOutLabel.text = NSLocalizedString(@"3.0_ExchangeOutType", nil);
+    exchangeOutLabel.font = SetFont(@"PingFangSC-Medium", 14);
+    exchangeOutLabel.textColor = [UIColor colorWithHexString:@"#333333"];
+    exchangeOutLabel.textAlignment = NSTextAlignmentLeft;
+    [middleExchangeView addSubview:exchangeOutLabel];
+
+    [exchangeOutLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(backImageView2.mas_top).offset(12);
+        make.left.equalTo(backImageView2.mas_left).offset(12);
+        make.width.lessThanOrEqualTo(@100);
+    }];
+    //兑入币种label
+    UILabel * exchangeInLabel = [UILabel new];
+    exchangeInLabel.text = NSLocalizedString(@"3.0_ExchangeInType", nil);
+    exchangeInLabel.font = SetFont(@"PingFangSC-Medium", 14);
+    exchangeInLabel.textColor = [UIColor colorWithHexString:@"#333333"];
+    exchangeInLabel.textAlignment = NSTextAlignmentRight;
+    [middleExchangeView addSubview:exchangeInLabel];
+
+    [exchangeInLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(backImageView2.mas_top).offset(12);
+        make.right.equalTo(backImageView2.mas_right).offset(-12);
+        make.width.lessThanOrEqualTo(@100);
+    }];
+    
+
+    //中间的按钮
+    UIButton *middleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    middleButton.tag = 202;
+    [middleButton addTarget:self action:@selector(exchangeBTypeArr:) forControlEvents:UIControlEventTouchUpInside];
+    [middleButton setImage:[UIImage imageNamed:@"3.0_bluebexchange"] forState:UIControlStateNormal];
+    [middleExchangeView addSubview:middleButton];
+    
+    [middleButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(middleExchangeView.mas_top).offset(AdjustWidth(42));
+        make.centerX.equalTo(backImageView2.mas_centerX);
+        make.size.mas_equalTo(CGSizeMake(28, 28));
+    }];
+    
+    __weak typeof(self) weakSelf = self;
+    //左边的按钮
+    
+    tapeBViewLeft = [[IDCMTapView alloc] initWithFrame:CGRectZero];
+    
+    tapeBViewLeft.callBack = ^{
+        
+        
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        
+        IDCMChooseBTypeView * chooseIconView = [[IDCMChooseBTypeView alloc] initWithFrame:CGRectMake(12, 200, SCREEN_WIDTH-24, 242) bTypes:strongSelf.iconModelArr];
+        
+        chooseIconView.delegate = strongSelf;
+        
+        [strongSelf.showWindow show:chooseIconView];
+    };
+    
+    [middleExchangeView addSubview:tapeBViewLeft];
+    
+    [tapeBViewLeft mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(exchangeOutLabel.mas_left);
+        make.height.mas_equalTo(AdjustWidth(24));
+        make.centerY.equalTo(middleButton.mas_centerY);
+        
+    }];
+    
+    //右边的按钮
+    tapeBViewRight = [[IDCMTapView alloc] initWithFrame:CGRectZero];
+    
+
+    tapeBViewRight.callBack = ^{
+        
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        
+        IDCMChooseBTypeView * chooseIconView = [[IDCMChooseBTypeView alloc] initWithFrame:CGRectMake(12, 200, SCREEN_WIDTH-24, 242) bTypes:strongSelf.iconModelArr];
+        
+        chooseIconView.delegate =strongSelf ;
+        
+        [strongSelf.showWindow show:chooseIconView];
+    };
+    
+    [middleExchangeView addSubview:tapeBViewRight];
+    
+    [tapeBViewRight mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(exchangeInLabel.mas_right);
+        make.height.mas_equalTo(AdjustWidth(24));
+        make.centerY.equalTo(middleButton.mas_centerY);
+        
+    }];
+
+    //线 2
+    UIView * lineLeft = [UIView new];
+    lineLeft.backgroundColor = [UIColor colorWithHexString:@"#DDDDDD"];
+    [middleExchangeView addSubview:lineLeft];
+    
+    [lineLeft mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(1);
+        make.left.equalTo(exchangeOutLabel.mas_left);
+        make.top.equalTo(tapeBViewLeft.mas_bottom).offset(8);
+        make.right.equalTo(middleButton.mas_left).offset(-15);
+
+    }];
+    
+    UIView * lineRight = [UIView new];
+    lineRight.backgroundColor = [UIColor colorWithHexString:@"#DDDDDD"];
+    [middleExchangeView addSubview:lineRight];
+    [lineRight mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(1);
+        make.right.equalTo(exchangeInLabel.mas_right);
+        make.centerY.equalTo(lineLeft.mas_centerY);
+        make.left.equalTo(middleButton.mas_right).offset(15);
+
+    }];
+//    // 两个输入框
+    UIView * leftInPutView = [self inputView:@"请输入兑入ETH数量" position:@"left"];
+    [middleExchangeView addSubview:leftInPutView];
+    
+    [leftInPutView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(exchangeOutLabel.mas_left);
+        make.top.equalTo(lineLeft.mas_bottom).offset(15);
+        make.right.equalTo(lineLeft.mas_right);
+        make.height.mas_equalTo(30);
+    }];
+//
+    UIView * rightInPutView = [self inputView:@"请输入兑入ETH数量" position:@"right"];
+    [middleExchangeView addSubview:rightInPutView];
+    [rightInPutView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(lineRight.mas_right);
+        make.centerY.equalTo(leftInPutView.mas_centerY);
+        make.left.equalTo(lineRight.mas_left);
+        make.height.mas_equalTo(30);
+    }];
+
+//    //余额
+    balanceLabel = [UILabel new];
+    balanceLabel.textAlignment = NSTextAlignmentLeft;
+    balanceLabel.font = SetFont(@"PingFangSC-Regular", 12);
+    balanceLabel.textColor = [UIColor colorWithHexString:@"#333333"];
+    balanceLabel.text = [NSString stringWithFormat:@"%@: %@ %@",NSLocalizedString(@"3.0_CanExchangeOutBalance", nil),_canExchangeOutMount,@"BTC"];
+    [middleExchangeView addSubview:balanceLabel];
+
+    [balanceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(exchangeOutLabel.mas_left);
+        make.top.equalTo(leftInPutView.mas_bottom).offset(15);
+        make.right.equalTo(exchangeInLabel.mas_right);
+    }];
+//    //line
+//
+    UIView * lastLine = [UIView new];
+    lastLine.backgroundColor = [UIColor colorWithHexString:@"#DDDDDD"];
+    [middleExchangeView addSubview:lastLine];
+
+    [lastLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(0.5);
+        make.left.equalTo(backImageView2.mas_left).offset(12);
+        make.top.equalTo(balanceLabel.mas_bottom).offset(10);
+        make.right.equalTo(backImageView2.mas_right).offset(-12);
+
+    }];
+//
+    //最小 可兑label
+    UILabel * minLabel = [UILabel new];
+    minLabel.textColor = [UIColor colorWithHexString:@"#666666"];
+    minLabel.font = SetFont(@"PingFangSC-Regular", 12);
+    minLabel.textAlignment = NSTextAlignmentCenter;
+    minLabel.text = [NSString stringWithFormat:@"%@:",NSLocalizedString(@"3.0_MinCanExchangBalance", nil)];
+    [middleExchangeView addSubview:minLabel];
+    
+    [minLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(lastLine.mas_bottom).offset(12);
+        make.left.equalTo(exchangeOutLabel.mas_left);
+    }];
+    // 值
+    minMountLabel = [UILabel new];
+    minMountLabel.textColor = [UIColor colorWithHexString:@"#666666"];
+    minMountLabel.font = SetFont(@"PingFangSC-Regular", 12);
+    minMountLabel.text = [self.viewModel.coinRate.exchangeMin stringValue];
+    minMountLabel.textAlignment = NSTextAlignmentLeft;
+    [middleExchangeView addSubview:minMountLabel];
+    
+    [minMountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(minLabel.mas_centerY);
+        make.height.equalTo(minLabel.mas_height);
+        make.left.equalTo(minLabel.mas_right).offset(3);
+    }];
+    
+    //最大 可兑label
+    UILabel * maxLabel = [UILabel new];
+    maxLabel.textColor = [UIColor colorWithHexString:@"#666666"];
+    maxLabel.font = SetFont(@"PingFangSC-Regular", 12);
+    maxLabel.textAlignment = NSTextAlignmentLeft;
+    maxLabel.text = [NSString stringWithFormat:@"%@:",NSLocalizedString(@"3.0_MaxCanExchangeBalance", nil)];
+    [middleExchangeView addSubview:maxLabel];
+    
+    [maxLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(minLabel.mas_bottom).offset(6);
+        make.left.equalTo(exchangeOutLabel.mas_left);
+    }];
+    // 值
+    maxMountLabel = [UILabel new];
+    maxMountLabel.textColor = [UIColor colorWithHexString:@"#666666"];
+    maxMountLabel.font = SetFont(@"PingFangSC-Regular", 12);
+    maxMountLabel.text = @"60.1321 ETH";
+    [middleExchangeView addSubview:maxMountLabel];
+    
+    [maxMountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(maxLabel.mas_centerY);
+        make.height.equalTo(maxLabel.mas_height);
+        make.left.equalTo(maxLabel.mas_right).offset(3);
+    }];
+    
+    //底部View
+    UIView * bottomView = [UIView new];
+    [contentView addSubview:bottomView];
+    [bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(middleExchangeView.mas_bottom);
+        make.left.equalTo(contentView.mas_left);
+        make.right.equalTo(contentView.mas_right);
+        make.bottom.equalTo(contentView.mas_bottom);
+
+    }];
+    //兑换按钮
+    exchangButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+
+    [exchangButton setTitle:NSLocalizedString(@"3.0_Exchange", nil) forState:UIControlStateNormal];
+    [exchangButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    exchangButton.titleLabel.font = SetFont(@"PingFangSC-Regular", 16);
+    exchangButton.layer.cornerRadius = 5;
+    exchangButton.clipsToBounds = YES;
+    //设置
+    [self setExchangeBtnEnable:NO];
+    [exchangButton addTarget:self action:@selector(exchangeBB:) forControlEvents:UIControlEventTouchUpInside];
+
+    [bottomView addSubview:exchangButton];
+
+    [exchangButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(bottomView.mas_top).offset(16);
+        make.left.equalTo(bottomView.mas_left).offset(12);
+        make.right.equalTo(bottomView.mas_right).offset(-12);
+        make.height.mas_equalTo(40);
+    }];
+//
+//    //提示语
+    UILabel * tipsLabel = [UILabel new];
+    tipsLabel.textAlignment = NSTextAlignmentCenter;
+    tipsLabel.font = SetFont(@"PingFangSC-Regular", 14);
+    tipsLabel.textColor = [UIColor colorWithHexString:@"#FB3030"];
+    tipsLabel.text = NSLocalizedString(@"3.0_BottomTips", nil);
+    [bottomView addSubview:tipsLabel];
+
+    
+    [tipsLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(bottomView.mas_left).offset(12);
+        make.top.equalTo(exchangButton.mas_bottom).offset(15);
+        make.right.equalTo(bottomView.mas_right).offset(-12);
+        make.height.mas_equalTo(20);
+        make.bottom.equalTo(bottomView.mas_bottom);
+    }];
+    
+    //底部
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(bottomView.mas_bottom);
+    }];
+}
+
+-(UIView *)inputView:(NSString * )placeHolder position:(NSString *) positon{
+    
+    UIView * inPutView = [UIView new];
+    inPutView.layer.borderWidth=1;
+    inPutView.layer.borderColor=[UIColor blackColor].CGColor;
+    UILabel * rightViewLabel = [UILabel new];
+    rightViewLabel.textColor = [UIColor colorWithHexString:@"#999999"];
+    rightViewLabel.textAlignment = NSTextAlignmentCenter;
+    rightViewLabel.font = SetFont(@"PingFangSC-Regular", 12);
+    rightBTypeLabel.hidden = YES;
+    [inPutView addSubview:rightViewLabel];
+    
+    [rightViewLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(inPutView.mas_top);
+        make.bottom.equalTo(inPutView.mas_bottom);
+        make.right.equalTo(inPutView.mas_right).offset(-2);
+    }];
+//
+    UITextField * textField = [[UITextField alloc] init];;
+    
+
+    
+    textField.keyboardType = UIKeyboardTypeDecimalPad;
+    textField.placeholder = placeHolder;
+    textField.borderStyle = UITextBorderStyleNone;
+    textField.textAlignment = NSTextAlignmentLeft;
+    textField.delegate = self;
+    textField.font = SetFont(@"PingFangSC-Regular", 12);
+    textField.textColor = [UIColor colorWithHexString:@"#333333"];
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    [textField addTarget:self action:@selector(changeValues:) forControlEvents:UIControlEventEditingChanged];
+    textField.returnKeyType  =  UIReturnKeyDone;
+    [inPutView addSubview:textField];
+
+    [textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(rightViewLabel.mas_left).offset(-2);
+        make.centerY.equalTo(inPutView.mas_centerY);
+        make.left.equalTo(inPutView.mas_left).offset(5);
+        make.height.mas_equalTo(inPutView.mas_height);
+    }];
+    
+    if ([positon isEqualToString:@"left"]) {
+        textField.tag =301;
+        rightViewLabel.tag = 302;
+        rightViewLabel.text = exchangOutBTypeArr.firstObject;
+    }else{
+        textField.tag =304;
+        rightViewLabel.tag = 305;
+        rightViewLabel.text = exchangInBTypeArr.firstObject;
+    }
+    
+    return inPutView;
+}
+
+-(void)exchangeBTypeArr:(UIButton *) sender{
+    
+    sender.selected = !sender.selected;
+    sender.superview.userInteractionEnabled = NO;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        sender.superview.userInteractionEnabled = YES;
+    });
+    
+    CABasicAnimation* rotationAnimation;
+    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI];
+    rotationAnimation.duration = 0.5;
+    rotationAnimation.cumulative = YES;
+    [sender.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
+
+    if (sender.selected) {
+        
+        CGFloat  distance = tapeBViewRight.origin.x -tapeBViewLeft.origin.x;
+        [UIView animateWithDuration:0.5 animations:^{
+            
+            tapeBViewLeft.transform = CGAffineTransformMakeTranslation(distance, 0);
+            tapeBViewRight.transform = CGAffineTransformMakeTranslation(-distance, 0);
+            
+        } completion:nil];
+    }else{
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            
+            tapeBViewLeft.transform = CGAffineTransformIdentity;
+            tapeBViewRight.transform = CGAffineTransformIdentity;
+            
+        } completion:nil];
+    }
+  
+    NSMutableArray * temp = nil;
+    temp = exchangOutBTypeArr.mutableCopy;
+    exchangOutBTypeArr = exchangInBTypeArr.mutableCopy;
+    exchangInBTypeArr = temp.mutableCopy;
+    
+    leftBTypeLabel.text = exchangOutBTypeArr.firstObject;
+    rightBTypeLabel.text = exchangInBTypeArr.firstObject;
+    
+}
+
+-(void)exchangeBB:(UIButton *)sender{
+    
+    NSDictionary * changeDict = @{
+      @"toCurrency": @"btc",
+      @"toAmount": @0,
+      @"rate": @0,
+      @"payPassword": @"555555",
+      @"toAddress": @"string",
+      @"amount": @0,
+      @"fee":@ 0,
+      @"currency":@ "btc",
+      @"comment": @"string"
+      };
+    [[self.view viewWithTag:301] endEditing:YES];
+    [[self.view viewWithTag:304] endEditing:YES];
+    [self.viewModel.commandExchangeIn execute:changeDict];
+    
+}
+
+#pragma mark - textFieldDelegate
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    
+    if (textField.tag == 301) {
+        
+    UILabel * leftInPutLabel=  [self.view viewWithTag:302];
+        
+        leftInPutLabel.hidden= NO;
+    }else if(textField.tag == 304){
+        
+        UILabel * rightInPutLabel=  [self.view viewWithTag:305];
+        rightInPutLabel.hidden= NO;
+    }
+}
+//value变化
+-(void)changeValues:(UITextField *) textField {
+    
+    [self setExchangeBtnEnable:NO];
+    [timer invalidate];
+    timer = nil;
+    NSDictionary * dict = @{@"text":textField.text ,@"tag":[NSNumber numberWithInteger:textField.tag]};
+    timer= [NSTimer scheduledTimerWithTimeInterval:0.7f target:self selector:@selector(executeAction:) userInfo:dict repeats:NO];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+}
+
+-(void)executeAction:(NSTimer *)value{
+
+    NSDictionary * dict  = value.userInfo;
+    NSString  * text = dict[@"text"];
+    NSNumber  * tag = dict[@"tag"];
+    UITextField * rightTextField = [self.view viewWithTag:304];
+    UITextField * leftTextfield  = [self.view viewWithTag:301];
+    
+    if ([text isEqualToString:@""]) {
+        leftTextfield.text = @"";
+        rightTextField.text = @"";
+        return;
+    }
+    //
+    NSDecimalNumber * leftPrice =nil;
+    NSDecimalNumber *price = [NSDecimalNumber decimalNumberWithString:text];
+    NSDecimalNumber *rate = [NSDecimalNumber decimalNumberWithString:self.viewModel.coinRate.exchangeRate];
+    //左边的textfield
+    if (tag.integerValue == 301) {
+        leftPrice =price;
+    }else if(tag.integerValue == 304){
+        leftPrice = [price  decimalNumberByDividingBy:rate];
+    }
+    if (leftPrice.floatValue>=MIN(_canExchangeOutMount.floatValue, self.viewModel.coinRate.exchangeMax.floatValue)) {
+        //超过特定值
+        if (_canExchangeOutMount.floatValue>self.viewModel.coinRate.exchangeMax.floatValue) {
+            
+            if (leftPrice.floatValue>=self.viewModel.coinRate.exchangeMax.floatValue) {
+                
+                NSString * maxStr =[self.viewModel.coinRate.exchangeMax stringValue];
+                leftTextfield.text = maxStr;
+                NSDecimalNumber *leftNum = [NSDecimalNumber decimalNumberWithString:maxStr];
+                NSString *rightRealNum = [NSString stringFromNumber:[leftNum  decimalNumberByMultiplyingBy:rate] fractionDigits:4];
+                rightTextField.text = rightRealNum;
+                
+                [self setExchangeBtnEnable:YES];
+                return;
+            }
+        }else{
+            
+            if (leftPrice.floatValue>=_canExchangeOutMount.floatValue) {
+                
+                NSNumber * can =[NSNumber numberWithString:_canExchangeOutMount];
+                NSString * maxStr  =[can stringValue];
+                leftTextfield.text = maxStr;
+                
+                NSDecimalNumber *leftNum = [NSDecimalNumber decimalNumberWithString:maxStr];
+                NSString *rightRealNum = [NSString stringFromNumber:[leftNum  decimalNumberByMultiplyingBy:rate] fractionDigits:4];
+                rightTextField.text = rightRealNum;
+                
+                [self setExchangeBtnEnable:YES];
+                return;
+            }
+        }
+    }else{
+        
+        if([leftPrice  floatValue]<=self.viewModel.coinRate.exchangeMin.floatValue){
+            NSString * minStr =[self.viewModel.coinRate.exchangeMin stringValue];
+            leftTextfield.text = minStr;
+            NSDecimalNumber *leftNum = [NSDecimalNumber decimalNumberWithString:minStr];
+            NSString *rightRealNum = [NSString stringFromNumber:[leftNum  decimalNumberByMultiplyingBy:rate] fractionDigits:4];
+            rightTextField.text = rightRealNum;
+            [self setExchangeBtnEnable:YES];
+            return;
+        }else{
+            if (tag.integerValue == 304) {
+                leftTextfield.text = [NSString stringFromNumber:leftPrice fractionDigits:4];
+            }
+            if (tag.integerValue == 301 ) {
+                
+                NSString *realNum = [NSString stringFromNumber:[leftPrice decimalNumberByMultiplyingBy:rate] fractionDigits:4];
+                
+                rightTextField.text = realNum;
+            }
+            [self setExchangeBtnEnable:YES];
+        }
+    }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    //删除到空
+    NSInteger dotNum= 5 ;
+    NSString *text = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    //处理越南语的情况
+    if ([textField.text containsString:@","]&&[string isEqualToString:@","]) {
+        return NO;
+    }
+    if ([textField.text isEqualToString:@""]&&[string isEqualToString:@","]) {
+        return NO;
+    }
+    if ([textField.text containsString:@"."] &&[string isEqualToString:@","]) {
+        return NO;
+    }
+    
+    
+    if ([textField.text containsString:@"."]&&[string isEqualToString:@"."]) {
+        return NO;
+    }
+    if ([textField.text isEqualToString:@""]&&[string isEqualToString:@"."]) {
+        return NO;
+    }
+    if ([string isEqualToString:@","]) {
+        
+        textField.text = [text stringByReplacingOccurrencesOfString:@"," withString:@"."];
+        return NO;
+    }
+    
+    
+    if ([textField.text containsString:@"."]) {
+        if ([string isEqualToString:@"."]) {
+            return NO ;
+        }else{
+            if (![string isEqualToString:@""]) { //輸入
+                NSRange range = [text rangeOfString:@"."];
+                NSString * substr;
+                if (range.location!= NSNotFound) {
+                    substr = [text substringFromIndex:range.location];
+                }
+                if (substr.length>dotNum) {
+                    return NO;
+                }else{
+                    return YES;
+                }
+                return YES;
+
+            }else{ //刪除
+                return YES;
+            }
+        }
+
+    }else{
+
+        return YES;
+    }
+    
+}
+
+#pragma mark - iconwindow 代理
+
+-(void)iconWindow:(IDCMChooseBTypeView *)iconView clickedButtonAtIndex:(NSIndexPath *)index selectIndex:(NSIndexPath *)select
+{
+    
+    NSLog(@"___点击了第%ld个",index.row);
+}
+
+#pragma mark - 右边返回按钮
+-(void)showHelpTip:(UIBarButtonItem *)sender{
+    
+    NSString * str=@"2018-03-16 16:46:02.821616+0800 IDCMWallet[2809:339336] TIC Read Status [2:0x6040001759c0]: 1:572018-03-16 16:46:02.821845+0800 IDCMWallet[2809:339336] TIC Read Status [2:0x6040001759c0]: 1:572018-03-16 16:46:02.821970+0800 IDCMWallet[2809:339336] TIC Read Status [2:0x6040001759c0]: 1:572018-03-16 16:56:49.830539+0800 IDCMWallet[2809:335631] Can't find keyplane that supports type 4 for keyboard iPhone-PortraitTruffle-NumberPad; using 6919991127445953680_PortraitTruffle_iPhone-Simple-Pad_Default2018-03-16 16:56:49.834518+0800 IDCMWallet[2809:335631] Can't find keyplane that supports type 4 for keyboard iPhone-PortraitTruffle-NumberPad; using 6919991127445953680_PortraitTruffle_iPhone-Simple-Pad_Default018-03-16 16:46:02.821616+0800 IDCMWallet[2809:339336] TIC ";
+    
+    
+    IDCMBBHelpView * help = [[IDCMBBHelpView alloc ] initWithFrame:CGRectMake(12, 120, self.view.frame.size.width-24, [UIScreen mainScreen].bounds.size.height*2/3) contentStr:str];
+    
+    [self.showWindow show:help];
+}
+
+#pragma mark - getter
+
+-(IDCMAlertWindow *)showWindow{
+    
+    if (!_showWindow) {
+        
+        _showWindow = [[IDCMAlertWindow alloc] init];
+    }
+    return _showWindow;
+}
+
+-(NSMutableDictionary *)changeDict{
+    
+    if (!_changeDict) {
+        _changeDict = [NSMutableDictionary new];
+    }
+    return _changeDict;
+}
+
+-(void)setExchangeBtnEnable:(BOOL)exchangeBtnEnable
+{
+    _exchangeBtnEnable=exchangeBtnEnable;
+    if (_exchangeBtnEnable) {
+        
+        exchangButton.enabled = _exchangeBtnEnable;
+        exchangButton.backgroundColor = [UIColor colorWithHexString:@"#2E406B"];
+        exchangButton.titleLabel.alpha = 1;
+    }else{
+        
+        exchangButton.enabled = _exchangeBtnEnable;
+        exchangButton.backgroundColor = [UIColor colorWithHexString:@"#999FA5"];
+        exchangButton.titleLabel.alpha = 0.5;
+    }
+}
+#pragma mark
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+- (void)dealloc
+{
+    
+}
+@end
